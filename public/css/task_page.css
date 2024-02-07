@@ -1,0 +1,89 @@
+body{
+    font-family: Roboto;
+}
+
+.main{
+    height: 80vh;
+}
+
+.tasks_wrapper{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin: auto;    
+    border-radius: 40px;
+    background-color: white;
+    padding: 30px 60px;
+}
+
+
+
+.task_img_wrapper{
+    width: 300px;
+    margin: 15px 0;
+}
+
+.task_img_wrapper img{
+    width: 100%;
+}
+
+.task_check_container{
+    display: flex;
+    align-items: center;
+}
+
+.task_check_wrapper{
+    display: flex;
+    margin: 20px auto;
+}
+
+.task_check{
+    padding: 3px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    background-color: white;
+}
+.task_check p{
+    margin: auto;
+    text-align: center;
+}
+
+.task_input{
+    width: 200px;
+    height: 40px;
+    border: 1px grey solid;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.task_submit{
+    background-color: rgb(0, 89, 255);
+    padding: 11px;
+
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.back_button, .next_button{
+    background-color: rgb(116, 116, 116);
+    padding: 11px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.back_button{
+    margin-left: 100px;
+}

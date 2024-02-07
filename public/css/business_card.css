@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic-webfont.eot');
+    src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Roboto-ThinItalic-webfont.woff') format('woff'),
+         url('Roboto-ThinItalic-webfont.ttf') format('truetype'),
+         url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg'); 
+    font-weight: 200;
+    font-style: italic;
+}
+
+body{
+    font-family: Roboto;
+    background-color: rgb(237, 249, 255);
+}
+
+.first_header{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(213, 240, 255);
+    display: flex;
+}
+
+.header-menu-wrapper{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.menu-wrapper{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.logo-wrapper{
+    display: flex;
+    width: 200px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.logo-text-wrapper{
+    height: 40px;
+    margin: auto;
+    
+}
+
+.go-to-topics-wrapper{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.menu-button-wrapper{
+    margin-right: 25px;
+    background-color: rgb(0, 27, 41);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.simple-button{
+    background-color: rgb(213, 240, 255);
+    color: rgb(0, 27, 41);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.simple-button a{
+    color: rgb(0, 27, 41);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menu-button-wrapper:hover{
+    cursor: pointer;
+    background-color: rgb(0, 9, 15);
+}
+
+.menu-button-wrapper a{
+    color: white;
+    text-decoration: none;
+}
+
+
+main{
+    width: 100%;
+    background-color: rgb(237, 249, 255);
+    
+}
+
+.main-wrapper{
+    margin: 25px auto;
+    width: 1000px;
+}
+
+.tmp_class_costil_edition{
+    width: 100%;
+    height: 500px;
+    border: 1px solid grey;
+}
+
+.first_card{
+    width: 100%;
+    height: 700px;
+    background-color: rgb(213, 240, 255);
+    border-radius: 70px;
+    padding: 80px 100px;
+    color: rgb(0, 27, 41);
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.first_card h3{
+    color: rgb(0, 27, 41);
+    font-weight: 400;
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.first_card span{
+    color: rgb(0, 27, 41);
+    font-size: 24px;
+    line-height: 1.75;
+}
+
+.big-button{
+    display: block;
+    background-color: rgb(0, 89, 255);
+    padding: 15px;
+    margin: 50px 0 ;
+    border-radius: 20px;
+    border: none;
+}
+
+.big-button a{
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: grey;
+}
+
+/* .frame{
+    border: 1px solid red;
+} */

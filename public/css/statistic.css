@@ -1,0 +1,45 @@
+body{
+    font-family: Roboto;
+}
+
+.all_stat_wrapper{
+    width: 100%;
+
+}
+
+.one_stat_wrapper{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin: 10px 0;
+}
+
+.stat_block_name{
+    width: 30%;
+    font-size: 18px;
+}
+
+.stat_color_block_wrapper{
+    width: 70%;
+    height: 15px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 8px;
+}
+
+.stat_block{
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    border-radius: 8px;
+}
+
+.procent_value{
+    color: rgb(46, 46, 46);
+}
+
+.stat_wrapper{
+    background-color: white;
+    margin: auto;
+    padding: 30px 60px;
+    border-radius: 60px;
+}

@@ -1,0 +1,28 @@
+.topic_name{
+
+    
+}
+
+.theory_video_topic{
+
+}
+
+.topic_main_wrapper{
+    width: 900px;
+    margin: auto;
+}
+
+.big_button{
+    display: block;
+    background-color: rgb(0, 89, 255);
+    padding: 15px;
+    margin: 50px 0 ;
+    border-radius: 20px;
+    border: none;
+}
+
+.big_button a{
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}

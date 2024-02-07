@@ -1,0 +1,135 @@
+body{
+    font-family: Roboto;
+    background-color: rgb(237, 249, 255);
+}
+
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(213, 240, 255);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.logo_parent_wrapper{
+    display: flex;
+    margin-right: auto;
+    margin-left: 100px;
+    width: 200px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.logo_parent{
+    height: 40px;
+    margin: auto;
+}
+
+.to_topics_button_wrapper{
+    margin-right: 30px;
+
+    background-color: rgb(0, 27, 41);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.to_topics_button_wrapper a{
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.to_topics_button_wrapper:hover{
+    cursor: pointer;
+    background-color: rgb(34, 34, 34);
+}
+
+.left_menu{
+    height: 100vh;
+    width: 50px;
+    background-color: rgb(0, 27, 41);
+    position: fixed;
+    left: 0;
+    top: 0; 
+    overflow: auto;
+}
+
+.closed_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.closed_icon:hover{
+    cursor: pointer;
+}
+
+.closed_icon_line{
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    margin: 3px;
+
+}
+
+.left_menu_content_wrapper, .opening_menu_content_wrapper{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.left_menu_content, .opening_menu_content{
+    width: 100%;
+    padding: 20px 10px;
+    margin: 10px 0;
+    color: white;
+    background-color: rgb(0, 51, 77);
+    border-radius: 20px;
+    line-height: 2;
+}
+
+.left_menu_content a, .opening_menu_content a{
+    color: white;
+    text-decoration: none;
+}
+
+.left_menu_content a:hover{
+    color: rgb(180, 180, 180);
+}
+
+
+.user_button{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-image: url('/user_img/user_img_1.jpg');
+    background-size: cover; 
+    background-position: center;
+}
+
+.user_button:hover{
+    cursor: pointer;
+}
+
+
+.user_info{
+    position: absolute;
+    top:50px;
+    right: 50px;
+    width: 250px;
+    background-color: rgb(0, 27, 41);
+    border-radius: 10px;
+}
+
+.topic{
+    padding: 5px 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+

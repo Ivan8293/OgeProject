@@ -1,0 +1,37 @@
+body{
+    font-family: Roboto;
+}
+
+.personal_data_wrapper{
+    background-color: white;
+    width: 900px;
+    border-radius: 60px;
+    padding: 30px 60px;
+    margin: 20px auto;
+}
+
+.personal_data_wrapper div{
+    margin: 40px 0;
+}
+
+.personal_data_wrapper div p{
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.h1_personal_page{
+    width: 900px;
+    margin: 20px auto;
+}
+
+.buy_button{
+    display: block;
+    background-color: rgb(0, 89, 255);
+    padding: 15px;
+    margin: 20px 0 ;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}

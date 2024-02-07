@@ -1,0 +1,28 @@
+body{
+    font-family: Roboto;
+    background-color: rgb(230, 246, 255);
+}
+
+.topics_wrapper{
+    width: 900px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 60px;
+    padding: 25px 50px;
+}
+
+.topic_wrapper{
+    display: block;
+    margin: 30px 0;
+}
+
+.topic_wrapper p{
+    font-size: 20px;
+    
+}
+
+.topic_wrapper p a{
+    text-decoration: none;
+    
+}
