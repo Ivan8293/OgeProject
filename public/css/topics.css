@@ -3,10 +3,18 @@ body{
     background-color: rgb(248, 248, 248);
 }
 
+.topics-h{
+    margin: 0px 150px;
+    margin-top: 50px;
+    padding: 0 25px;
+
+}
+
 .topics_wrapper{
     width: 900px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-bottom: 50px;
     background-color: white;
     border-radius: 60px;
     padding: 25px 50px;
@@ -27,4 +35,13 @@ body{
 .topic_wrapper p a{
     text-decoration: none;
     
+}
+
+.sub-topic-ul{
+    list-style-type:circle
+}
+
+.sub-topic-ul p{
+    margin-left: 35px;
+    margin-top: 10px;
 }

@@ -19,10 +19,12 @@
     margin: 50px 0 ;
     border-radius: 20px;
     border: none;
-}
-
-.big_button a{
     color: white;
     font-size: 24px;
+}
+
+.big-button-a{
+    
     text-decoration: none;
 }
+

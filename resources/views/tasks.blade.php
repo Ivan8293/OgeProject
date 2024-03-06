@@ -33,10 +33,11 @@
                                     <div class="task_img_wrapper">
                                         <img src="\tasks\topic{{$topic_id}}\sub_topic{{$sub_topic_id}}\{{$task->task}}"><br>
                                     </div>
-                                    <input class="task_input" type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
-                                    <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
-                                    <button class="task_submit" type="submit" name="enter_task" id="enter_task_{{$task->id}}">Ок</button><br>
-                                    
+                                    <div class="input-block-wrapper">
+                                        <input class="task_input" type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
+                                        <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
+                                        <button class="task_submit" type="submit" name="enter_task" id="enter_task_{{$task->id}}">Ок</button><br>
+                                    </div>                                    
                                 </form>
                             </div>
                             <div class="task_video_part">
@@ -59,9 +60,12 @@
                                         <div class="task_img_wrapper">
                                             <img src="\tasks\topic{{$topic_id}}\sub_topic{{$sub_topic_id}}\{{$task->task}}"><br>
                                         </div>
-                                        <input type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
-                                        <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
-                                        <button type="submit" name="enter_task" id="enter_task_{{$task->id}}">Ок</button><br>
+                                        <div class="input-block-wrapper">
+                                            <input class="task_input" type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
+                                            <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
+                                            <button class="task_submit" type="submit" name="enter_task" id="enter_task_{{$task->id}}">Ок</button><br>
+                                        </div>
+                                        
                                         @if($iter == 3)
                                             <span>Приобретите подписку, чтобы получить доступ ко всем практическим заданиям</span>
                                         @endif

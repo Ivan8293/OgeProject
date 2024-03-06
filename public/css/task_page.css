@@ -10,11 +10,23 @@ body{
     display: flex;
     justify-content: center;
     width: 1000px;
+    min-height: 400px;
     margin: auto;    
     border-radius: 40px;
     background-color: white;
     padding: 30px 60px;
 }
+
+.task_part, #task_form{
+    height: 400px ;
+}
+
+#task_form{
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 
 
@@ -48,6 +60,7 @@ body{
  
     background-color: white;
 }
+
 .task_check p{
     margin: auto;
     text-align: center;
@@ -60,6 +73,10 @@ body{
     border-radius: 20px;
     padding-left: 20px;
     font-size: 18px;
+}
+
+.input-block-wrapper{
+    margin-top: auto;
 }
 
 .task_submit{

@@ -30,17 +30,23 @@
                 </div>
             </div>
             <div class="go-to-topics-wrapper frame">
-                <div class="menu-button-wrapper">
-                    <a href="{{route('topics')}}">Перейти к задачам</a>
-                </div>   
+                <a class="munu-button-warpper-a" href="{{route('topics')}}">
+                    <div class="menu-button-wrapper">
+                        <span>Перейти к задачам</span>
+                    </div> 
+                </a>                  
                 @auth 
-                <div class="menu-button-wrapper">
-                    <a href="{{route('logout')}}">Выйти</a>                  
-                </div> 
+                <a class="munu-button-warpper-a" href="{{route('logout')}}">
+                    <div class="menu-button-wrapper">
+                        <span>Выйти</span>                  
+                    </div> 
+                </a>
                 @else
-                <div class="menu-button-wrapper">
-                    <a href="{{route('login')}}">Войти</a>
-                </div> 
+                <a class="munu-button-warpper-a" href="{{route('login')}}">
+                    <div class="menu-button-wrapper">
+                        <span>Войти</span>
+                    </div> 
+                </a>
                 @endauth
             </div>
         </div>
@@ -49,10 +55,10 @@
         <div class="main-wrapper frame">
             <div class="first_card" id="content_about">
                 <h3>Начни подготовку прямо сейчас</h3>
-                <span>Волнуешься по поводу экзаменов? Хочешь основательно подготовиться к сдаче ОГЭ, но не хочешь тратить огромное количество денег на репетиторов или онлайн-школы? Начни подготовку прямо сейчас</span><br>
-                <button class="big-button"><a>Попробовать бесплатно</a></button>
+                <span>Хочешь основательно подготовиться к сдаче ОГЭ по математике, но не хочешь тратить огромное количество денег на репетиторов или онлайн-школы? Начни подготовку прямо сейчас</span><br>
+                <a class="big-button-a" href="{{route('topics')}}"><button class="big-button">Попробовать бесплатно</button></a>
             </div>
-            <div class="first_card" id="teachers">
+            <!-- <div class="first_card" id="teachers">
                 Инфа о лучших преподах в мире
             </div>
             <div class="tmp_class_costil_edition" id="reviews">
@@ -61,11 +67,19 @@
             <div class="tmp_class_costil_edition" id="subscription">
                 Вы можете приобрести подписку<br>
                 <button><a>Купить</a></button>
-            </div>
+            </div> -->
         </div>
     </main>
     <footer class="footer">
-        footer
+        <div class="footer-logo footer-block">
+            Study Haven
+        </div>
+        <div class="footer-content-1  footer-block">
+            <p><a href="#content_about">О нас</a></p>
+            <p><a href="#teachers">Преподаватели</a></p>
+            <p><a href="#reviews">Отзывы</a></p>
+            <p><a href="#subscription">Подписка</a></p>
+        </div>
     </footer>
 </body>
 </html>

@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="/css/personal_page.css">
 </head>
 <body>
+    <!-- <div id="user-menu-clear"></div>
+    <div id="left-menu-clear"></div> -->
     <header class="header">
         <div class="logo_parent_wrapper">
-            <div class="logo_parent">
-                Study Haven
-            </div>
+            <a class="logo-parent-a" href="{{route('topics')}}">
+                <div class="logo_parent">
+                    <span>Study Haven</span>
+                </div>
+            </a>
         </div>
         <div class="to_topics_button_wrapper">
             <a href="{{route('topics')}}">К темам</a>
@@ -54,8 +58,12 @@
 
                             @foreach($sub_topics_data as $sub_topic)
                                 @if($topic->id == $sub_topic->topic_id)
-                                    <p><a href="{{route('getTopic', ['id' => $sub_topic->id])}}">{{$sub_topic->name}}</a></p>
-                                    <a href="{{route('getTasks', ['sub_topic_id' => $sub_topic->id])}}">практика</a>
+                                    <p class="link-wrapper">
+                                        <a href="{{route('getTopic', ['id' => $sub_topic->id])}}">{{$sub_topic->name}}</a>
+                                    </p>
+                                    <p class="link-wrapper">
+                                        <a href="{{route('getTasks', ['sub_topic_id' => $sub_topic->id])}}">практика</a>
+                                    </p>
                                 @endif
                             @endforeach
                         </div>                        
@@ -70,7 +78,14 @@
     <div class="user_info" id="user_info" style="display: none">
         <div  class="opening_menu_content_wrapper" id="opening_menu_content_wrapper">
             <div class="opening_menu_content" id="user_info">
-                информация о пользователе
+                @auth
+                    @if (isset(auth()->user()->name))
+                        {{ auth()->user()->name }}
+                    @endif
+                    {{ auth()->user()->email }}
+                @else
+                    Привет, дорогой гость. Если нравится учиться с нами, ты можешь зарегистрироваться
+                @endauth
             </div>
             <div class="opening_menu_content" id="good_functions">
                 <a href="{{route('personal_account')}}">Личный кабинет</a><br>

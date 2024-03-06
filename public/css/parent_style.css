@@ -22,9 +22,14 @@ body{
     font-weight: 400;
 }
 
+.logo-parent-a{
+    text-decoration: none;
+}
+
 .logo_parent{
     height: 40px;
     margin: auto;
+    color: black;
 }
 
 .to_topics_button_wrapper{
@@ -134,3 +139,18 @@ body{
 }
 
 
+.link-wrapper{
+    margin-left: 20px;
+}
+
+
+/* #user-menu-clear{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(145, 61, 61, 1);
+}
+
+#left-menu-clear{
+
+} */
