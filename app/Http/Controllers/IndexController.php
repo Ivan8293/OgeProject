@@ -73,7 +73,7 @@ class IndexController extends Controller
         $topic_id = Sub_topic::select('topic_id')->where('id', $id)->first();
         $topic_id = $topic_id->topic_id;
 
-        $tasks = task::select('tasks.id', 'youtube_link', 'task', 'sub_topic_id', 'answer')->where('sub_topic_id', $id)->get();
+        $tasks = task::select('tasks.id', 'youtube_link', 'task', 'sub_topic_id', 'answer', 'description')->where('sub_topic_id', $id)->get();
         return view('tasks')->with(['tasks' => $tasks, 'sub_topic_id' => $id, 'topic_id' => $topic_id]);
     }
 

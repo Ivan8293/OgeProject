@@ -33,6 +33,9 @@
                                     <div class="task_img_wrapper">
                                         <img src="\tasks\topic{{$topic_id}}\sub_topic{{$sub_topic_id}}\{{$task->task}}"><br>
                                     </div>
+                                    @if(isset($task->description))
+                                        <p>{{ $task->description }}</p>
+                                    @endif
                                     <div class="input-block-wrapper">
                                         <input class="task_input" type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
                                         <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
@@ -47,7 +50,7 @@
                                 <div id="right_answer_{{$task->id}}" style="display: none; color: green">
                                     <p>Задача решена верно!</p>
                                 </div>
-                                <div id="false_answer_{{$task->id}}" style="display: none; color: red">
+                                <div id="false_answer_{{$task->id}}" style="display: none; color: black">
                                     <p>К сожалению, ответ неверный. Вы можете решить задачу еще раз или посмотреть наш видео разбор</p>
                                 </div>            
                             </div>
@@ -60,6 +63,9 @@
                                         <div class="task_img_wrapper">
                                             <img src="\tasks\topic{{$topic_id}}\sub_topic{{$sub_topic_id}}\{{$task->task}}"><br>
                                         </div>
+                                        @if(isset($task->description))
+                                            <p>{{ $task->description }}</p>
+                                        @endif
                                         <div class="input-block-wrapper">
                                             <input class="task_input" type="text" name="answer" id="answer_{{$task->id}}" placeholder="Ответ">
                                             <input type="hidden" name="task_id" id="task_id_{{$task->id}}" value="{{$task->id}}">
@@ -67,7 +73,7 @@
                                         </div>
                                         
                                         @if($iter == 3)
-                                            <span>Приобретите подписку, чтобы получить доступ ко всем практическим заданиям</span>
+                                            <span>Зарегистрируйтесь, чтобы получить доступ ко всем практическим заданиям</span>
                                         @endif
                                     </form>
                                 </div>
@@ -78,7 +84,7 @@
                                     <div id="right_answer_{{$task->id}}" style="display: none; color: green">
                                         <p>Задача решена верно!</p>
                                     </div>
-                                    <div id="false_answer_{{$task->id}}" style="display: none; color: red">
+                                    <div id="false_answer_{{$task->id}}" style="display: none; color: black">
                                         <p>К сожалению, ответ неверный. Вы можете решить задачу еще раз или посмотреть наш видео разбор</p>
                                     </div>            
                                 </div>
