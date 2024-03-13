@@ -28,14 +28,14 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/96727431" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <header class="first_header frame">
-        <div class="header-menu-wrapper frame">
-            <div class="logo-wrapper">
+    <header class="first_header frame container">
+        <div class="header-menu-wrapper frame row">
+            <div class="logo-wrapper frame">
                 <div class="logo-text-wrapper">
                     <span>Study Haven</span>
                 </div>                
             </div>
-            <div class="menu-wrapper frame">
+            <div class="menu-wrapper frame ">
                 <div class="simple-button">
                     <a href="#content_about">О нас</a>
                 </div>
@@ -92,7 +92,9 @@
     </main>
     <footer class="footer">
         <div class="footer-logo footer-block">
-            Study Haven
+            <div class="footer-logo-text">
+                Study Haven
+            </div>            
         </div>
         <div class="footer-content-1  footer-block">
             <p><a href="#content_about">О нас</a></p>
