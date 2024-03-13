@@ -183,9 +183,9 @@ main{
     margin: 5px 0;
 }
 
-.frame{
+/* .frame{
     border: 1px solid red;
-}
+} */
 
 
 
@@ -245,8 +245,10 @@ main{
     .go-to-topics-wrapper{
         margin-left: auto;
         min-width: 250px;
-        width: 100%;
+        width: 60%;
     }
+
+
 
     .first_card{
         width: 100%;
@@ -262,20 +264,49 @@ main{
         margin-right: auto;
     }
 
+
+
     .logo-wrapper{
-        width: 100px;
+        width: 40%;
+        padding-left: 20px;
+
     }
 
     .logo-text-wrapper{
-        font-size: 15px;
+        font-size: 24px;
     }
 
     .menu-button-wrapper{
         width: 120px;
         height: 50px;
+        padding-top: 10px;
     }
 
     .menu-button-wrapper span{
-        font-size: 16px;
+        font-size: 15px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+    }
+
+    .left-button{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .right-button{
+        display: block;
+        margin-top: 7px;
+    }
+
+    .header-menu-wrapper{
+        width: 100%;
+    }
+
+    .footer{
+        padding-left: 50px;
     }
 }

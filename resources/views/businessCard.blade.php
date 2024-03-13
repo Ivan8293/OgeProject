@@ -52,19 +52,19 @@
             <div class="go-to-topics-wrapper frame">
                 <a class="munu-button-warpper-a" href="{{route('topics')}}">
                     <div class="menu-button-wrapper">
-                        <span>Перейти к задачам</span>
+                        <span class="left-button">Перейти к задачам</span>
                     </div> 
                 </a>                  
                 @auth 
                 <a class="munu-button-warpper-a" href="{{route('logout')}}">
                     <div class="menu-button-wrapper">
-                        <span>Выйти</span>                  
+                        <span class="right-button">Выйти</span>                  
                     </div> 
                 </a>
                 @else
                 <a class="munu-button-warpper-a" href="{{route('login')}}">
                     <div class="menu-button-wrapper">
-                        <span>Войти</span>
+                        <span class="right-button">Войти</span>
                     </div> 
                 </a>
                 @endauth
