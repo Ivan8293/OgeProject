@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
 
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">  
+    <link rel="stylesheet" href="/css/base_style.css">  
+    <link rel="stylesheet" href="/css/task_page.css"> 
+    <link rel="stylesheet" href="/css/parent_style.css"> 
+    <link rel="stylesheet" href="/css/statistic.css">
+    <link rel="stylesheet" href="/css/topics.css">
+    <link rel="stylesheet" href="/css/topic_page.css">
+    <link rel="stylesheet" href="/css/personal_page.css">
+</head>
+<body>
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -20,21 +36,7 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/96727431" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">  
-    <link rel="stylesheet" href="/css/base_style.css">  
-    <link rel="stylesheet" href="/css/task_page.css"> 
-    <link rel="stylesheet" href="/css/parent_style.css"> 
-    <link rel="stylesheet" href="/css/statistic.css">
-    <link rel="stylesheet" href="/css/topics.css">
-    <link rel="stylesheet" href="/css/topic_page.css">
-    <link rel="stylesheet" href="/css/personal_page.css">
-</head>
-<body>
-    <!-- <div id="user-menu-clear"></div>
-    <div id="left-menu-clear"></div> -->
+
     <header class="header">
         <div class="logo_parent_wrapper">
             <a class="logo-parent-a" href="{{route('topics')}}">

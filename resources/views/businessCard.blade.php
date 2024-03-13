@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="\css\base_style.css">
+    <link rel="stylesheet" href="\css\business_card.css">
+</head>
+<body>
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -20,13 +28,6 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/96727431" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="\css\base_style.css">
-    <link rel="stylesheet" href="\css\business_card.css">
-</head>
-<body>
     <header class="first_header frame">
         <div class="header-menu-wrapper frame">
             <div class="logo-wrapper">
