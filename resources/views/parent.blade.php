@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/css/topics.css">
     <link rel="stylesheet" href="/css/topic_page.css">
     <link rel="stylesheet" href="/css/personal_page.css">
+
+    <link rel="icon" href="/user_img/page_logo.png" type="image/x-icon">
 </head>
 <body>
 

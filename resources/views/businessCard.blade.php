@@ -4,6 +4,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Хочешь основательно подготовиться к сдаче ОГЭ по математике, но не хочешь тратить огромное количество денег на репетиторов или онлайн-школы? Начни подготовку прямо сейчас">
+    <meta name="keywords" content="огэ, математика, экзамен, подготовка, репетитор, курсы">
+    
+    <link rel="icon" href="/user_img/page_logo.png" type="image/x-icon">
+    
     <title>Study Haven</title>
     <link rel="stylesheet" href="\css\base_style.css">
     <link rel="stylesheet" href="\css\business_card.css">
