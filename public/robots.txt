@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /register/
+Disallow: /login/
+Disallow: /logout/
+Sitemap: https://study-haven.ru/sitemap.xml

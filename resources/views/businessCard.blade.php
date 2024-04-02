@@ -54,7 +54,7 @@
                     <div class="menu-button-wrapper">
                         <span class="left-button">Перейти к задачам</span>
                     </div> 
-                </a>                  
+                </a>
                 @auth 
                 <a class="munu-button-warpper-a" href="{{route('logout')}}">
                     <div class="menu-button-wrapper">
