@@ -37,7 +37,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/96727431" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-
+ <!-- математическое информациооные моделирование -->
 
     <header class="header">
         <div class="logo_parent_wrapper">
@@ -46,6 +46,9 @@
                     <span>Study Haven</span>
                 </div>
             </a>
+        </div>
+        <div class="feedback_button_block to_topics_button_wrapper ">
+            <a target="_blank" class="feedback_button" href="https://forms.gle/zCmJeQa6fMaTKd8b8"><span>Дать обратную связь</span></a>
         </div>
         <div class="to_topics_button_wrapper">
             <a href="{{route('topics')}}">К темам</a>

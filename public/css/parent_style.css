@@ -143,6 +143,20 @@ body{
     margin-left: 20px;
 }
 
+.feedback_button_block{
+    background-color: rgb(59, 116, 221);
+    
+}
+
+.feedback_button_block:hover{
+    background-color: rgb(34, 81, 168);
+    
+}
+
+.feedback_button span{
+    color: white;
+}
+
 
 /* #user-menu-clear{
     position: fixed;

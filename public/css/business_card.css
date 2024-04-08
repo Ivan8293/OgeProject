@@ -187,6 +187,20 @@ main{
     border: 1px solid red;
 } */
 
+.feedback_button_block{
+    background-color: rgb(79, 130, 223)
+    
+}
+
+.feedback_button_block:hover{
+    background-color: rgb(34, 81, 168);
+    
+}
+
+.feedback_button span{
+    color: white;
+}
+
 
 
 

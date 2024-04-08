@@ -41,6 +41,9 @@
                 </div>                
             </div>
             <div class="menu-wrapper frame ">
+                <div class="feedback_button_block simple-button ">
+                    <a target="_blank" class="feedback_button" href="https://forms.gle/zCmJeQa6fMaTKd8b8"><span>Дать обратную связь</span></a>
+                </div>
                 <div class="simple-button">
                     <a href="#content_about">О нас</a>
                 </div>
