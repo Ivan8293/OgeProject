@@ -40,29 +40,41 @@
  <!-- математическое информациооные моделирование -->
 
     <header class="header">
-        <div class="logo_parent_wrapper">
-            <a class="logo-parent-a" href="{{route('topics')}}">
-                <div class="logo_parent">
-                    <span>Study Haven</span>
-                </div>
-            </a>
-        </div>
-        <div class="feedback_button_block to_topics_button_wrapper ">
-            <a target="_blank" class="feedback_button" href="https://forms.gle/zCmJeQa6fMaTKd8b8"><span>Дать обратную связь</span></a>
-        </div>
-        <div class="to_topics_button_wrapper">
-            <a href="{{route('topics')}}">К темам</a>
-        </div>
-        @auth
-
-        @else
-            <div class="to_topics_button_wrapper">
-                <a href="{{route('login')}}">Войти</a>
+        <div class="header_left">
+            <div class="logo_parent_wrapper">
+                <a class="logo-parent-a" href="{{route('topics')}}">
+                    <div class="logo_parent">
+                        <span>Study Haven</span>
+                    </div>
+                </a>
             </div>
-        @endauth
-        <div class="user_button" id="user_button">
+        </div>        
+        <div class="header_right">
+            <div class="header_right_first">
+                <div class="feedback_button_block to_topics_button_wrapper ">
+                    <a target="_blank" class="feedback_button" href="https://forms.gle/zCmJeQa6fMaTKd8b8"><span>Дать обратную связь</span></a>
+                </div>
+            </div>
+            <div class="header_right_second">
+                <div class="to_topics_button_wrapper">
+                    <a href="{{route('topics')}}">К темам</a>
+                </div>   
+                @auth
 
-        </div>
+                @else
+                    <div class="to_topics_button_wrapper">
+                        <a href="{{route('login')}}">Войти</a>
+                    </div>
+                @endauth
+                <div class="user_button" id="user_button">
+
+                </div> 
+            </div>
+
+
+        </div>     
+        
+
     </header>
     <main>
         <div class="left_menu" id="left_menu">
@@ -134,5 +146,6 @@
     </footer>
 
     <script src="\js\parent.js"></script>
+
 </body>
 </html>

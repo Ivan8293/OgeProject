@@ -45,3 +45,39 @@ body{
     margin-left: 35px;
     margin-top: 10px;
 }
+
+.topics-h{
+    width: 850px;
+    margin: 0 auto;
+}
+
+
+@media screen and (min-width: 1000px){
+
+}
+
+
+@media screen and (max-width: 999px ) and (min-width: 600px){
+    .topics_wrapper{
+        width: 80%;
+    }
+
+    .topics-h{
+        width: 80%   
+    }
+}
+
+
+@media screen and (max-width:599px){
+
+    .topics_wrapper{
+        width: 100%;
+    }
+
+    .topics-h{
+        width: 100%   
+    }
+
+
+
+}

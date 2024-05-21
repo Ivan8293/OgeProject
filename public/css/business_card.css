@@ -114,7 +114,7 @@ main{
 
 .first_card{
     width: 100%;
-    height: 700px;
+    min-height: 700px;
     background-color: rgb(255, 255, 255);
     border-radius: 70px;
     padding: 80px 100px;
@@ -205,8 +205,14 @@ main{
 
 
 
-@media screen and (min-width: 1000px){
+@media screen and (max-width: 1400px ) and (min-width: 1000px){
+    .menu-wrapper{
+        display: none;
+    }
 
+    .go-to-topics-wrapper{
+        margin-left: auto;
+    }
 }
 
 @media screen and (max-width: 999px ) and (min-width: 600px){
@@ -257,9 +263,10 @@ main{
     }
 
     .go-to-topics-wrapper{
-        margin-left: auto;
-        min-width: 250px;
-        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 
 
@@ -281,13 +288,12 @@ main{
 
 
     .logo-wrapper{
-        width: 40%;
-        padding-left: 20px;
-
+        width: 100%;
+        margin-top: 20px;
     }
 
     .logo-text-wrapper{
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .menu-button-wrapper{
@@ -318,7 +324,18 @@ main{
 
     .header-menu-wrapper{
         width: 100%;
+        display: flex;
+        flex-direction: column;
     }
+
+    .first_header{
+        height: 140px;
+    }
+
+    .go-to-topics-wrapper{
+        width: 100%;
+    }
+
 
     .footer{
         padding-left: 50px;

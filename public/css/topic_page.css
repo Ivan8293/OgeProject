@@ -3,9 +3,9 @@
     
 }
 
-.theory_video_topic{
+/* .theory_video_topic{
 
-}
+} */
 
 .topic_main_wrapper{
     width: 900px;
@@ -26,5 +26,52 @@
 .big-button-a{
     
     text-decoration: none;
+}
+
+
+@media screen and (min-width: 1000px){
+
+}
+
+
+@media screen and (max-width: 999px ) and (min-width: 600px){
+    .topic_main_wrapper{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .theory_video{
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #video{
+        margin: auto;
+    }
+}
+
+
+@media screen and (max-width:599px){
+    .topic_main_wrapper{
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .theory_video{
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #video{
+        margin: auto;
+    }
 }
 

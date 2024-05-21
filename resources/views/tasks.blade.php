@@ -20,6 +20,9 @@
                 @endforeach
             </div>
         </div>
+        <div class="message_feedback">
+            Вы можете оставить отзыв по ссылке выше) Благодарим)
+        </div>
         <div class="task_wrapper">
             {{! $iter = 1}}
             @foreach($tasks as $task)
@@ -45,13 +48,13 @@
                             </div>
                             <div class="task_video_part">
                                 <div id="task_video_{{$task->id}}" style="display: none">
-                                    <iframe style="border-radius: 10px;" width="448" height="252" src="{{$task->youtube_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    <iframe id="video_frame" style="border-radius: 10px;" width="448" height="252" src="{{$task->youtube_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                                 <div id="right_answer_{{$task->id}}" style="display: none; color: green">
-                                    <p>Задача решена верно!</p>
+                                    <p class="task_result_text">Задача решена верно!</p>
                                 </div>
                                 <div id="false_answer_{{$task->id}}" style="display: none; color: black">
-                                    <p>К сожалению, ответ неверный. Вы можете решить задачу еще раз или посмотреть наш видео разбор</p>
+                                    <p class="task_result_text">К сожалению, ответ неверный. Вы можете решить задачу еще раз или посмотреть наш видео разбор</p>
                                 </div>            
                             </div>
                         @else
@@ -92,16 +95,18 @@
                         @endauth
 
                     </div>
-                    <button class="back_button" id="back_button_{{$task->id}}">Назад</button>
-                    @auth
-                        <button class="next_button" id="next_button_{{$task->id}}">Далее</button>
-                    @else
-                        @if ($iter == 3)
-                            <button disabled class="next_button" id="next_button_{{$task->id}}">Далее</button>
-                        @else
+                    <div class="buttons">
+                        <button class="back_button" id="back_button_{{$task->id}}">Назад</button>
+                        @auth
                             <button class="next_button" id="next_button_{{$task->id}}">Далее</button>
-                        @endif
-                    @endauth
+                        @else
+                            @if ($iter == 3)
+                                <button disabled class="next_button" id="next_button_{{$task->id}}">Далее</button>
+                            @else
+                                <button class="next_button" id="next_button_{{$task->id}}">Далее</button>
+                            @endif
+                        @endauth
+                    </div>
 
                     {{! $iter++}}
                 </div>
@@ -111,5 +116,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="\ajax_js\ajax_app.js"></script>
     <script src="\js/task_slider.js"></script>
+    <script src="\js/video_width_adaptiv_tasks.js"></script>
 @endsection
 

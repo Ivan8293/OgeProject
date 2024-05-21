@@ -2,6 +2,15 @@ body{
     font-family: Roboto;
 }
 
+.main_stat{
+    width: 1000px;
+    margin: auto;
+}
+
+.title_stat{
+    margin-left: 60px;
+}
+
 .all_stat_wrapper{
     width: 100%;
 
@@ -16,6 +25,7 @@ body{
 
 .stat_block_name{
     width: 30%;
+    height: 100%;
     font-size: 18px;
 }
 
@@ -44,3 +54,45 @@ body{
     border-radius: 60px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.075);
 }
+
+
+@media screen and (min-width: 1000px){
+
+}
+
+@media screen and (max-width: 999px ) and (min-width: 600px){
+    .main_stat{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:599px){
+    .main_stat{
+        width: 100%;
+    }
+
+    .title_stat{
+        margin-left: 20px;
+    }
+
+    .one_stat_wrapper{        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .stat_block_name{
+        width: 100%;
+    }
+
+    .stat_color_block_wrapper{
+        width: 100%;
+    }
+
+    .stat_wrapper{
+        padding: 30px 20px;
+    }
+}
+
