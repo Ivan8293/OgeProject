@@ -1,8 +1,11 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+    @isset($url)
+    <form method="POST" action='{{ url("login/{$url}") }}'>
+    @else
     <form method="POST" action="{{ route('login') }}">
+    @endisset
         @csrf
 
         <!-- Email Address -->
@@ -38,9 +41,25 @@
                     {{ __('Forgot your password?') }}
                 </a> -->
             @endif
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
-                {{ __('Зарегистрироваться') }}
-            </a>
+            @isset($url)
+                @if ($url == "student")
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login_teacher') }}">
+                        {{ __('Войти как Учитель') }}
+                    </a>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register_student') }}">
+                        {{ __('Зарегистрироваться') }}
+                    </a>
+                @elseif ($url == "teacher")
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login_student') }}">
+                    {{ __('Войти как Ученик ') }}
+                    </a>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register_teacher') }}">
+                        {{ __('Зарегистрироваться') }}
+                    </a>
+                @endif
+                
+            @endisset
+            
             <x-primary-button class="ml-3">
                 {{ __('Войти') }}
             </x-primary-button>

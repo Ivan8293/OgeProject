@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Teacher;
+use App\Models\Student;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -39,6 +42,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:teacher');
+        $this->middleware('guest:student');
     }
 
     /**
@@ -64,10 +69,48 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Student::create([
             // 'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+    public function showTeacherRegisterForm()
+    {
+        return view('auth.register', ['url' => 'teacher']);
+    }
+
+    public function showStudentRegisterForm()
+    {
+        return view('auth.register', ['url' => 'student']);
+    }
+
+
+    protected function createTeacher(Request $request)
+    {
+        // $this->validator($request->all())->validate();
+        $teacher = Teacher::create([
+            'last_name' => $request['last_name'],
+            'name' => $request['name'],
+            'patronymic' => $request['patronymic'],
+            'login' => $request['login'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/teacher');
+    }
+
+    protected function createStudent(Request $request)
+    {
+        // $this->validator($request->all())->validate();
+        $student = Student::create([
+            'name' => $request['name'],
+            'login' => $request['login'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/student');
     }
 }

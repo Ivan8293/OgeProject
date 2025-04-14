@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Ui\Presets\React;
 
 class LoginController extends Controller
 {
@@ -36,5 +39,46 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:teacher')->except('logout');
+        $this->middleware('guest:student')->except('logout');
+    }
+
+    public function showTeacherLoginForm()
+    {
+        return view('auth.login', ['url' => 'teacher']);
+    }
+
+    public function teacherLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if (Auth::guard('teacher')->attempt(['email' => $request->email,
+            'password' => $request->password], $request->get('remember')))
+        {
+            return redirect()->intended('/home/teacher');
+        }
+    }
+
+
+    public function showStudentLoginForm()
+    {
+        return view('auth.login', ['url' => 'student']);
+    }
+
+    public function studentLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if (Auth::guard('student')->attempt(['email' => $request->email, 
+            'password' => $request->password], $request->get('remember')))
+        {
+            return redirect()->intended('/home/student');
+        }
     }
 }

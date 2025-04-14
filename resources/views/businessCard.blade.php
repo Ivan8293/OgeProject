@@ -63,14 +63,14 @@
                         <span class="left-button">Перейти к задачам</span>
                     </div> 
                 </a>
-                @auth 
+                @auth
                 <a class="munu-button-warpper-a" href="{{route('logout')}}">
                     <div class="menu-button-wrapper">
                         <span class="right-button">Выйти</span>                  
                     </div> 
                 </a>
                 @else
-                <a class="munu-button-warpper-a" href="{{route('login')}}">
+                <a class="munu-button-warpper-a" href="{{route('login_student')}}">
                     <div class="menu-button-wrapper">
                         <span class="right-button">Войти</span>
                     </div> 

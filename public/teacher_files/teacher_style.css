@@ -1,0 +1,117 @@
+.list_item{
+    width: 100%;
+    height: 140px;
+    border-radius: 24px;
+    background-color: #f3f3f3;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    display: flex;
+    
+}
+
+.list_item_text{
+    width: 70%;
+    height: 100%;
+    margin-left: 35px;
+
+    line-height: 35px;
+    color: #262626;
+    font-size: 32px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 700;
+
+}
+
+.list_item_button_wrapper{
+    width: 30%;
+    height: 100%;
+}
+
+.list_item_button{
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 45px;    
+    display: flex;
+    flex-direction: column;    
+
+    background-color: #ff62ba;
+    border-radius: 30px;
+}
+
+.list_item_button_text{
+    margin: auto;
+
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.55;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-weight: 600;
+
+}
+
+.up_main_wrapper{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+.h_wrapper {
+    width: 50%;
+    height: 100%;
+    padding-top: 25px;
+
+}
+
+.add_button_wrapper{
+    width: 50%;
+    height: 100%;
+    
+    
+
+}
+
+.add_button{
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-bottom: auto;
+    margin-right: 0x;
+
+    border-radius: 25px;
+    background-color: #A970F5;
+
+    display: flex;
+
+}
+
+.add_button_text{
+    margin: auto;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.h_content{
+    padding: 0 auto;
+    line-height: 40px;
+    font-size: 36px;
+    color: #262626;
+    font-weight: 600;
+    vertical-align: center;
+    align-items: center;
+    font-family: 'Nunito',Arial,sans-serif;
+}
+
+#add_class_button{
+    text-decoration: none;
+    color: white;
+}
+
+#add_class_button:hover{
+    cursor: pointer;
+}
