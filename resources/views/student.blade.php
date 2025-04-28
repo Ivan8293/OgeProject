@@ -2405,7 +2405,11 @@
                                                     fill="currentColor"></path>
                                             </svg></div>
                                         <div class="MuiListItemText-root css-1tsvksn">
-                                            <h6 class="MuiTypography-root MuiTypography-subtitle2 css-1ymstgs">Главная</h6>
+                                            <h6 class="MuiTypography-root MuiTypography-subtitle2 css-1ymstgs">
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    <input type="submit" value="Выйти">
+                                                </form>
+                                            </h6>
                                         </div>
                                     </li><span
                                         class="MuiBadge-badge MuiBadge-dot MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary MuiBadge-badge MuiBadge-invisible css-1wda0v4"></span>

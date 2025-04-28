@@ -12,7 +12,7 @@ class TeacherClassController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($page=null)
     {
         $teacher = Auth::guard('teacher')->user();
 
@@ -28,11 +28,14 @@ class TeacherClassController extends Controller
 
             $classes = ClassGroup::whereIn('class_id', $classes_id)->get();
 
-            return view('teacher', compact('classes'));
+            if ($page)
+                return view('my_verstka.home_classes', ['classes' => $classes, 'page' => $page]);
+            else
+                return view('my_verstka.home_classes', ['classes' => $classes, 'page' => 'classes']);
         }
         else
         {
-            return view('teacher');
+            return view('my_verstka.home_classes');
         }        
     }
 

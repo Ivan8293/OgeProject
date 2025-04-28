@@ -4,16 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Topic;
+use App\Models\Thesis;
 
 class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($topic_id)
     {
-        $topiс = Topic::all();
-        // return view('posts.index', compact('posts'));
+        $topic = Topic::where('topic_id', $topic_id)->first();
+        $thesises = Thesis::where('id_topic', $topic->topic_id)->get();
+
+        if ($topic_id && $thesises)
+        {
+            return view('my_verstka.topic', ['topic' => $topic, 'thesises' => $thesises]);
+        }
+        else
+        {
+            return view('my_verstka.topic');
+        }            
     }
 
     // Отображение формы создания поста

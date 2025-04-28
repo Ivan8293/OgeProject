@@ -12,8 +12,17 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $task = Task::all();
+        // $task = Task::all();
         // return view('posts.index', compact('posts'));
+    }
+
+    public function indexBank($page=null)
+    {
+        // $task = Task::all();
+        if ($page)
+            return view('my_verstka.home_tasks_bank', ['page' => $page]);
+        else
+            return view('my_verstka.home_tasks_bank');
     }
 
     // Отображение формы создания поста

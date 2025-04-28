@@ -12,6 +12,6 @@ class MainPageController extends Controller
      */
     public function index()
     {
-        return view("test");
+        return view("my_verstka.bussiness_card");
     }
 }

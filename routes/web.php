@@ -12,6 +12,15 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Pages\HomePageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\TeacherClassController;
+use App\Http\Controllers\HomeworkClassController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\HomeworkController;
+use App\Http\Controllers\Pages\Student\TrajectoryController;
+use App\Http\Controllers\Pages\Common\TopicsController;
+use App\Http\Controllers\Pages\Student\StatisticsController;
+use App\Http\Controllers\Pages\Common\KIMsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,9 +82,9 @@ Route::post('/login/student', [LoginController::class, 'studentLogin']);
 Route::post('/register/teacher', [RegisterController::class, 'createTeacher']);
 Route::post('/register/student', [RegisterController::class, 'createStudent']);
 //->middleware('auth')
-Route::get('/home', [HomePageController::class, 'guest_index']);
-Route::get('/home/teacher', [TeacherClassController::class, 'index'])->name('teacher');
-Route::get('/home/student', [HomePageController::class, 'student_index']);
+Route::get('/home', [TopicController::class, 'index'])->name("unregister_user");
+Route::get('/home/teacher/{page?}', [TeacherClassController::class, 'index'])->name('teacher');
+Route::get('/home/student', [TrajectoryController::class, 'index'])->name("student");
 
 
 
@@ -86,11 +95,67 @@ Route::post('/home/teacher/update_class', [TeacherClassController::class, 'updat
 Route::get('/home/teacher/delete_class/{id}', [TeacherClassController::class, 'destroy'])->name('delete_class');
 
 
+// TODO: не реализовано
+Route::get('/home/teacher/homeworks/{page?}', [HomeworkController::class, 'index'])->name('homeworks');
+Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
+// TODO: не реализовано
+Route::get('/home/KIMs/{page?}', [KIMsController::class, 'index'])->name('KIMs');
+Route::get('/home/KIM/{topic_id?}', [KIMsController::class, 'create'])->name('open_kim');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
+// TODO: не реализовано
+Route::get('/home/topics/{page?}', [TopicsController::class, 'index'])->name('topics');
+Route::get('/home/topic/{topic_id}', [TopicController::class, 'index'])->name('open_topic');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
+// TODO: не реализовано
+Route::get('/home/tasksBank/{page?}', [TaskController::class, 'indexBank'])->name('tasks_bank');
+Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
+
+
+// TODO: не реализовано
+Route::get('/home/student/trajectory/{page?}', [TrajectoryController::class, 'index'])->name('trajectory');
+Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
+// TODO: не реализовано
+Route::get('/home/student/statistics/{page?}', [StatisticsController::class, 'index'])->name('statistics');
+Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
+Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
+Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
+Route::post('/home/teacher/homework/update_homework', [HomeworkClassController::class, 'update'])->name('update_homework');
+Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassController::class, 'destroy'])->name('delete_homework');
+
+
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
 
-Auth::routes();
+Auth::routes(); 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

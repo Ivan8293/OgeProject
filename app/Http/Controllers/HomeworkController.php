@@ -10,10 +10,19 @@ class HomeworkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($page=null)
     {
-        $homework = Homework::all();
-        // return view('posts.index', compact('posts'));
+        // $homework = Homework::all();
+        if ($page)
+        {
+            return view('my_verstka.home_homeworks', ['page' => $page]);
+        }
+        else
+        {
+            return view('my_verstka.home_homeworks');
+        }
+        
+        
     }
 
     // Отображение формы создания поста
