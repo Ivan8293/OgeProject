@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\TopicTask;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($topic_id)
     {
-        // $task = Task::all();
-        // return view('posts.index', compact('posts'));
+        $tasks_tmp = TopicTask::where('id_topic', $topic_id)->pluck('id_task');
+        $tasks = Task::whereIn('task_id', $tasks_tmp)->get();
+
+        return view('my_verstka.tasks', ['tasks' => $tasks, 'topic_id' => $topic_id]);
     }
 
     public function indexBank($page=null)

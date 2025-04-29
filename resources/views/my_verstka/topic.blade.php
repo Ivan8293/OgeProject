@@ -31,7 +31,7 @@
             <div class="main_wrapper">
                 <div class="main_left_video">
                     <iframe width="900" height="504" src="{{ $topic->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <a id="add_class_button" href="">
+                    <a id="add_class_button" href="{{ route('tasks', ['topic_id' => $topic->topic_id]) }}">
                         <div class="add_button" >
                             <div class="add_button_text">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</div>                    
                         </div>

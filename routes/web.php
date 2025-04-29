@@ -152,6 +152,10 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 
 
 
+Route::get('/home/student/task/{topic_id}', [TaskController::class, 'index'])->name('tasks');
+
+
+
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
