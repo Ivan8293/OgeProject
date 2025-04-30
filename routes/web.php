@@ -86,7 +86,7 @@ Route::post('/login/student', [LoginController::class, 'studentLogin']);
 Route::post('/register/teacher', [RegisterController::class, 'createTeacher']);
 Route::post('/register/student', [RegisterController::class, 'createStudent']);
 //->middleware('auth')
-Route::get('/home', [TopicController::class, 'index'])->name("unregister_user");
+Route::get('/home', [TopicsController::class, 'index'])->name("unregister_user");
 Route::get('/home/teacher/{page?}', [TeacherClassController::class, 'index'])->name('teacher');
 Route::get('/home/student', [TrajectoryController::class, 'index'])->name("student");
 
