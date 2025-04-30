@@ -16,7 +16,6 @@ class IndexController extends Controller
     {
         return view('businessCard');
     }
-
     public function GetTopics()
     {
         //костыль

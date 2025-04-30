@@ -36,6 +36,10 @@ use App\Http\Controllers\Pages\Common\KIMsController;
 Route::get('/', function () {
     return redirect('businessCard');
 });
+Route::get('/test', function () {
+    return view('my_verstka.home_parent');
+});
+
 
 Route::view('/tmp', 'list');
 
