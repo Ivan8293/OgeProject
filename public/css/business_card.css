@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  color: #1c1c1c;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.nav-item {
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-item:hover {
+  color: #397eff;
+}
+
+.button {
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.primary {
+  background-color: #1bbc9b;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.primary:hover {
+  background-color: #17a589;
+}
+
+.secondary {
+  background-color: transparent;
+  color: #1c1c1c;
+  border: 2px solid #1c1c1c;
+}
+
+.secondary:hover {
+  background-color: #f0f0f0;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 4rem 2rem;
+  gap: 3rem;
+}
+
+.text-block {
+  max-width: 600px;
+  text-align: center;
+}
+
+.text-block h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease;
+}
+
+.text-block p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  animation: fadeInUp 0.8s ease;
+}
+
+.accent {
+  background-color: #397eff;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+}
+
+.accent:hover {
+  background-color: #275ac7;
+}
+
+.visual-block {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.decor {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  z-index: 1;
+}
+
+.grid-item {
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 768px) {
+  .main-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .text-block {
+    text-align: left;
+  }
+}
