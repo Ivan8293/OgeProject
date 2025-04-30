@@ -163,3 +163,4 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 Auth::routes(); 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
