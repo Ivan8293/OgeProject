@@ -47,7 +47,7 @@
   .header_nav_wrapper {
     display: flex;
     gap: 20px;
-    font-size: 18px;
+    font-size: 24px;
     color: #383838;
   }
   
@@ -71,6 +71,7 @@
   
   .start_lern_wrapper, .login_wrapper {
     padding: 10px 20px;
+    font-size: 20px;
     border-radius: 25px;
     font-weight: 600;
     text-align: center;
@@ -117,14 +118,14 @@
   }
   
   .main_text_wrapper {
-    font-size: 62px;
+    font-size: 72px;
     font-weight: 700;
     line-height: 1.2;
     animation: fadeInUp 1s ease forwards;
   }
   
   .second_text_wrapper {
-    font-size: 32px;
+    font-size: 42px;
     color: #555;
     animation: fadeInUp 1.2s ease forwards;
   }
@@ -133,7 +134,7 @@
     background: linear-gradient(to right, #a36dfd, #7f6eff);
     padding: 18px 30px;
     border-radius: 40px;
-    font-size: 20px;
+    font-size: 28px;
     color: white;
     font-weight: 600;
     text-align: center;
