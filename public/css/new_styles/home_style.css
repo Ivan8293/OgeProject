@@ -157,6 +157,10 @@ body {
 
 /* Общий контейнер кнопки */
 .button_container {
+    width:300px;
+    margin-left: -16px;
+    padding-right: 40px;
+    padding-left: 16px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -167,10 +171,7 @@ body {
 
 /* Активная кнопка */
 .button_container.active_button {
-    width:300px;
-    margin-left: -16px;
-    padding-right: 40px;
-    padding-left: 16px;
+    
     height: 190%;
     background-color: rgba(255, 255, 255, 0.1);
 }
