@@ -102,6 +102,8 @@ body {
     letter-spacing: 2px;
     color: white;
     line-height: 1.2;
+    padding-left: 12px;
+    margin-bottom: 10px;
 }
 .logo_text{
 
@@ -120,23 +122,27 @@ body {
 .buttons_list_wrapper {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+
 }
 
 .buttons_list_wrapper a {
     text-decoration: none;
     color: white;
-    padding: 10px 15px;
+
     border-radius: 12px;
     transition: background-color 0.3s;
     display: flex;
     align-items: center;
 }
 
-.buttons_list_wrapper a:hover,
-.buttons_list_wrapper a.active {
+.button_container:hover, button_container.active{
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+/* .buttons_list_wrapper a:hover,
+.buttons_list_wrapper a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+} */
 
 .buttons_list_wrapper i,
 .nav_bar i {
@@ -147,7 +153,6 @@ body {
 .buttons_list_wrapper {
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 /* Ссылка */
@@ -158,6 +163,10 @@ body {
 /* Общий контейнер кнопки */
 .button_container {
     display: flex;
+    width: 200px;
+    height: 45px;
+    padding-left: 12px;
+    margin: 10px 0;
     align-items: center;
     gap: 12px;
     border-radius: 12px;
@@ -167,11 +176,10 @@ body {
 
 /* Активная кнопка */
 .button_container.active_button {
-    width:300px;
-    margin-left: -16px;
-    padding-right: 40px;
-    padding-left: 16px;
-    height: 190%;
+    
+
+
+    
     background-color: rgba(255, 255, 255, 0.1);
 }
 
