@@ -1,5 +1,13 @@
 @extends("my_verstka.home")
 
+
+@section("child_link")
+    <link rel="stylesheet" href="/css/new_styles/stat_style.css">
+@endsection
+
+
+
+
 @section("main_content")
 <div class="main_wrapper bor">
     <div class="main_h">

@@ -229,7 +229,7 @@
     height: 60px;
 
     font-size: 20px;
-
+    border: none;
 }
 
 .task_back_button:hover, .task_enter_button:hover, .task_next_button:hover{

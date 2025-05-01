@@ -1,5 +1,11 @@
 @extends("my_verstka.home_parent")
 
+
+@section("link")
+    @yield("child_link")
+@endsection
+
+
 @section("home_main")
     @yield("main_content")
 @endsection

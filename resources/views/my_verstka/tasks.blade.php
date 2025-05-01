@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/new_styles/task_style.css">
     <title>task</title>
     <script src="/js/task_slider.js"></script>
+    <script src="/ajax_js/ajax_app.js"></script>
     
 </head>
 <body>
@@ -54,36 +55,46 @@
     </header>
     <main class="task_main">
 
+    {{! $i = 1 }}
     @foreach ($tasks as $task)
         <div class="task tasks">
             <div class="task_top">
                 <div class="task_question_number">
-                    ЗАДАЧА <span class="current_task_num"> {{ $task->answer }} </span> ИЗ {{ count($tasks) }}
+                    ЗАДАЧА <span class="current_task_num"> &nbsp;{{ $i }}&nbsp; </span> ИЗ {{ count($tasks) }}
+                    {{ ! $i++; }}
                 </div>
                 <div class="task_img_wrapper">
                     <img class="task_img" src="/img/tasks/{{ $task->video }}" alt="">
                 </div>
             </div>
             <div class="task_bottom">
-                <div class="task_description">
-                    Введите числовой ответ
-                </div>
-                <div class="task_input">
-                    <form action="">
-                        <input type="text" class="task_input_text">
+                
+                    <form method="POST" id="task_form">
+
+                        <div class="task_description">
+                            Введите числовой ответ
+                        </div>
+                        <div class="task_input">     
+
+                            <input type="text" name="answer" class="task_input_text">   
+                            <input type="hidden" name="task_id" value="{{ $task->task_id }}"> 
+                            <input type="hidden" name="student_id" value="{{ Auth::guard('student')->user()->id }}">
+
+                        </div>
+                        <div class="task_navigation">
+                            <div class="task_back_button back_button">
+                                <
+                            </div>
+                            
+                            <input class="task_enter_button" type="submit" value="Ответить">
+
+                            <div class="task_next_button next_button">
+                                >
+                            </div>
+                        </div>
+
                     </form>
-                </div>
-                <div class="task_navigation">
-                    <div class="task_back_button back_button">
-                        <
-                    </div>
-                    <div class="task_enter_button ">
-                        Ответить
-                    </div>
-                    <div class="task_next_button next_button">
-                        >
-                    </div>
-                </div>
+                
             </div>
         </div>
     @endforeach

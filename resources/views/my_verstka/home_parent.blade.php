@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Домашняя страница</title>
     <link rel="stylesheet" href="/css/new_styles/home_style.css">
-    <link rel="stylesheet" href="/css/new_styles/trajectory_style.css">
-    <link rel="stylesheet" href="/css/new_styles/stat_style.css">
+    
+    @yield("link")
 
 </head>
 <body>
