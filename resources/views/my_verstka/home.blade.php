@@ -13,7 +13,9 @@
 
 
 @section("teacher_student_nav")
+<div class="separate_line"></div>
     @if (Auth::guard('student')->check())
+    
         <a class="link_wrapper" href="{{ route('trajectory', ['page' => 'trajectory']) }}">
             @isset($page)
                 @if($page == 'trajectory')
@@ -25,7 +27,8 @@
                     <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i>
+
                         </div>
                         <div class="button_text_container bor">
                             Траектория
@@ -34,6 +37,7 @@
         </a>
 
         <a class="link_wrapper" href="{{ route('statistics', ['page' => 'statistics']) }}">
+
             @isset($page)
                 @if($page == 'statistics')
                     <div class="button_container active_button bor">
@@ -44,7 +48,7 @@
                     <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
                             Статистика
@@ -64,7 +68,8 @@
                 <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+
                         </div>
                         <div class="button_text_container bor">
                             Классы
@@ -83,7 +88,7 @@
                 <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-leanpub" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
                             Домашние задания
@@ -103,7 +108,7 @@
                     <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
                             Траекторияяя
@@ -122,7 +127,7 @@
                     <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                            <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
                             Статистикааа
@@ -150,7 +155,8 @@
             <div class="button_container bor">
         @endisset
                     <div class="button_icon_container bor">
-                        <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+
                     </div>
                     <div class="button_text_container bor">
                         КИМы
@@ -169,7 +175,7 @@
             <div class="button_container bor">
         @endisset
                     <div class="button_icon_container bor">
-                        <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     </div>
                     <div class="button_text_container bor">
                         Учебные темы
@@ -188,7 +194,9 @@
             <div class="button_container bor">
         @endisset
                     <div class="button_icon_container bor">
-                        <img class="button_icon" src="/imgs/trajectory/home.jpg" alt="">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+
+
                     </div>
                     <div class="button_text_container bor">
                         Бенк заданий
