@@ -50,8 +50,25 @@
     color: #1f1f3d;
 }
 
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #00cba9, #3ddc84);
+    }
+    25% {
+        background: linear-gradient(135deg, #3ddc84, #00cba9);
+    }
+    50% {
+        background: linear-gradient(135deg, #00cba9, #3ddc84);
+    }
+    75% {
+        background: linear-gradient(135deg, #3ddc84, #00cba9);
+    }
+    100% {
+        background: linear-gradient(135deg, #00cba9, #3ddc84);
+    }
+}
+
 .start_button {
-    background: linear-gradient(135deg, #00cba9, #3ddc84);
     color: white;
     margin-left: 250px;
     margin-top: 30px;
@@ -64,12 +81,11 @@
     gap: 10px;
     font-weight: 600;
     box-shadow: 0 8px 24px rgba(0, 203, 169, 0.3);
-    transition: background 0.3s ease, transform 0.2s ease;
+    animation: gradientAnimation 10s ease infinite; /* Увеличено время анимации до 10 секунд */
 }
 
 .start_button:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, #3ddc84, #00cba9);
 }
 
 .intro_image {
