@@ -26,11 +26,11 @@
                         <p>Обыкновенная дробь, основное свойство дроби. Сравнение дробей</p>  
                         <span>Встречается в 1, 5, 15 заданиях на ОГЭ</span>
                     </div>
-                    <div class="text_col text_progress" data-progress="30">
+                    <div class="text_col text_progress">
                         <div class="progress_text">Тема освоена на</div>
                         <div class="progress_bar_wrapper">
                             <div class="progress_bar_fill"></div>
-                            <div class="progress_bar_label">30%</div>
+                            <div class="progress_bar_label"></div>
                         </div>
                     </div>
                     </div>
@@ -44,13 +44,14 @@
                     </div>
                 </div>
                 <script>
-                document.querySelectorAll('.text_progress').forEach(item => {
-                    const progress = item.dataset.progress;
-                    const fill = item.querySelector('.progress_bar_fill');
-                    const label = item.querySelector('.progress_bar_label');
-                    fill.style.width = progress + '%';
-                    label.textContent = progress + '%';
-                });
+                    document.querySelectorAll('.text_progress').forEach(item => {
+                        const randomProgress = Math.floor(Math.random() * 101); // от 0 до 100
+                        const fill = item.querySelector('.progress_bar_fill');
+                        const label = item.querySelector('.progress_bar_label');
+                        
+                        fill.style.width = randomProgress + '%';
+                        label.textContent = randomProgress + '%';
+                    });
                 </script>
   
             @endforeach

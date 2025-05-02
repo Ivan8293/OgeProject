@@ -46,9 +46,7 @@
                 <div class="main_container">
                     @yield("home_main")
                 </div>
-                <div class="footer">
-                    <h2 class="logo_footer_text round_text">Study Haven</h2>
-                </div>
+                
             </div>
         </div>
     </div>
