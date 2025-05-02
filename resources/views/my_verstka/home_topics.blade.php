@@ -21,17 +21,38 @@
         @isset($topics)
             @foreach ($topics as $topic)
                 <div class="list_item">
-                    <div class="list_item_text">
-                        <p>{{ $topic->name }}</p>                            
+                <div class="list_item_text">
+                    <div class="text_col text_main">
+                        <p>Обыкновенная дробь, основное свойство дроби. Сравнение дробей</p>  
+                        <span>Встречается в 1, 5, 15 заданиях на ОГЭ</span>
                     </div>
-                    <div class="list_item_button_wrapper">
-                        <div class="list_item_button">
-                            <div class="list_item_button_text">
-                                <a id="add_class_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" >ОТКРЫТЬ</a>
-                            </div>
+                    <div class="text_col text_progress" data-progress="30">
+                        <div class="progress_text">Тема освоена на</div>
+                        <div class="progress_bar_wrapper">
+                            <div class="progress_bar_fill"></div>
+                            <div class="progress_bar_label">30%</div>
                         </div>
                     </div>
+                    </div>
+                    <div class="list_item_button_wrapper">
+                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
+                            <i class="fas fa-book-open"></i> Теория
+                        </a>
+                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к практике">
+                            <i class="fas fa-pen"></i> Практика
+                        </a>
+                    </div>
                 </div>
+                <script>
+                document.querySelectorAll('.text_progress').forEach(item => {
+                    const progress = item.dataset.progress;
+                    const fill = item.querySelector('.progress_bar_fill');
+                    const label = item.querySelector('.progress_bar_label');
+                    fill.style.width = progress + '%';
+                    label.textContent = progress + '%';
+                });
+                </script>
+  
             @endforeach
         @endisset
         
