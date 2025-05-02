@@ -20,6 +20,11 @@ class TrajectoryController extends Controller
             return view('my_verstka.home_trajectory');
     }
 
+    public function index_entrance_test()
+    {
+        return view("my_verstka.home_entrance_test");
+    }
+
     // Отображение формы создания поста
     public function create()
     {
