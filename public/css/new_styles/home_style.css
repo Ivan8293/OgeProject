@@ -436,7 +436,8 @@ body {
     position: relative;
 }
 .list_item_button:hover {
-    background-color: #f1ecff;
+    background-color: #312354;
+    color: white;
 }
 .list_item_button i {
     font-size: 18px;
