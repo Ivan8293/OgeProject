@@ -144,26 +144,6 @@
 
     <div class="separate_line"></div>
 
-    <a class="link_wrapper" href="{{ route('KIMs', ['page' => 'KIMs']) }}">
-        @isset($page)
-            @if($page == 'KIMs')
-                <div class="button_container active_button bor">
-            @else
-                <div class="button_container bor">
-            @endif
-        @else
-            <div class="button_container bor">
-        @endisset
-                    <div class="button_icon_container bor">
-                    <i class="fa fa-trophy" aria-hidden="true"></i>
-
-                    </div>
-                    <div class="button_text_container bor">
-                        КИМы
-                    </div>
-        </div>
-    </a>
-
     <a class="link_wrapper" href="{{ route('topics', ['page' => 'topics']) }}">
         @isset($page)
             @if($page == 'topics')
@@ -200,6 +180,26 @@
                     </div>
                     <div class="button_text_container bor">
                         Бенк заданий
+                    </div>
+        </div>
+    </a>
+
+    <a class="link_wrapper" href="{{ route('KIMs', ['page' => 'KIMs']) }}">
+        @isset($page)
+            @if($page == 'KIMs')
+                <div class="button_container active_button bor">
+            @else
+                <div class="button_container bor">
+            @endif
+        @else
+            <div class="button_container bor">
+        @endisset
+                    <div class="button_icon_container bor">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="button_text_container bor">
+                        КИМы
                     </div>
         </div>
     </a>
