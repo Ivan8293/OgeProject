@@ -20,6 +20,7 @@ use App\Http\Controllers\Pages\Student\TrajectoryController;
 use App\Http\Controllers\Pages\Common\TopicsController;
 use App\Http\Controllers\Pages\Student\StatisticsController;
 use App\Http\Controllers\Pages\Common\KIMsController;
+use App\Http\Controllers\TaskOgeController;
 
 
 /*
@@ -127,7 +128,7 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 
 
 // TODO: не реализовано
-Route::get('/home/tasksBank/{page?}', [TaskController::class, 'indexBank'])->name('tasks_bank');
+Route::get('/home/tasksBank/{page?}', [TaskOgeController::class, 'index'])->name('tasks_bank');
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
 Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
 Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
