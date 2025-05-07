@@ -19,17 +19,33 @@
         <nav class="nav_bar" id="sideMenu">
             <div class="logo_wrapper">
                 <h1 class="logo_text round_text">STUDY HAVEN</h1>
+                <header class="header bor">
+                        @if (Auth::guard('student')->check() || Auth::guard('teacher')->check())
+                            <a href="{{ route('logout') }}" class="icon_button" title="Выйти">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                        @endif
+                </header>
             </div>
 
             <div class="login_wrapper">
                 <p class="login">
-                    <i class="fa fa-user-circle"></i>
                     @if (Auth::guard('student')->check())
+                        <i class="fa fa-user-circle"></i>
                         {{ Auth::guard('student')->user()->login }}
                     @elseif (Auth::guard('teacher')->check())
+                    <i class="fa fa-user-circle"></i>
                         {{ Auth::guard('teacher')->user()->login }}
                     @else
-                        Добро пожаловать
+                        <div class="button_container bor">
+                            <div class="button_icon_container bor">
+                            <i class="fa fa-user-circle"></i>
+                            </div>
+                            <div class="button_text_container bor">
+                                <a href="{{ route('login_student') }}" class="icon_button" title="Войти">
+                                Войти
+                                </a>
+                            </div>
                     @endif
                 </p>
             </div>

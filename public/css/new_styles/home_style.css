@@ -117,13 +117,11 @@ body {
     gap: 10px;
 }
 
-
 .buttons_list_wrapper {
     display: flex;
     flex-direction: column;
 
 }
-
 .buttons_list_wrapper a {
     text-decoration: none;
     color: white;
@@ -179,10 +177,6 @@ body {
 
 /* Активная кнопка */
 .button_container.active_button {
-    
-
-
-    
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -222,27 +216,22 @@ body {
     font-family: var(--square-font);
     font-size: 14px;
     background-color: var(--purpul);
-    color: white;
     font-weight: 700;
 }
-
-.login_button_wrapper:hover{
-    cursor: pointer;
-    background-color:#6f3cb3;
-}
-
-.header{    
-    height: 64px;
-    width: 100%;
-    padding-top: 40px;
-    padding-left: 0px;
-    padding-right: 0px;  
-    margin: 0 auto;  
+.logo_wrapper {
     display: flex;
-    justify-content: end;
-    align-items: center;
+    justify-content: space-between; /* если нужно распределить по ширине */
+    gap: 20px; /* расстояние между логотипом и кнопкой */
 }
-
+.header {
+    display: flex;
+    margin-top: 6px;
+}
+.button_text_container a {
+    text-decoration: none;
+    margin-top: -20px;
+    color: white;
+}
 .header_button{
     width: 64px;
     height: 64px;
@@ -250,221 +239,12 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 8px;
-
     border-radius: 50%;
-    background-color: rgb(233, 233, 233);
 }
-
 .main_wrapper{
     width: 100%;   
     padding: 0;
     margin: 20px auto;
-
-}
-.main_h, .second_h{
-    font-size: 38px;
-    font-weight: 600;
-    color: #1e1e2f;
-    padding-bottom: 6px;
-    
-}
-.second_h {
-    border-bottom: 1px solid rgb(199, 199, 199);
-}
-.main_h {
-    margin-top: -6px;
-    margin-bottom: 33px;
-}
-
-.add_button_wrapper{
-    height: 100%; 
-    margin-right: 7%;
-}
-
-.add_button{
-    width: 200px;
-    height: 50px;
-    display: flex;
-
-    border-radius: 25px;
-    background-color: #A970F5;
-}
-
-.add_button_text{
-    margin: auto;
-    color: #ffffff;
-    font-size: 14px;
-    font-family: var(--square-font);
-    font-weight: 600;
-}
-
-.h_content{
-    padding: 0 auto;
-    line-height: 40px;
-    font-size: 36px;
-    color: #262626;
-    font-weight: 600;
-    vertical-align: center;
-    align-items: center;
-    font-family: 'Nunito',Arial,sans-serif;
-}
-
-#add_class_button{
-    text-decoration: none;
-    color: white;
-}
-
-#add_class_button:hover{
-    cursor: pointer;
-}
-
-/* Список тем */
-.list_of_items {
-    display: flex;
-    flex-direction: column;
-    gap: 27px;
-}
-.list_item {
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1); /* немного сильнее тень */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.list_item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-.list_item_text {
-    display: flex;
-    gap: 20px;
-    width: 75%;
-}
-.text_col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.text_progress {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: -15px;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: right;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: #312354;
-}
-.progress_text {
-    font-size: 1.2rem;
-    color: #312354;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.progress_bar_wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 170px;
-    height: 20px;
-    background-color: #e6e6f0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress_bar_fill {
-    height: 100%;
-    background-color: #b867ca; /* фиолетовый акцент */
-    border-radius: 10px 0 0 10px;
-}
-
-.progress_bar_label {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    color: rgb(91, 91, 91);
-    line-height: 20px;
-    font-weight: bold;
-}
-
-.text_main p {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #312354;
-    margin-bottom: 8px;
-}
-
-.text_main span {
-    font-size: 1rem;
-    color: #666;
-}
-
-.text_main {
-    flex: 3;
-}
-
-.list_item_text p {
-    font-size: 26px;
-    color: #1e1e2f;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-.list_item_button_wrapper {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-.list_item_button {
-    background-color: transparent;
-    color: #312354;
-    border: 2px solid #312354;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    position: relative;
-}
-.list_item_button:hover {
-    background-color: #312354;
-    color: white;
-}
-.list_item_button i {
-    font-size: 18px;
-}
-/* Подсказка при наведении */
-.list_item_button::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 5;
-}
-
-.list_item_button:hover::after {
-    opacity: 1;
 }
 
 .up_main_wrapper{
@@ -473,12 +253,6 @@ body {
     display: flex;
 }
 
-.h_wrapper {
-    width: 50%;
-    height: 100%;
-    padding-top: 25px;
-
-}
 .login{
     font-family: var(--round-font);
     font-size: 16px;
@@ -486,16 +260,12 @@ body {
     font-weight: 700;
 
 }
-
-
 .separate_line{
     width: 100%;
     height: 1px;
     background-color: rgb(199, 199, 199);
     opacity: 30%;
 }
-
-
 .logout_button{
     width: 100px;
     height: 45px;
@@ -519,86 +289,4 @@ body {
     background-color: rgb(90, 90, 90);
     color: rgb(233, 233, 233);
     border: none;
-}
-
-.filters_container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
-    align-items: center;
-    justify-content: space-between;
-}
-.search_input_large {
-    flex: 2;
-    padding: 12px 16px;
-    font-size: 18px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.search_input_large:focus {
-    border-color: #5c4dff;
-}
-.search_button_large {
-    background-color: transparent;
-    color: #312354;
-    font-family: 'Montserrat', sans-serif;
-    border: 2px solid #ccc;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-    margin-right: 180px;
-}
-
-.list_item_button:hover {
-    background-color: #312354;
-    color: white;
-}
-.filter_select_large {
-    padding: 10px 14px;
-    color: #312354;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: white;
-    min-width: 140px; 
-    max-width: 176px;
-    flex-shrink: 0;
-    transition: border-color 0.3s;
-}
-.filter_select_large option {
-    font-weight: 500;
-}
-
-.filter_select_large:focus {
-    border-color: #5c4dff;
-}
-.difficulty_scale {
-    display: flex;
-    gap: 6px;
-    margin-top: 6px;
-    margin-bottom: 10px;
-}
-.difficulty_oval {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-}
-.difficulty_oval.green {
-    background-color: #38c172;
-}
-.difficulty_oval.orange {
-    background-color: #f6993f;
-}
-.difficulty_oval.red {
-    background-color: #e3342f;
 }

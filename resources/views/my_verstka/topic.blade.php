@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+@extends("my_verstka.home")
+
+@section("child_link")
     <link rel="stylesheet" href="/css/new_styles/topic_style.css">
-    <title>topic</title>
-</head>
+@endsection
+
+@section("main_content")
 <body>
     @isset($topic)
         <header class="topic_header ">
@@ -31,15 +32,13 @@
             <div class="main_wrapper">
                 <div class="main_left_video">
                     <iframe width="900" height="504" src="{{ $topic->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <a id="add_class_button" href="{{ route('tasks', ['topic_id' => $topic->topic_id]) }}">
-                        <div class="add_button" >
-                            <div class="add_button_text">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</div>                    
-                        </div>
+                    <a id="add_class_button" href="{{ route('tasks', ['topic_id' => $topic->topic_id]) }}" class="add_button">
+                    <i class="fas fa-pen"></i>
+                        <span class="add_button_text">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</span>
                     </a>
+
                 </div>
                 <div class="main_right_thesises ">
-
-
                     @isset($thesises)
                         @foreach($thesises as $thises)
                             <div class="thesis ">

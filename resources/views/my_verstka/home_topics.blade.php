@@ -1,19 +1,15 @@
 @extends("my_verstka.home")
 
+@section("child_link")
+    <link rel="stylesheet" href="/css/new_styles/list_topic_style.css">
+@endsection
+
 @section("main_content")
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
             Учебные темы
         </h2>
-        <!-- <div class="add_button_wrapper">
-            <a id="add_class_button" href="">
-                <div class="add_button" >
-                    <div class="add_button_text">СОЗДАТЬ КЛАСС</div>
-                    
-                </div>
-            </a>
-        </div> -->
     </div>
     
     <div class="list_of_items">
