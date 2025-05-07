@@ -259,3 +259,21 @@
     border-radius: 30px;
     font-weight: 500;
 }
+
+.right_result{
+    display: none;
+    margin-left: 40px;
+    color: rgb(6, 221, 6);
+    font-family: var(--round-font);
+    font-size: 20px;
+    font-weight: 500; 
+}
+
+.wrong_result{
+    display: none;
+    margin-left: 40px;
+    color: rgb(44, 44, 44);
+    font-family: var(--round-font);
+    font-size: 20px;
+    font-weight: 500;    
+}

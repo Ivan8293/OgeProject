@@ -67,7 +67,7 @@ Route::get('/topics', [IndexController::class, 'GetTopics'])->name('topics');
 Route::get('topic/{id}', [IndexController::class, 'GetTopic'])->whereNumber('id')->name('getTopic');
 Route::get('tasks/{sub_topic_id}', [IndexController::class, 'GetTasks'])->whereNumber('sub_topic_id')->name('getTasks');
 
-Route::post('tasks/ajax_answer_check', [AjaxController::class, 'AnswerCheck'])->name('ajax_answer_check');
+Route::get('/home/student/tasks/ajax_answer_check', [AjaxController::class, 'AnswerCheck'])->name('ajax_answer_check');
 
 
 
