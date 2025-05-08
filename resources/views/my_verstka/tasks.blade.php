@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/task_slider.js"></script>
     <script src="/ajax_js/ajax_app.js"></script>
+
+    <script src="/js/active_time_request.js"></script>
     
     
 </head>
@@ -54,7 +56,7 @@
                     {{ ! $i++; }}
                 </div>
                 <div class="task_img_wrapper">
-                    <img class="task_img" src="/img/tasks/{{ $task->video }}" alt="">
+                    <img class="task_img" src="{{ $task->text }}" alt="">
                 </div>
             </div>
             <div class="task_bottom">

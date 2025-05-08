@@ -3,6 +3,10 @@
 
 @section("child_link")
     <link rel="stylesheet" href="/css/new_styles/stat_style.css">
+
+    <link rel="stylesheet" href="/css/new_styles/stat_google_chart.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/js/google_charts.js"></script>
 @endsection
 
 
@@ -28,8 +32,28 @@
             </a>
         </div> -->
     </div>
+
     
-    <div class="list_of_items ">                        
+    <div id="active_time">        
+        <div id="active_time_week">
+
+        </div>
+
+        <div id="avtive_time_month">
+
+        </div>
+
+        <div id="active_time_year">
+
+        </div>
+    </div>
+
+
+    <div id="task_time">
+
+    </div>
+    
+    <!-- <div class="list_of_items ">                        
         <div class="stat_block ">
             <div class="stat_block_name ">
                 Задание 1
@@ -145,7 +169,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
