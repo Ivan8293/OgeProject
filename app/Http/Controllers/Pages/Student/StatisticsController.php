@@ -4,15 +4,35 @@ namespace App\Http\Controllers\Pages\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Result;
 
 class StatisticsController extends Controller
-{
+{    
     /**
      * Display a listing of the resource.
      */
     public function index($page=null)
     {
-        // $result = Result::all();
+        $userId = auth()->id();
+
+        $dailyActivity = DB::table('user_activity')
+        ->where('user_id', $userId)
+        ->where('active_date', now()->toDateString())
+        ->sum('active_time');
+
+        $weeklyActivity = DB::table('user_activity')
+        ->where('user_id', $userId)
+        ->whereBetween('active_date', [now()->startOfWeek(), now()->endOfWeek()])
+        ->sum('active_time');
+
+        $monthlyActivity = DB::table('user_activity')
+        ->where('user_id', $userId)
+        ->whereMonth('active_date', now()->month)
+        ->whereYear('active_date', now()->year)
+        ->sum('active_time');
+
+        $results = Result::where("id_student", $userId)->get();        
 
         if ($page)
             return view('my_verstka.home_statistics', ['page' => $page]);

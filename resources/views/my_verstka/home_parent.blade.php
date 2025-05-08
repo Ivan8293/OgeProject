@@ -3,14 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Домашняя страница</title>
 
     <link rel="stylesheet" href="/css/new_styles/home_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     @yield("link")
+    <script>
+        let startTime = Date.now();
+
+        console.log("скрипт просчета времени запустился, startTime = " + startTime);
+
+        window.addEventListener('beforeunload', function() {
+            console.log("сработало событие закрытия вкладки");
+
+            let activeTime = Math.floor((Date.now() - startTime) / 1000); // Время в секундах
+
+            const data = JSON.stringify({ active_time: activeTime });
+            const url = '/update-active-time';
+
+            // Используем sendBeacon для отправки данных, это асинхронный запрос
+            navigator.sendBeacon(url, data);
+
+            console.log("асинхронный запрос послан");
+        });
+    </script>
+    
 </head>
 <body>
+    
     <div class="global_wrapper">
         <!-- Бургер-кнопка -->
         <button class="burger" onclick="toggleMenu()">☰</button>
