@@ -21,6 +21,7 @@ use App\Http\Controllers\Pages\Common\TopicsController;
 use App\Http\Controllers\Pages\Student\StatisticsController;
 use App\Http\Controllers\Pages\Common\KIMsController;
 use App\Http\Controllers\TaskOgeController;
+use Illuminate\Http\Request;
 
 
 /*
@@ -164,6 +165,20 @@ Route::get('/home/student/task/{topic_id}', [TaskController::class, 'index'])->n
 
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+
+
+
+
+
+
+Route::middleware(['update.activity'])->group(function () {
+    Route::post('/update-active-time', function () {
+        
+    });
+});
+
+
 
 
 
