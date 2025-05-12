@@ -9,4 +9,9 @@ class TaskOge extends Model
 {
     use HasFactory;
     protected $table = 'task_oge';
+
+    public function topics()
+    {
+        return $this->hasMany(Topic::class, 'id_task_oge', 'id');
+    }
 }
