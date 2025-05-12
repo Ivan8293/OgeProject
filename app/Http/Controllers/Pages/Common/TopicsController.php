@@ -20,8 +20,8 @@ class TopicsController extends Controller
      */
     public function index($page=null)
     {
-        //TODO: потом сделать вывод только с полем "Учебная тема"
-        $topics = Topic::all();
+        
+        $topics = Topic::where('type', 'Учебная тема')->get();
 
         if ($page && $topics)
         {
