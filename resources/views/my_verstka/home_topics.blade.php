@@ -48,13 +48,13 @@
                 <div class="list_item_text">
                     
                     <div class="text_col text_main">
-                        <input id="level_db" type="hidden" name="level_from_db" value="{{ $topic->difficult_level }}">
+                        <input id="level_db" type="hidden" name="level_from_db" value="{{ $topic->difficult_level -1 }}">
                         <div class="difficulty_scale">
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                         </div>
-                        <p>{{ $topic->description }}</p>  
+                        <p>{{ $topic->name }}</p>  
                         @if ($topic->taskOge->id <= 7)
                             <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
                         @else
