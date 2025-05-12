@@ -48,13 +48,18 @@
                 <div class="list_item_text">
                     
                     <div class="text_col text_main">
+                        <input id="level_db" type="hidden" name="level_from_db" value="{{ $topic->difficult_level }}">
                         <div class="difficulty_scale">
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                         </div>
                         <p>{{ $topic->description }}</p>  
-                        <span>Встречается в 1, 5, 15 заданиях на ОГЭ</span>
+                        @if ($topic->taskOge->id <= 7)
+                            <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
+                        @else
+                            <span>Встречается в {{ $topic->taskOge->task_number }} задание на ОГЭ</span>
+                        @endif
                     </div>
                     <div class="text_col text_progress">
                         <div class="progress_text">Тема освоена на</div>
@@ -68,7 +73,7 @@
                         <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
                             <i class="fas fa-book-open"></i> Теория
                         </a>
-                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к практике">
+                        <a class="list_item_button" href="{{ route('tasks', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к практике">
                             <i class="fas fa-pen"></i> Практика
                         </a>
                     </div>
@@ -89,9 +94,12 @@
         progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
 
         // Сложность
+        const level_item = document.getElementById("level_db");        
         const scale = item.querySelector('.difficulty_scale');
-        const level = ['easy', 'medium', 'hard'][Math.floor(Math.random() * 3)];
+        const level = ['easy', 'medium', 'hard'][parseInt(level_item.value)];
+        //const level = ['easy', 'medium', 'hard'][Math.floor(Math.random() * 3)];
         const ovals = scale.querySelectorAll('.difficulty_oval');
+        
 
         if (level === 'easy') {
             ovals[0].classList.add('green');

@@ -26,13 +26,13 @@
                 <h1 class="logo_text round_text">STUDY HAVEN</h1>
                 <header class="header bor">
                         @if (Auth::guard('student')->check() || Auth::guard('teacher')->check())
-                            <a href="{{ route('logout') }}" class="icon_button" title="Выйти">
+                            <!-- <a href="{{ route('logout') }}" class="icon_button" title="Выйти">
                                 <i class="fas fa-sign-out-alt"></i>
-                            </a>
-                            <!-- <form method="POST" action="{{ route('logout') }}">
+                            </a> -->
+                            <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <input type="submit">
-                            </form> -->
+                            </form>
                         @endif
                 </header>
             </div>
