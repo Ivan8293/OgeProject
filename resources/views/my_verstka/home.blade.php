@@ -111,7 +111,7 @@
                         <i class="fa fa-sitemap" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
-                            Траекторияяя
+                            Траектория
                         </div>
             </div>
         </a>
@@ -130,7 +130,7 @@
                         <i class="fa fa-line-chart" aria-hidden="true"></i>
                         </div>
                         <div class="button_text_container bor">
-                            Статистикааа
+                            Статистика
                         </div>
             </div>
         </a>
@@ -179,7 +179,7 @@
 
                     </div>
                     <div class="button_text_container bor">
-                        Бенк заданий
+                        Банк заданий
                     </div>
         </div>
     </a>
