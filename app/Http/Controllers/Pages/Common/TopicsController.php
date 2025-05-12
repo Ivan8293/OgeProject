@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\TopicController;
 use Illuminate\Http\Request;
 use App\Models\Topic;
+use App\Models\TaskOge;
 
 
 class TopicsController extends Controller
@@ -20,8 +21,7 @@ class TopicsController extends Controller
      */
     public function index($page=null)
     {
-        //TODO: потом сделать вывод только с полем "Учебная тема"
-        $topics = Topic::all();
+        $topics = Topic::with('taskOge')->where('type', 'Учебная тема')->get();
 
         if ($page && $topics)
         {
