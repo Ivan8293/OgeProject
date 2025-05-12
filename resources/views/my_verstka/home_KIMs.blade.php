@@ -39,7 +39,7 @@
                     
                     <div class="text_col text_main">
                         <p>{{ $kim->name }}</p>  
-                        <span>{{ $kim->name }}</span>
+                        <span>{{ $kim->description }}</span>
                     </div>
                     <div class="text_col text_progress">
                         <div class="progress_text">Набрано 10/31 баллов</div>
