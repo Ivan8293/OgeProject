@@ -44,22 +44,24 @@
 
         @isset($topics)
             @foreach ($topics as $topic)
-                <div class="list_item">
+                <div class="list_item" data-difficulty="{{ $topic->difficult_level }}">
                 <div class="list_item_text">
                     
                     <div class="text_col text_main">
-                        <input id="level_db" type="hidden" name="level_from_db" value="{{ $topic->difficult_level -1 }}">
                         <div class="difficulty_scale">
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                         </div>
                         <p>{{ $topic->name }}</p>  
-                        @if ($topic->taskOge->id <= 7)
-                            <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
-                        @else
-                            <span>Встречается в {{ $topic->taskOge->task_number }} задание на ОГЭ</span>
+                        @if ($topic->taskOge)
+                            @if ($topic->taskOge->id <= 7)
+                                <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
+                            @else
+                                <span>Встречается в {{ $topic->taskOge->task_number }} задание на ОГЭ</span>
+                            @endif
                         @endif
+
                     </div>
                     <div class="text_col text_progress">
                         <div class="progress_text">Тема освоена на</div>
@@ -94,19 +96,15 @@
         progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
 
         // Сложность
-        const level_item = document.getElementById("level_db");        
-        const scale = item.querySelector('.difficulty_scale');
-        const level = ['easy', 'medium', 'hard'][parseInt(level_item.value)];
-        //const level = ['easy', 'medium', 'hard'][Math.floor(Math.random() * 3)];
-        const ovals = scale.querySelectorAll('.difficulty_oval');
-        
+        const difficulty = parseInt(item.getAttribute('data-difficulty'));
+        const ovals = item.querySelectorAll('.difficulty_oval');
 
-        if (level === 'easy') {
+        if (difficulty === 1) {
             ovals[0].classList.add('green');
-        } else if (level === 'medium') {
+        } else if (difficulty === 2) {
             ovals[0].classList.add('orange');
             ovals[1].classList.add('orange');
-        } else {
+        } else if (difficulty === 3) {
             ovals.forEach(o => o.classList.add('red'));
         }
     });

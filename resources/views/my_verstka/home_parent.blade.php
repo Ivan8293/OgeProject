@@ -24,17 +24,17 @@
         <nav class="nav_bar" id="sideMenu">
             <div class="logo_wrapper">
                 <h1 class="logo_text round_text">STUDY HAVEN</h1>
-                <header class="header bor">
-                        @if (Auth::guard('student')->check() || Auth::guard('teacher')->check())
-                            <!-- <a href="{{ route('logout') }}" class="icon_button" title="Выйти">
-                                <i class="fas fa-sign-out-alt"></i>
-                            </a> -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <input type="submit">
-                            </form>
-                        @endif
+                <header class="header bor"> 
+                    @if (Auth::guard('student')->check() || Auth::guard('teacher')->check())
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="icon_buton" title="Выйти">
+                                <i class="fas fa-right-from-bracket"></i>
+                            </button>
+                        </form>
+                    @endif
                 </header>
+
             </div>
 
             <div class="login_wrapper">
