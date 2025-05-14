@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Pages\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Topic;
+use App\Models\TopicTask;
+use App\Models\Task;
 
 class KIMsController extends Controller
 {
@@ -35,11 +37,14 @@ class KIMsController extends Controller
     {
         if ($topic_id)
         {
-            return view('my_verstka.topic');
+            $task_id_arr = TopicTask::where("id_topic", $topic_id)->pluck("id_task");
+            $tasks = Task::whereIn("task_id", $task_id_arr)->get();
+
+            return view('my_verstka.kim', [$page="KIM", "tasks" => $tasks]);
         }
         else
         {
-            return view('my_verstka.topic');
+            return view('my_verstka.kim');
         }
 
     }

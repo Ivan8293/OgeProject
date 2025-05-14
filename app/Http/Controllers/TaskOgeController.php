@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TaskOge;
+use App\Models\Task;
 
 class TaskOgeController extends Controller
 {
@@ -15,5 +16,18 @@ class TaskOgeController extends Controller
 
         return view("my_verstka.home_tasks_bank", ["page" => $page, "tasksOge" => $tasksOge]);
     
+    }
+
+    public function create($number=null, $page="tasks_bank")
+    {
+        if ($number)
+        {
+            $tasks = Task::where("task_oge_id", $number)->get();
+            return view("my_verstka.task_bank", ["page" => $page, "tasks" => $tasks]);
+        }
+        else
+        {
+            return view("my_verstka.task_bank", ["page" => $page]);
+        }        
     }
 }

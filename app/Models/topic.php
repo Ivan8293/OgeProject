@@ -15,4 +15,9 @@ class topic extends Model
     {
         return $this->belongsTo(TaskOge::class, 'id_task_oge', 'id');
     }
+    // В Topic
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class, 'topic_task', 'id_topic', 'id_task');
+    }
 }
