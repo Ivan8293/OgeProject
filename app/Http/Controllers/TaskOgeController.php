@@ -18,13 +18,14 @@ class TaskOgeController extends Controller
     
     }
 
-    public function create($number=null, $page="tasks_bank")
+    public function create($task_oge_id=null, $page="tasks_bank")
     {
-        if ($number)
+        if ($task_oge_id)
         {
-            $tasks = Task::where("task_oge_id", $number)->get();
+            $tasks = Task::where("task_oge_id", $task_oge_id)->get();
 
-            $tasksOge = TaskOge::where("id", $number)->first();
+            $tasksOge = TaskOge::where("id", $task_oge_id)->first();
+            
             return view("my_verstka.task_bank", ["page" => $page, "tasks" => $tasks, "taskoge" => $tasksOge]);
         }
         else

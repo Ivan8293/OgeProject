@@ -130,7 +130,7 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 
 // TODO: не реализовано
 Route::get('/home/tasksBank/{page?}', [TaskOgeController::class, 'index'])->name('tasks_bank');
-Route::get('/home/taskBank/{number?}', [TaskOgeController::class, 'create'])->name('open_task_bank');
+Route::get('/home/taskBank/{task_oge_id?}', [TaskOgeController::class, 'create'])->name('open_task_bank');
 
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
 Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
