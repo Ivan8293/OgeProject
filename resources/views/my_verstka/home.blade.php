@@ -88,7 +88,7 @@
                 <div class="button_container bor">
             @endisset
                         <div class="button_icon_container bor">
-                        <i class="fa fa-leanpub" aria-hidden="true"></i>
+                        <i class="fas fa-pen"></i>
                         </div>
                         <div class="button_text_container bor">
                             Домашние задания

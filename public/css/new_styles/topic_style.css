@@ -10,16 +10,16 @@ body {
     background-color: #fefefe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 24px 32px;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 40px;
 }
 .header_left_top h2 {
-    padding-left: 58px;
+    padding-left: 55px;
     max-width: 84%;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 600;
     color: #1e1e2f;
     margin-bottom: 12px;
