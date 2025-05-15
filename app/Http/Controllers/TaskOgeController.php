@@ -23,7 +23,7 @@ class TaskOgeController extends Controller
         if ($number)
         {
             $tasks = Task::where("task_oge_id", $number)->get();
-            $number++;
+
             $tasksOge = TaskOge::where("id", $number)->first();
             return view("my_verstka.task_bank", ["page" => $page, "tasks" => $tasks, "taskoge" => $tasksOge]);
         }

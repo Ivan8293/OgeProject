@@ -55,7 +55,7 @@
                     $image = 'image4.png'; // по кругу или повтор последнего
                 }
             @endphp
-            <a href="{{ route('open_task_bank', ['number' => $taskOge->id - 1]) }}" class="task-card">
+            <a href="{{ route('open_task_bank', ['number' => $taskOge->id ]) }}" class="task-card">
                 <div class="task-image">
                     <img src="{{ asset('image/' . $image) }}" alt="Task image">
                 </div>

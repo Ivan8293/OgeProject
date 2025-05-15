@@ -40,6 +40,22 @@ class KIMsController extends Controller
             $task_id_arr = TopicTask::where("id_topic", $topic_id)->pluck("id_task");
             $tasks = Task::whereIn("task_id", $task_id_arr)->get();
 
+            //отсортируем данные
+            //$tasks = $tasks->sortBy('task_oge_id')->values();
+            $tasks = $tasks->sort(function ($a, $b) {
+                // Если $a->task_oge_id null, то $a идет раньше
+                if (is_null($a->task_oge_id) && !is_null($b->task_oge_id)) {
+                    return -1;
+                }
+                // Если $b->task_oge_id null, то $b идет раньше
+                if (!is_null($a->task_oge_id) && is_null($b->task_oge_id)) {
+                    return 1;
+                }
+                // Если оба null или оба не null - сортируем по возрастанию
+                return $a->task_oge_id <=> $b->task_oge_id;
+            })->values();
+
+
             return view('my_verstka.kim', [$page="KIM", "tasks" => $tasks]);
         }
         else
