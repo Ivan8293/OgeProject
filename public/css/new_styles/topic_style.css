@@ -18,6 +18,7 @@ body {
 }
 .header_left_top h2 {
     padding-left: 58px;
+    max-width: 84%;
     font-size: 38px;
     font-weight: 600;
     color: #1e1e2f;
@@ -28,7 +29,7 @@ body {
     font-size: 18px;
     color: #3e3e5e;
     line-height: 1.6;
-    max-width: 95%;
+    max-width: 100%;
 }
 
 .main_wrapper {
