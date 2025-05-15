@@ -7,6 +7,28 @@
 
 
 @section("main_content")
+<body>
+    <header class="topic_header ">
+            <div class="header_left ">
+                <div class="header_left_top ">
+                    <h2 class="second_h">
+                        {{ $kims->name }}
+                    </h2>
+                </div>
+                <div class="header_left_bottom ">
+                    {{ $kims->description }}
+                </div>
+            </div>
+            <div class="header_right ">
+                <!-- <a id="add_class_button" href="">
+                    <div class="add_button" >
+                        <div class="add_button_text"><span class="krest">&times;</span> ЗАКРЫТЬ ТЕСТ</div>                    
+                    </div>
+                </a> -->
+            </div>
+    </header>
+    <main>
+    <div class="main_wrapper">
     <form>
         @php
             $i = 1
@@ -14,15 +36,18 @@
 
         @foreach($tasks as $task)  
 
-            <p>Номер {{ $i }}.</p>
+            <p>Задание {{ $i }}</p>
             <img src="{{ $task->text }}" alt=""><br>
             <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
-            <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ: "><br>  
+            <input type="text" class="answer_input" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ: "><br>  
             @php    
                 $i++; 
             @endphp       
 
         @endforeach
-        <input type="button" name="submit_answer" value="Завершить">
+        <input type="button" class="answer_button" name="submit_answer" value="Завершить">
     </form>
+    </div>
+</main>
+</body>
 @endsection
