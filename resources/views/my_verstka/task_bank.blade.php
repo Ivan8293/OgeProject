@@ -7,6 +7,7 @@
 
 
 @section("main_content")
+<body>
     <header class="topic_header ">
             <div class="header_left ">
                 <div class="header_left_top ">
@@ -26,23 +27,30 @@
                 </a> -->
             </div>
     </header>
-    <form>
-        @php
-            $i = 1
-        @endphp
+    <main>
+        <div class="main_wrapper">
+            <form>
+                @php
+                    $i = 1
+                @endphp
 
-        @foreach($tasks as $task)  
+                @foreach($tasks as $task)  
 
-            <p>Номер {{ $i }}.</p>
-            <img src="{{ $task->text }}" alt=""><br>
-            <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
-            <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ: "><br> 
-            <input type="button" name="submit_answer" value="Ответить"> 
-            @php    
-                $i++; 
-            @endphp       
+                    <p>Задание {{ $i }}</p>
+                    <img src="{{ $task->text }}" alt=""><br>
+                    <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
+                    <div class="answer-row">
+                        <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ... ">
+                        <input type="button" name="submit_answer" value="Ответить"> 
+                    </div>
+                    @php    
+                        $i++; 
+                    @endphp       
 
-        @endforeach
-        
-    </form>
+                @endforeach
+                
+            </form>
+        </div>
+</main>
+</body>
 @endsection
