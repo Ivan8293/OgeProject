@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Homework;
+use Illuminate\Support\Facades\Auth;
 
 class HomeworkController extends Controller
 {
@@ -12,10 +13,10 @@ class HomeworkController extends Controller
      */
     public function index($page=null, $from_teacher=null)
     {
-        $userId = auth()->id();
-
-        $homeworks = Homework::where("id_teacher", $userId)->get();
-        return view('my_verstka.home_homeworks', ['page' => $page, "from_teacher" => $from_teacher]);   
+        $teacherId = Auth::guard('teacher')->id();
+        
+        $homeworks = Homework::where("id_teacher", $teacherId)->get();
+        return view('my_verstka.home_homeworks', ['page' => $page, "from_teacher" => $from_teacher, "homeworks" => $homeworks]);   
     }
 
     // Отображение формы создания поста
