@@ -45,7 +45,7 @@
                     <div class="list_item_text">
                     <div class="text_col text_main">
                         <p class="class_name">{{ $class->name }}</p> 
-                        <span class="students_count">Количество учеников: <strong>15</strong></span> 
+                        <span class="students_count">Количество учеников: <strong>{{ $class->student_count }}</strong></span> 
                         <span class="students_count">Средний балл учеников за пробник: <strong>11</strong></span> 
                     </div> 
                     <div class="last_viewed">
@@ -57,9 +57,10 @@
                     </div>                     
                     </div>
                     <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Перейти к информации о классе">
+                    <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
                         <i class="fas fa-book-open"></i> Открыть
-                        </a>
+                    </a>
+
                     </div>
                     <div class="list_item_button_wrapper">
                         <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Редактировать информацию о классе">
