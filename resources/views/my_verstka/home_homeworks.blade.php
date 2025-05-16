@@ -50,7 +50,23 @@
                 <option>Частоте на экзамене</option>
             </select>
         </div> -->
-
+        <div class="filters_container">
+        <input type="text" placeholder="Поиск дз..." class="search_input_large">
+        <button class="search_button_large"> <i class="fas fa-search"></i>   Найти</button>
+            <select class="filter_select_large">
+                <option>Все темы ОГЭ</option>
+                <option>Текстовые задачи</option>
+                <option>Числа и вычисления</option>
+                <option>Алгебраические выражения, уравнения, неравенства</option>
+                <option>Функции</option>
+                <option>Геометрия</option>
+            </select>
+            <select class="filter_select_large">
+                <option>Сортировать по</option>
+                <option>Уровню сложности</option>
+                <option>Дате создания</option>
+            </select>
+        </div> 
         @isset($homeworks)
             @foreach ($homeworks as $homework)
                 <div class="list_item" data-difficulty="{{ $homework->level }}">
