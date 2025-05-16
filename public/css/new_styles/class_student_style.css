@@ -31,8 +31,8 @@
 }
 
 .styled-table thead th {
-    background-color: rgba(49, 35, 84, 0.3); /* светлый вариант #312354 */
-    color: #1e1e2f;
+    background-color: rgb(240,238,243); 
+    border: 1px solid #ddd;
     position: relative;
     white-space: nowrap;
 }
@@ -137,3 +137,29 @@
     box-shadow: 0 6px 12px rgba(245, 167, 108, 0.4);
     transform: scale(1.05);
 }
+td.mark-n {
+    background-color: rgb(244, 204, 204, 0.5);
+    color: #a33;
+    text-align: center;
+}
+
+td.mark-lowest {
+    background-color: rgb(249, 224, 204, 0.5);
+    text-align: center;
+}
+
+td.mark-low {
+    background-color: rgb(253, 238, 204, 0.5);
+    text-align: center;
+}
+
+td.mark-medium {
+    background-color: rgb(235, 238, 204, 0.5);
+    text-align: center;
+}
+
+td.mark-high {
+    background-color: rgb(195, 228, 204, 0.5);
+    text-align: center;
+}
+
