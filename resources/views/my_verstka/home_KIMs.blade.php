@@ -42,7 +42,19 @@
                         <span>{{ $kim->description }}</span>
                     </div>
                     <div class="text_col text_progress">
-                        <div class="progress_text">Набрано 10/31 баллов</div>
+                    @php
+                        $max = 31;
+                        $randomScore = rand(0, $max);
+                        $showIncomplete = rand(0, 1); // 50% шанс
+                    @endphp
+
+                    <div class="progress_text">
+                        @if($showIncomplete)
+                            <span style="color:rgb(255, 255, 255); font-weight: bold;">Не выполнено</span>
+                        @else
+                            Набрано {{ $randomScore }}/{{ $max }} баллов
+                        @endif
+                    </div>
                 </div>
                     </div>
                     <div class="list_item_button_wrapper">

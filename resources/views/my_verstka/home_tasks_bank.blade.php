@@ -41,24 +41,14 @@
         @php $i = 0; @endphp
         @foreach($tasksOge as $taskOge)
             @php
-                $progress = rand(0, 100);
-                $i++;
-                if ($i <= 7) {
-                    $image = 'image4.png';
-                } elseif ($i <= 16) {
-                    $image = 'image2.png';
-                } elseif ($i <= 21) {
-                    $image = 'image3.png';
-                } elseif ($i <= 27) {
-                    $image = 'image1.png';
-                } else {
-                    $image = 'image4.png'; // по кругу или повтор последнего
-                }
-            @endphp
-            <a href="{{ route('open_task_bank', ['task_oge_id' => $taskOge->id ]) }}" class="task-card">
-                <div class="task-image">
-                    <img src="{{ asset('image/' . $image) }}" alt="Task image">
-                </div>
+            $images = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
+            $image = $images[array_rand($images)];
+        @endphp
+
+        <a href="{{ route('open_task_bank', ['task_oge_id' => $taskOge->id ]) }}" class="task-card">
+            <div class="task-image">
+                <img src="{{ asset('image/' . $image) }}" alt="Task image">
+            </div>
                 <div class="text_col text_progress">
                         <div class="progress_bar_wrapper">
                             <div class="progress_bar_fill"></div>
