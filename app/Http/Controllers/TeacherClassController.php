@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\teacherClass;
 use App\Models\ClassGroup;
 use App\Models\StudentClass;
+use App\Models\ClassHomework;
 
 class TeacherClassController extends Controller
 {
@@ -88,9 +89,24 @@ class TeacherClassController extends Controller
      * Display the specified resource.
      */
     // Отображение конкретного поста
-    public function show($id)
+    public function showStudents($id)
     {
-        
+        // Получаем название класса
+        $class = ClassGroup::find($id);
+
+        // Получаем учеников класса
+        $students = StudentClass::
+            join('students', 'student_class.student_id', '=', 'students.id')
+            ->where('student_class.class_id', $id)
+            ->select('students.id', 'students.name', 'students.email', 'student_class.display_name')
+            ->get();
+        $homeworks = ClassHomework::where('id_class', $id)->get();
+
+        return view('my_verstka.class_student', [
+            'students' => $students,
+            'class' => $class,
+            'homeworks' => $homeworks,
+        ]);
     }
 
     /**

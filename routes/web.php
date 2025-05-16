@@ -92,7 +92,7 @@ Route::get('/home', [TopicsController::class, 'index'])->name("unregister_user")
 Route::get('/home/teacher/{page?}', [TeacherClassController::class, 'index'])->name('teacher');
 Route::get('/home/student', [TrajectoryController::class, 'index'])->name("student");
 
-
+Route::get('/home/teacher/class/{id}/students', [TeacherClassController::class, 'showStudents'])->name('class.students');
 
 Route::get('/home/teacher/add_class', [TeacherClassController::class, 'create'])->name('add_class');
 Route::post('/home/teacher/store_class', [TeacherClassController::class, 'store'])->name('store_class');

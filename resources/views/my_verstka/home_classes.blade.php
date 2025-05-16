@@ -57,9 +57,10 @@
                     </div>                     
                     </div>
                     <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Перейти к информации о классе">
+                    <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
                         <i class="fas fa-book-open"></i> Открыть
-                        </a>
+                    </a>
+
                     </div>
                     <div class="list_item_button_wrapper">
                         <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Редактировать информацию о классе">
