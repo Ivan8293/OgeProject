@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\teacherClass;
 use App\Models\ClassGroup;
+use App\Models\StudentClass;
 
 class TeacherClassController extends Controller
 {
@@ -16,27 +17,38 @@ class TeacherClassController extends Controller
     {
         $teacher = Auth::guard('teacher')->user();
 
-        if($teacher)
+        if ($teacher) 
         {
             $classes_tmp = teacherClass::where('id_teacher', $teacher->id)->get();
             
             $classes_id = [];
-            foreach($classes_tmp as $teacherClass )
-            {                
-                array_push($classes_id, $teacherClass->teacher_class_id);
-            }            
+            foreach ($classes_tmp as $teacherClass) {                
+                $classes_id[] = $teacherClass->teacher_class_id;
+            }
 
             $classes = ClassGroup::whereIn('class_id', $classes_id)->get();
 
-            if ($page)
-                return view('my_verstka.home_classes', ['classes' => $classes, 'page' => $page]);
-            else
-                return view('my_verstka.home_classes', ['classes' => $classes, 'page' => 'classes']);
+            // Добавим количество учеников для каждого класса
+            foreach ($classes as $class) {
+                $studentCount = StudentClass::where('class_id', $class->class_id)
+                                ->count();
+
+                // Добавим новое свойство к модели
+                $class->student_count = $studentCount;
+            }
+
+            $data = [
+                'classes' => $classes,
+                'page' => $page ?? 'classes'
+            ];
+
+            return view('my_verstka.home_classes', $data);
         }
         else
         {
             return view('my_verstka.home_classes');
-        }        
+        }
+    
     }
 
     // Отображение формы создания поста

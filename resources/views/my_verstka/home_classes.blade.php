@@ -45,7 +45,7 @@
                     <div class="list_item_text">
                     <div class="text_col text_main">
                         <p class="class_name">{{ $class->name }}</p> 
-                        <span class="students_count">Количество учеников: <strong>15</strong></span> 
+                        <span class="students_count">Количество учеников: <strong>{{ $class->student_count }}</strong></span> 
                         <span class="students_count">Средний балл учеников за пробник: <strong>11</strong></span> 
                     </div> 
                     <div class="last_viewed">
