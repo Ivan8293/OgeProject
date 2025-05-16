@@ -39,6 +39,7 @@ class KIMsController extends Controller
         {
             $task_id_arr = TopicTask::where("id_topic", $topic_id)->pluck("id_task");
             $tasks = Task::whereIn("task_id", $task_id_arr)->get();
+            $kims = Topic::where("topic_id", $topic_id)->first();
 
             //отсортируем данные
             //$tasks = $tasks->sortBy('task_oge_id')->values();
@@ -56,7 +57,7 @@ class KIMsController extends Controller
             })->values();
 
 
-            return view('my_verstka.kim', [$page="KIM", "tasks" => $tasks]);
+            return view('my_verstka.kim', [$page="KIM", "tasks" => $tasks, "kims"=> $kims]);
         }
         else
         {

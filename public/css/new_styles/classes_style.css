@@ -1,121 +1,114 @@
-/* Заголовок */
-.main_h, .second_h{
+/* Главный заголовок и кнопка */
+.main_h {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -40px;
+    margin-bottom: 33px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.second_h {
     font-size: 38px;
     font-weight: 600;
     color: #1e1e2f;
     padding-bottom: 6px;
-}
-.second_h {
-    border-bottom: 1px solid rgb(199, 199, 199);
-}
-.main_h {
-    margin-top: -40px;
-    margin-bottom: 33px;
+    margin: 0;
 }
 
-/* Список тем */
+.add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00cba9, #3ddc84);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
+    text-decoration: none;
+}
+
+.add_button:hover {
+    background: linear-gradient(135deg, #3ddc84, #00cba9);
+}
+
+/* Список карточек */
 .list_of_items {
     display: flex;
     flex-direction: column;
     gap: 27px;
 }
+
 .list_item {
+    position: relative;
     background-color: #ffffff;
     border-radius: 16px;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1); /* немного сильнее тень */
+    align-items: flex-start;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .list_item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
+
 .list_item_text {
     display: flex;
     gap: 20px;
     width: 75%;
 }
-.text_col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.text_progress {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: -15px;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: right;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: #312354;
-}
-.progress_text {
-    font-size: 1.2rem;
-    color: #312354;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
-.progress_bar_wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 170px;
-    height: 20px;
-    background-color: #e6e6f0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress_bar_fill {
-    height: 100%;
-    background-color: #b867ca; /* фиолетовый акцент */
-    border-radius: 10px 0 0 10px;
-}
-
-.progress_bar_label {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    color: rgb(91, 91, 91);
-    line-height: 20px;
-    font-weight: bold;
-}
-
-.text_main p {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #312354;
-    margin-bottom: 8px;
-}
-
-.text_main span {
-    font-size: 1rem;
-    color: #666;
-}
-
+/* Левая часть карточки */
 .text_main {
     flex: 3;
 }
 
-.list_item_text p {
-    font-size: 26px;
-    color: #1e1e2f;
+.text_main .class_name {
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    color: #312354;
+    margin-bottom: 4px;
 }
+
+.text_main .students_count {
+    font-size: 1rem;
+    color: #666;
+    padding-top: 5px;
+    display: block;
+}
+
+/* Последний просмотр — справа вверху */
+.last_viewed {
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+    z-index: 2; /* Поверх кнопок */
+    background-color: white; /* чтобы перекрытие не просвечивало */
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Кнопки справа */
 .list_item_button_wrapper {
     display: flex;
     gap: 12px;
     align-items: center;
+    margin-top: 24px;
 }
+
 .list_item_button {
     background-color: transparent;
     color: #312354;
@@ -132,13 +125,16 @@
     text-decoration: none;
     position: relative;
 }
+
 .list_item_button:hover {
     background-color: #312354;
     color: white;
 }
+
 .list_item_button i {
     font-size: 18px;
 }
+
 /* Подсказка при наведении */
 .list_item_button::after {
     content: attr(data-tooltip);
@@ -162,7 +158,8 @@
     opacity: 1;
 }
 
-/* Поиск, фильтр, сортировка */
+
+/*Фильтр*/
 .filters_container {
     display: flex;
     flex-wrap: wrap;
@@ -212,7 +209,7 @@
     border-radius: 10px;
     background-color: white;
     min-width: 140px; 
-    max-width: 176px;
+    max-width: 181px;
     flex-shrink: 0;
     transition: border-color 0.3s;
 }
@@ -223,24 +220,16 @@
 .filter_select_large:focus {
     border-color: #5c4dff;
 }
-.difficulty_scale {
+.class_stats {
+    margin-top: 32px;
+    flex: 2;
     display: flex;
+    flex-direction: column;
     gap: 6px;
-    margin-top: 6px;
-    margin-bottom: 10px;
-}
-.difficulty_oval {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ccc;
-}
-.difficulty_oval.green {
-    background-color: #38c172;
-}
-.difficulty_oval.orange {
-    background-color: #f6993f;
-}
-.difficulty_oval.red {
-    background-color: #e3342f;
-}
+    font-size: 1rem;
+    color: #666;
+  }
+  .class_stats p {
+    margin: 0;
+  }
+  
