@@ -9,10 +9,12 @@ class task extends Model
 {
     use HasFactory;
     protected $table = 'tasks';
+    protected $primaryKey = 'task_id';
 
     // В Task
     public function topics()
     {
         return $this->belongsToMany(Topic::class, 'topic_task', 'id_task', 'id_topic');
     }
+
 }
