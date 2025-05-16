@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Result;
+use App\Models\TopicTask;
+use App\Models\Topic;
 
 class StatisticsController extends Controller
 {    
@@ -32,7 +34,24 @@ class StatisticsController extends Controller
         ->whereYear('active_date', now()->year)
         ->sum('active_time');
 
-        $results = Result::where("id_student", $userId)->get();        
+        
+        $results = Result::where("id_student", $userId)->get();  
+
+        $topics = Topic::with('tasks')->get();
+        $tasksByTopic = $topics->mapWithKeys(function ($topic) {
+            return [$topic->topic_id => $topic->tasks];
+        });
+        
+        $topic_levels = [];
+        foreach ($tasksByTopic as $topicId => $tasks) {
+            
+            foreach ($tasks as $task) {
+                
+            }
+        }
+
+        
+        
 
         if ($page)
             return view('my_verstka.home_statistics', ['page' => $page]);

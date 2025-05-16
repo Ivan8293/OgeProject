@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="/css/new_styles/stat_style.css">
 
     <link rel="stylesheet" href="/css/new_styles/stat_google_chart.css">
+
+    <script>
+        window.dataFromLaravel = @json($data);
+    </script>
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
     <script src="/js/google_charts.js"></script>
