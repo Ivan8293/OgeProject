@@ -10,19 +10,12 @@ class HomeworkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page=null, $from_teacher=null)
     {
-        // $homework = Homework::all();
-        if ($page)
-        {
-            return view('my_verstka.home_homeworks', ['page' => $page]);
-        }
-        else
-        {
-            return view('my_verstka.home_homeworks');
-        }
-        
-        
+        $userId = auth()->id();
+
+        $homeworks = Homework::where("id_teacher", $userId)->get();
+        return view('my_verstka.home_homeworks', ['page' => $page, "from_teacher" => $from_teacher]);   
     }
 
     // Отображение формы создания поста
