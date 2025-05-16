@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/new_styles/stat_google_chart.css">
 
     <script>
-        window.dataFromLaravel = @json($data);
+        window.dataFromLaravel = { weeks_array: @json($weeks_array) };
     </script>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -40,9 +40,11 @@
     </div>
 
     
-    <div id="active_time">        
-        <div id="active_time_week">
-
+    <div id="active_time">
+        <div class="active_time_week_container" style="display: flex; align-items: center;">
+            <div id="prevBtn" style="width: 50px; height: 50px; cursov: pointer; border: 1px solid grey;"> < </div>
+            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+            <div id="nextBtn" style="width: 50px; height: 50px; cursov: pointer; border: 1px solid grey;"> > </div>
         </div>
 
         <div id="avtive_time_month">
@@ -52,6 +54,21 @@
         <div id="active_time_year">
 
         </div>
+    </div>
+
+    <div id="topic_levels">
+        @php $i = 0; @endphp
+        @foreach( $topic_levels as $topic_id => $level )
+
+            @if ($i < 5)
+                <a href="{{ route('open_topic', ['topic_id' => $topic_id]) }}">
+                    <p>{{ $topics->firstWhere('topic_id', $topic_id)->name; }}</p>
+                </a> 
+                <p>- {{ $level }}%</p>
+            @endif
+            
+            @php $i++; @endphp
+        @endforeach
     </div>
 
 
