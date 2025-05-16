@@ -16,7 +16,7 @@
         </div>
     </div>
     
-    <!-- <div class="list_of_items">   
+    <div class="list_of_items">   
         
         @isset($classes)
             @foreach ($classes as $class)
@@ -36,6 +36,6 @@
         @endisset   
 
         
-    </div> -->
+    </div>
 </div>
 @endsection
