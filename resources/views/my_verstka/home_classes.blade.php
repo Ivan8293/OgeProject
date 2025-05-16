@@ -46,14 +46,35 @@
                     <div class="text_col text_main">
                         <p class="class_name">{{ $class->name }}</p> 
                         <span class="students_count">Количество учеников: <strong>{{ $class->student_count }}</strong></span> 
-                        <span class="students_count">Средний балл учеников за пробник: <strong>11</strong></span> 
+                        @php
+                            $averageScore = rand(6, 24);
+                        @endphp
+
+                        <span class="students_count">
+                            Средний балл учеников за пробник: <strong>{{ $averageScore }}</strong>
+                        </span>
                     </div> 
-                    <div class="last_viewed">
-                        Последний просмотр: 
-                    </div>  
+                    @php
+                        $startDate = strtotime('2025-05-05');
+                        $endDate = strtotime('2025-05-17');
+                        $randomTimestamp = rand($startDate, $endDate);
+                        $randomDate = date('d.m.Y', $randomTimestamp);
+                    @endphp
+                    <div class="last_viewed"> 
+                        Последний просмотр: <strong>{{ $randomDate }}</strong>
+                    </div>
                     <div class="class_stats">
-                        <p>Количество непросмотренных дз: <strong>3</strong></p>
-                        <p>Ближайший дедлайн: <strong>20.05.2025</strong></p>
+                        @php
+                            $unseenCount = rand(0, 20);
+                        @endphp
+                        <p>Количество непросмотренных дз: <strong>{{ $unseenCount }}</strong></p>
+                        @php
+                            $startDate = strtotime('2025-05-16');
+                            $endDate = strtotime('2025-05-31');
+                            $randomTimestamp = rand($startDate, $endDate);
+                            $randomDate = date('d.m.Y', $randomTimestamp);
+                        @endphp
+                        <p>Ближайший дедлайн: <strong>{{ $randomDate }}</strong></p>
                     </div>                     
                     </div>
                     <div class="list_item_button_wrapper">
