@@ -21,6 +21,7 @@ use App\Http\Controllers\Pages\Common\TopicsController;
 use App\Http\Controllers\Pages\Student\StatisticsController;
 use App\Http\Controllers\Pages\Common\KIMsController;
 use App\Http\Controllers\TaskOgeController;
+use App\Http\Controllers\HomeworkTaskController;
 use Illuminate\Http\Request;
 
 
@@ -103,6 +104,8 @@ Route::get('/home/teacher/delete_class/{id}', [TeacherClassController::class, 'd
 
 // TODO: не реализовано
 Route::get('/home/teacher/homeworks/{page?}/{from_teacher?}', [HomeworkController::class, 'index'])->name('homeworks');
+Route::get('/home/teacher/homework/{homework_id?}', [HomeworkTaskController::class, 'create'])->name('open_homework_');
+
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
 Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');
 Route::get('/home/teacher/homework/edit_homework/{id}', [HomeworkClassController::class, 'edit'])->name('edit_homework');
@@ -131,6 +134,9 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 // TODO: не реализовано
 Route::get('/home/tasksBank/{page?}', [TaskOgeController::class, 'index'])->name('tasks_bank');
 Route::get('/home/taskBank/{task_oge_id?}', [TaskOgeController::class, 'create'])->name('open_task_bank');
+
+//временный марштур
+Route::get('/tasks_results', [TaskOgeController::class, 'index_results']);
 
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
 Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');

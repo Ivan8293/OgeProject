@@ -33,4 +33,11 @@ class TaskOgeController extends Controller
             return view("my_verstka.task_bank", ["page" => $page]);
         }        
     }
+    
+    public function index_results($page=null)
+    {   
+
+        return view("my_verstka.tasks_result");
+    
+    }
 }

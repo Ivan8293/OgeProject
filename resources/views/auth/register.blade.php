@@ -22,7 +22,7 @@
                     <x-input-error :messages="$errors->get('patronymic')" class="mt-2" />
                 </div>
             @elseif ($url == 'student')
-                регистрируется ученик
+                Регистрация
             @endif
         @endisset
 
