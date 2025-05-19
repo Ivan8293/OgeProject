@@ -10,11 +10,8 @@
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
-            ИНДИВИДУАЛЬНАЯ ТРАЕКТОРИЯ 
+            Индивидуальная траектория
         </h2>
-        <div class="section_name_wrapper">
-            <span class="student_name">НАЗВАНИЕ ПЕРВОГО РАЗДЕЛА</span>
-        </div>
     </div>
     
     <div class="trajectory_wrapper ">                      

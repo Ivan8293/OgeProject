@@ -29,7 +29,7 @@
         </a>
     </div>
     <div class="intro_image">
-        <img src="/static/images/study_illustration.svg" alt="Иллюстрация обучения">
+        <img src="/image/traectory.png" alt="Иллюстрация обучения">
     </div>
 </div>
 @endsection

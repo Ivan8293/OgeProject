@@ -16,7 +16,22 @@
     --block_vertical_shift: 85px;
     --block_vertical_start: 250px;
 }
-
+.main_h, .second_h{
+    font-size: 38px;
+    font-weight: 600;
+    color: #1e1e2f;
+    padding-bottom: 6px;
+}
+.second_h {
+}
+.main_h {
+    margin-top: -40px;
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
 
 .trajectory_wrapper{
     width: 100%;
