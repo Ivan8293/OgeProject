@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/change_name', [UserDataController::class, 'change_name'])->name('change_name');
 });
 
+Route::get('/home/student/statistics/topic', [IndexController::class, 'statistic'])->name('topic');
 //изначальные мои маршруты
 Route::get('/businessCard', [MainPageController::class, 'index'])->name('businessCard');
 Route::get('/topics', [IndexController::class, 'GetTopics'])->name('topics');
