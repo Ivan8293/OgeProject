@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\TopicTask;
+use App\Models\Topic;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
@@ -16,6 +17,7 @@ class TaskController extends Controller
     {
         $tasks_tmp = TopicTask::where('id_topic', $topic_id)->pluck('id_task');
         $tasks = Task::whereIn('task_id', $tasks_tmp)->get();
+        $topic = Topic::where("topic_id", $topic_id)->first();
 
         
         if (Auth::guard("student")->check())
@@ -23,7 +25,7 @@ class TaskController extends Controller
             
         }
 
-        return view('my_verstka.tasks', ['tasks' => $tasks, 'topic_id' => $topic_id]);
+        return view('my_verstka.tasks', ['tasks' => $tasks, 'topic_id' => $topic_id, 'topic' => $topic]);
     }
 
     public function indexBank($page=null)
