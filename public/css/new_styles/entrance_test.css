@@ -3,7 +3,6 @@
     justify-content: space-between;
     align-items: center;
     
-    padding: 0px 40px;
     background-color: #fefefe;
     font-family: 'Segoe UI', sans-serif;
     flex-wrap: wrap;
@@ -15,11 +14,11 @@
 }
 .trajectory_card {
     background: white;
-    margin-top: 30px;
+    margin-top: 10px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
     border-radius: 24px;
-    padding: 30px 35px;
-    width: 860px;
+    padding: 20px 25px;
+    width: 750px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     flex: 2;
 }
@@ -117,4 +116,21 @@
     .start_button {
         justify-content: center;
     }
+}
+
+.main_h, .second_h{
+    font-size: 38px;
+    font-weight: 600;
+    color: #1e1e2f;
+    padding-bottom: 6px;
+}
+.second_h {
+}
+.main_h {
+    margin-top: -20px;
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(199, 199, 199);
 }
