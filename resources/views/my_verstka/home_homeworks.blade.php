@@ -15,7 +15,7 @@
             <form action="{{ route('add_class') }}">
                 <button type="submit" class="add_button">
                 <i class="fas fa-plus"></i>
-                    СОЗДАТЬ КЛАСС
+                    СОЗДАТЬ ДЗ
                 </button>
             </form>
         </div>

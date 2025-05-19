@@ -63,15 +63,18 @@
                         @endif
 
                     </div>
-                    <div class="text_col text_progress">
+                    <!--<div class="text_col text_progress">
                         <div class="progress_text">Тема освоена на</div>
                         <div class="progress_bar_wrapper">
                             <div class="progress_bar_fill"></div>
                             <div class="progress_bar_label"></div>
                         </div>
-                    </div>
+                    </div>-->
                     </div>
                     <div class="list_item_button_wrapper">
+                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
+                            <i class="fas fa-check"></i> Выбрать
+                        </a>
                         <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
                             <i class="fas fa-book-open"></i> Теория
                         </a>
@@ -90,10 +93,10 @@
 <script>
     document.querySelectorAll('.list_item').forEach(item => {
         // Прогресс
-        const progressContainer = item.querySelector('.text_progress');
-        const randomProgress = Math.floor(Math.random() * 101);
-        progressContainer.querySelector('.progress_bar_fill').style.width = randomProgress + '%';
-        progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
+        //const progressContainer = item.querySelector('.text_progress');
+        //const randomProgress = Math.floor(Math.random() * 101);
+        //progressContainer.querySelector('.progress_bar_fill').style.width = randomProgress + '%';
+        //progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
 
         // Сложность
         const difficulty = parseInt(item.getAttribute('data-difficulty'));

@@ -72,15 +72,35 @@
                     @endphp
                     <span class="deadline">
                         @if ($daysDiff < 0)
-                            До дедлайна осталось {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
+                            До дедлайна {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
                         @elseif ($daysDiff === 0)
                             Сегодня дедлайн
                         @else
-                            Дедлайн прошёл {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
+                            Дедлайн был {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
                         @endif
                     </span>
                 </th>
             @endforeach
+            <!--<th>
+                ДЗ №{{ count($homeworks) + 1 }}
+                <span class="sort-buttons">
+                    <button class="sort-button" onclick="sortTable({{ count($homeworks) + 1 }}, 'asc')">&#9650;</button>
+                    <button class="sort-button" onclick="sortTable({{ count($homeworks) + 1 }}, 'desc')">&#9660;</button>
+                </span><br>
+                @php
+                        $daysDiff = \Carbon\Carbon::parse($hw->finish_date)->diffInDays(now(), false);
+                @endphp
+                <span class="deadline">
+                    @if ($daysDiff < 0)
+                            До дедлайна {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
+                        @elseif ($daysDiff === 0)
+                            Сегодня дедлайн
+                        @else
+                            Дедлайн был {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
+                    @endif
+                </span>
+            </th>
+    -->
         </tr>
         <tr>
             @foreach($homeworks as $hw)
@@ -88,6 +108,7 @@
                     Макс. балл: {{ $maxScores[$hw->id_homework] }} <br>
                 </th>
             @endforeach
+            <!--<th>Макс. балл: 0</th>-->
         </tr>
     </thead>
     <tbody>
@@ -120,6 +141,7 @@
                 </td>
 
                 @endforeach
+                <!--<td class="mark-n">н</td>-->
             </tr>
         @endforeach
     </tbody>
