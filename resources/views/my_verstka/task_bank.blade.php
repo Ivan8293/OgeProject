@@ -26,31 +26,47 @@
                     </div>
                 </a> -->
             </div>
+            <div class="test_controls">
+                    <button class="end_button">Продолжить</button>
+                    
+            </div>
     </header>
     <main>
-        <div class="main_wrapper">
-            <form>
+        <div class="main_wrapper"> 
+    <form>
+        @php
+            $i = 1;
+        @endphp
+
+        @foreach($tasks as $task)
+            @if($loop->first)
                 @php
-                    $i = 1
+                    $i++;
+                    continue;
                 @endphp
-
-                @foreach($tasks as $task)  
-
-                    <p>Задание {{ $i }}</p>
+            @endif
+            <div class="task-card">
+                <label class="task-checkbox">
+                    <input type="checkbox" name="selected_tasks[]" value="{{ $task->task_id }}">
+                </label>
+                <div class="task-content">
+                    <p>Задание {{ $i-1 }}</p>
                     <img src="{{ $task->text }}" alt=""><br>
                     <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
-                    <div class="answer-row">
+                    <!--<div class="answer-row">
                         <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ... ">
                         <input type="button" name="submit_answer" value="Ответить"> 
-                    </div>
-                    @php    
-                        $i++; 
-                    @endphp       
+                    </div> -->
+                </div>
+            </div>
+            @php    
+                $i++; 
+            @endphp       
+        @endforeach
+        <button class="end_button">Продолжить</button>
+    </form>
+</div>
 
-                @endforeach
-                
-            </form>
-        </div>
 </main>
 </body>
 @endsection

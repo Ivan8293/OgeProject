@@ -113,10 +113,6 @@ form img {
     box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
 }
 
-.end_button:hover {
-    background-color: #c82333;
-}
-
 .timer_block {
     font-size: 14px;
     text-align: right;

@@ -30,7 +30,7 @@
                     <div class="timer_block">
                         <div>Время на выполнение: <span id="total-time">3 часа 55 минут</span></div>
                         <div class='taimer'>Оставшееся время: <span id="remaining-time">–</span></div>
-                    </div>
+                </div>
             </div>
             </div>
     </header>
