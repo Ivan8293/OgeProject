@@ -9,7 +9,7 @@ body {
     margin-top: -40px;
     margin-left: -90px;
     background-color: #fefefe;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #d6cdcd;
     padding: 24px 32px;
     display: flex;
     justify-content: space-between;
@@ -87,7 +87,7 @@ form img {
 
 .answer-row input[type="text"] {
     flex: 1; /* поле занимает всё доступное пространство */
-    padding: 8px 12px;
+    padding: 10px 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -96,7 +96,7 @@ form img {
 }
 
 .answer-row input[type="button"] {
-    padding: 8px 20px;
+    padding: 20px 20px;
     font-size: 16px;
     font-weight: 600;
     background: linear-gradient(135deg, #00cba9, #3ddc84);
@@ -119,47 +119,6 @@ input[type="text"]:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 2px rgba(37,99,235,0.3);
 }
-.end_button {
-    padding: 8px 20px;
-    font-size: 22px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #00cba9, #3ddc84);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    display: block;
-    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
-}
-.test_controls {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-}
-
-.task-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-}
-
-.task-checkbox {
-    margin-top: 5px;
-}
-
-.task-content img {
-    max-width: 100%;
-    height: auto;
-}
-
 
 
 .info{
@@ -202,10 +161,10 @@ input[type="text"]:focus {
 
 
 .score-block {
-    width: 500px;
-    height: 730px;
+    width: 1000px;
+    height: 600px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 25px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -217,7 +176,7 @@ input[type="text"]:focus {
 .score-block h2 {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     font-family: var(--round-font);
 }
 
@@ -233,8 +192,9 @@ input[type="text"]:focus {
 
 .score-block th,
 .score-block td {
-    padding: 2px 12px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 18px 20px;
+    border-bottom: 1px solid #d6d6d6;
+    font-weight: 600;
 }
 
 .score-block th {
@@ -250,7 +210,7 @@ input[type="text"]:focus {
     text-align: center;
 } */
 .score-block td {
-    text-align: center;
+    text-align: start;
 }
 
 /* .td_center{
@@ -264,6 +224,13 @@ input[type="text"]:focus {
 
 .button-container {
     margin-top: 24px;
+}
+
+.button-container-last {
+
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
 }
 
 .btn {
@@ -323,10 +290,78 @@ input[type="text"]:focus {
     transform: scale(1.05);
 }
 
-.wrong {
+.back{
+    background-color: #f5f5f5
+}
+
+.wrong{
     background-color: #ffdadc;
+    
 }
 
 .right {
     background-color: #c0fabb;
+    
+}
+
+.results_wrapper{
+    display: flex;
+    width: 150%;
+    margin-left: -25%;
+    /* border: 1px solid red; */
+}
+
+.score-block-left {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    text-align: center;
+
+}
+
+.score-block-left h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-family: var(--round-font);
+}
+
+.score-block-left table {
+
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: var(--round-font);
+}
+
+.score-block-left th{
+    padding: 12px 20px;
+    border-bottom: 1px solid #d6d6d6;
+    font-weight: 600;
+}
+.score-block-left td {
+    padding: 1px 20px;
+    border-bottom: 1px solid #d6d6d6;
+    font-weight: 600;
+}
+
+.score-block-left th {
+    text-align: center;
+    font-weight: 600;
+    
+}
+
+
+/* .td_center{
+    text-align: center;
+} */
+.score-block-left td {
+    text-align: start;
 }

@@ -119,47 +119,6 @@ input[type="text"]:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 2px rgba(37,99,235,0.3);
 }
-.end_button {
-    padding: 8px 20px;
-    font-size: 22px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #00cba9, #3ddc84);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    display: block;
-    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
-}
-.test_controls {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-}
-
-.task-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-}
-
-.task-checkbox {
-    margin-top: 5px;
-}
-
-.task-content img {
-    max-width: 100%;
-    height: auto;
-}
-
 
 
 .info{
@@ -203,9 +162,9 @@ input[type="text"]:focus {
 
 .score-block {
     width: 500px;
-    height: 730px;
+    height: 780px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: -15px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -233,7 +192,7 @@ input[type="text"]:focus {
 
 .score-block th,
 .score-block td {
-    padding: 2px 12px;
+    padding: 1px 12px;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -329,4 +288,16 @@ input[type="text"]:focus {
 
 .right {
     background-color: #c0fabb;
+}
+
+.empty{
+    background-color: white;
+}
+
+
+
+.text_result{
+    margin-top: 20px;
+    font-weight: 600;
+
 }
