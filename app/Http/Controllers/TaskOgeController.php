@@ -40,4 +40,11 @@ class TaskOgeController extends Controller
         return view("my_verstka.tasks_result");
     
     }
+    
+    // public function index_tasks_entrance($page=null)
+    // {   
+
+    //     return view("my_verstka.tasks_entrance");
+    
+    // }
 }

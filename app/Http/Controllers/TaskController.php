@@ -37,6 +37,17 @@ class TaskController extends Controller
             return view('my_verstka.home_tasks_bank');
     }
 
+    public function indexEnturanceTasks($page=null)
+    {
+        
+        $topic = Topic::where('type', 'Входная диагностика')->first();
+        $tasks_tmp = TopicTask::where('id_topic', $topic->topic_id)->pluck('id_task');
+        $tasks = Task::whereIn('task_id', $tasks_tmp)->get();
+
+        return view('my_verstka.tasks_entrance', ['tasks' => $tasks, 'topic_id' => $topic->topic_id, 'topic' => $topic]);
+        
+    }
+
     // Отображение формы создания поста
     public function create()
     {

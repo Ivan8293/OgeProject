@@ -137,6 +137,8 @@ Route::get('/home/taskBank/{task_oge_id?}', [TaskOgeController::class, 'create']
 
 //временный марштур
 Route::get('/tasks_results', [TaskOgeController::class, 'index_results']);
+Route::get('/tasks_entrance', [TaskController::class, 'indexEnturanceTasks']);
+
 
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
 Route::post('/home/teacher/homework/store_homework', [HomeworkClassController::class, 'store'])->name('store_homework');

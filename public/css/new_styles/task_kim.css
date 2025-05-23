@@ -162,9 +162,9 @@ input[type="text"]:focus {
 
 .score-block {
     width: 500px;
-    height: 730px;
+    height: 780px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: -15px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -192,7 +192,7 @@ input[type="text"]:focus {
 
 .score-block th,
 .score-block td {
-    padding: 2px 12px;
+    padding: 1px 12px;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -288,4 +288,16 @@ input[type="text"]:focus {
 
 .right {
     background-color: #c0fabb;
+}
+
+.empty{
+    background-color: white;
+}
+
+
+
+.text_result{
+    margin-top: 20px;
+    font-weight: 600;
+
 }
