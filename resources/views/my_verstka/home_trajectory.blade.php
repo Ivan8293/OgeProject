@@ -16,10 +16,11 @@
     
     <div class="trajectory_wrapper ">                      
         
-    
-        <div id="block_1" class="topic_block topic_block_done">
-            Обыкновенные дроби. Арифметические действия над ними
-        </div>
+        <a href="{{ route('section', ['page' => 'trajectory', 'section_id' => 2]) }}">
+            <div id="block_1" class="topic_block topic_block_done">
+                Обыкновенные дроби. Арифметические действия над ними
+            </div>
+        </a>
         <div id="block_2" class="topic_block topic_block_done">
             Десятичные дроби. Арифметические действия над ними
         </div>

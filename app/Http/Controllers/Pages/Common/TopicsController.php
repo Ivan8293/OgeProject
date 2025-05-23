@@ -37,6 +37,8 @@ class TopicsController extends Controller
         }
     }
 
+    
+
 
     // Отображение формы создания поста
     public function create()

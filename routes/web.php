@@ -22,6 +22,7 @@ use App\Http\Controllers\Pages\Student\StatisticsController;
 use App\Http\Controllers\Pages\Common\KIMsController;
 use App\Http\Controllers\TaskOgeController;
 use App\Http\Controllers\HomeworkTaskController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Http\Request;
 
 
@@ -152,6 +153,7 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 
 // TODO: не реализовано
 Route::get('/home/student/trajectory/{page?}', [TrajectoryController::class, 'index'])->name('trajectory');
+Route::get('/home/student/section/{page?}/{section_id}', [SectionController::class, 'index'])->name('section');
 Route::get('/home/student/entrance_test', [TrajectoryController::class, 'index_entrance_test'])->name('entrance_test');
 
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');
