@@ -57,6 +57,10 @@ class TeacherClassController extends Controller
     {
         return view('forms.class.class_add_form');
     }
+    public function showHomework()
+    {
+        return view('my_verstka.showHomework');
+    }
 
     /**
      * Store a newly created resource in storage.
