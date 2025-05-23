@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/change_name', [UserDataController::class, 'change_name'])->name('change_name');
 });
 
+Route::get('/home/student/statistics/topic', [IndexController::class, 'statistic'])->name('topic');
 //изначальные мои маршруты
 Route::get('/businessCard', [MainPageController::class, 'index'])->name('businessCard');
 Route::get('/topics', [IndexController::class, 'GetTopics'])->name('topics');
@@ -100,7 +101,7 @@ Route::post('/home/teacher/store_class', [TeacherClassController::class, 'store'
 Route::get('/home/teacher/edit_class/{id}', [TeacherClassController::class, 'edit'])->name('edit_class');
 Route::post('/home/teacher/update_class', [TeacherClassController::class, 'update'])->name('update_class');
 Route::get('/home/teacher/delete_class/{id}', [TeacherClassController::class, 'destroy'])->name('delete_class');
-
+Route::get('/home/teacher/class/1/student/1/homework 1', [TeacherClassController::class, 'showHomework']);
 
 // TODO: не реализовано
 Route::get('/home/teacher/homeworks/{page?}/{from_teacher?}', [HomeworkController::class, 'index'])->name('homeworks');

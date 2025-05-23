@@ -98,6 +98,11 @@ class IndexController extends Controller
         $user_data = Auth::user();
         return view('statistics')->with(['stat_data' => $stat_data, 'sub_topic_count' => $sub_topic_count]);
     }
+    public function statistic()
+{
+    return view('my_verstka.stat_topic');
+}
+
 
     static public function TopicsToSession()
     {

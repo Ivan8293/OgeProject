@@ -25,6 +25,13 @@
                         <div class="add_button_text"><span class="krest">&times;</span> ЗАКРЫТЬ ТЕСТ</div>                    
                     </div>
                 </a> -->
+                <div class="test_controls">
+                    <button class="end_button">Завершить</button>
+                    <div class="timer_block">
+                        <div>Время на выполнение: <span id="total-time">3 часа 55 минут</span></div>
+                        <div class='taimer'>Оставшееся время: <span id="remaining-time">–</span></div>
+                </div>
+            </div>
             </div>
     </header>
     <main>
@@ -51,3 +58,31 @@
 </main>
 </body>
 @endsection
+<script>
+    // Установим время теста — 3 часа 55 минут
+    const totalSeconds = 3 * 3600 + 55 * 60;
+    let remaining = totalSeconds;
+
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        return `${hrs} ч ${mins} мин ${secs < 10 ? '0' : ''}${secs} сек`;
+    }
+
+    function updateTimer() {
+        const timerEl = document.getElementById('remaining-time');
+        timerEl.textContent = formatTime(remaining);
+
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            alert("Время вышло!");
+            // Автоматически отправить форму или показать сообщение
+        }
+
+        remaining--;
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
