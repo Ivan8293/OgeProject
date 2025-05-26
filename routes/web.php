@@ -102,7 +102,7 @@ Route::post('/home/teacher/store_class', [TeacherClassController::class, 'store'
 Route::get('/home/teacher/edit_class/{id}', [TeacherClassController::class, 'edit'])->name('edit_class');
 Route::post('/home/teacher/update_class', [TeacherClassController::class, 'update'])->name('update_class');
 Route::get('/home/teacher/delete_class/{id}', [TeacherClassController::class, 'destroy'])->name('delete_class');
-Route::get('/home/teacher/class/1/student/1/homework 1', [TeacherClassController::class, 'showHomework']);
+Route::get('/home/teacher/student_homework/{homework_id}/{student_id}/{class_id}', [TeacherClassController::class, 'showHomework'])->name('showHomework');
 
 // TODO: не реализовано
 Route::get('/home/teacher/homeworks/{page?}/{from_teacher?}', [HomeworkController::class, 'index'])->name('homeworks');

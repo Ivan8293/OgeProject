@@ -8,6 +8,11 @@ use App\Models\teacherClass;
 use App\Models\ClassGroup;
 use App\Models\StudentClass;
 use App\Models\ClassHomework;
+use App\Models\Homework;
+use App\Models\HomeworkTask;
+use App\Models\Result;
+use App\Models\Task;
+use App\Models\Student;
 
 class TeacherClassController extends Controller
 {
@@ -57,9 +62,49 @@ class TeacherClassController extends Controller
     {
         return view('forms.class.class_add_form');
     }
-    public function showHomework()
-    {
-        return view('my_verstka.showHomework');
+    public function showHomework($homework_id, $student_id, $class_id)
+    {   
+        $homework = Homework::where('homework_id', $homework_id)->first();
+
+        $display_name = StudentClass::where("student_id", $student_id)->where("class_id", $class_id)->first()->display_name; 
+
+        // получить список задач из домашки
+        $tasks = HomeworkTask::where("id_homework", $homework_id)->get();        
+        $tasks_id = $tasks->pluck("id_task");
+
+        //получим сами записи задач
+        // Преобразуем в массив для использования в запросе
+        $tasks_id_array = $tasks_id->toArray();
+
+        $tasksFromDb = Task::whereIn('task_id', $tasks_id_array)
+            ->orderByRaw('FIELD(task_id, ' . implode(',', $tasks_id_array) . ')')
+            ->get();
+        
+        // посмотреть результаты задач из Result
+        // Получаем результаты по условию: id_task в списке и id_student = $student_id
+        $results = Result::whereIn('id_task', $tasks_id)
+            ->where('id_student', $student_id)
+            ->get()
+            ->keyBy('id_task');
+
+        // Формируем коллекцию, где для каждого id_task либо запись, либо null
+        $finalResults = $tasks_id->map(function($taskId) use ($results) {
+            return $results->get($taskId, null);
+        });
+
+        
+        $data = [];
+        for ($i = 0; $i < $tasks->count(); $i++)
+        {
+            array_push($data, [
+                'task' => $tasksFromDb[$i],
+                'result' => $finalResults[$i],
+            ]);
+        }
+              
+        
+
+        return view('my_verstka.showHomework', ['data' => $data, 'homework' => $homework, 'student_name' => $display_name]);
     }
 
     /**
