@@ -81,7 +81,7 @@
                     </span>
                 </th>
             @endforeach
-            <!--<th>
+            <th>
                 ДЗ №{{ count($homeworks) + 1 }}
                 <span class="sort-buttons">
                     <button class="sort-button" onclick="sortTable({{ count($homeworks) + 1 }}, 'asc')">&#9650;</button>
@@ -100,7 +100,7 @@
                     @endif
                 </span>
             </th>
-    -->
+
         </tr>
         <tr>
             @foreach($homeworks as $hw)
@@ -108,7 +108,7 @@
                     Макс. балл: {{ $maxScores[$hw->id_homework] }} <br>
                 </th>
             @endforeach
-            <!--<th>Макс. балл: 0</th>-->
+            <th>Макс. балл: 0</th>
         </tr>
     </thead>
     <tbody>
@@ -141,7 +141,7 @@
                 </td>
 
                 @endforeach
-                <!--<td class="mark-n">н</td>-->
+                <td class="mark-n">н</td>
             </tr>
         @endforeach
     </tbody>

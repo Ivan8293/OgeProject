@@ -38,64 +38,75 @@
                 <option>Баллу за пробник</option>
             </select>
         </div> 
-        
         @isset($classes)
-            @foreach ($classes as $class)
-                <div class="list_item">
-                    <div class="list_item_text">
-                    <div class="text_col text_main">
-                        <p class="class_name">{{ $class->name }}</p> 
-                        <span class="students_count">Количество учеников: <strong>{{ $class->student_count }}</strong></span> 
-                        @php
-                            $averageScore = rand(6, 24);
-                        @endphp
+    @php $index = 0; @endphp
+    @foreach ($classes as $class)
+        <div class="list_item">
+            <div class="list_item_text">
+                <div class="text_col text_main">
+                    <p class="class_name">{{ $class->name }}</p>
 
+                    @if ($index === 0)
                         <span class="students_count">
-                            Средний балл учеников за пробник: <strong>{{ $averageScore }}</strong>
+                            Количество учеников: <strong>{{ $class->student_count }}</strong>
                         </span>
-                    </div> 
+                    @else
+                        <span class="students_count">
+                            Количество учеников: <strong>{{ rand(5, 15) }}</strong>
+                        </span>
+                    @endif
+
                     @php
-                        $startDate = strtotime('2025-05-05');
-                        $endDate = strtotime('2025-05-17');
+                        $averageScore = rand(2, 20);
+                    @endphp
+                    <span class="students_count">
+                        Средний балл учеников за пробник: <strong>{{ $averageScore }}</strong>
+                    </span>
+                </div>
+
+                @php
+                    $startDate = strtotime('2025-05-05');
+                    $endDate = strtotime('2025-05-17');
+                    $randomTimestamp = rand($startDate, $endDate);
+                    $randomDate = date('d.m.Y', $randomTimestamp);
+                @endphp
+                <div class="last_viewed">
+                    Последний просмотр: <strong>{{ $randomDate }}</strong>
+                </div>
+
+                <div class="class_stats">
+                    @php $unseenCount = rand(0, 10); @endphp
+                    <p>Количество непросмотренных дз: <strong>{{ $unseenCount }}</strong></p>
+
+                    @php
+                        $startDate = strtotime('2025-05-16');
+                        $endDate = strtotime('2025-05-31');
                         $randomTimestamp = rand($startDate, $endDate);
                         $randomDate = date('d.m.Y', $randomTimestamp);
                     @endphp
-                    <div class="last_viewed"> 
-                        Последний просмотр: <strong>{{ $randomDate }}</strong>
-                    </div>
-                    <div class="class_stats">
-                        @php
-                            $unseenCount = rand(0, 20);
-                        @endphp
-                        <p>Количество непросмотренных дз: <strong>{{ $unseenCount }}</strong></p>
-                        @php
-                            $startDate = strtotime('2025-05-16');
-                            $endDate = strtotime('2025-05-31');
-                            $randomTimestamp = rand($startDate, $endDate);
-                            $randomDate = date('d.m.Y', $randomTimestamp);
-                        @endphp
-                        <p>Ближайший дедлайн: <strong>{{ $randomDate }}</strong></p>
-                    </div>                     
-                    </div>
-                    <div class="list_item_button_wrapper">
-                    <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
-                        <i class="fas fa-book-open"></i> Открыть
-                    </a>
-
-                    </div>
-                    <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Редактировать информацию о классе">
-                        <i class="fas fa-pen"></i>  
-                        </a>
-                    </div>
-                    <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Удалить класс">
-                        <i class="fas fa-trash"></i> 
-                        </a>
-                    </div>
+                    <p>Ближайший дедлайн: <strong>{{ $randomDate }}</strong></p>
                 </div>
-            @endforeach
-        @endisset   
+            </div>
+
+            <div class="list_item_button_wrapper">
+                <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
+                    <i class="fas fa-book-open"></i> Открыть
+                </a>
+            </div>
+            <div class="list_item_button_wrapper">
+                <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}" data-tooltip="Редактировать информацию о классе">
+                    <i class="fas fa-pen"></i>
+                </a>
+            </div>
+            <div class="list_item_button_wrapper">
+                <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}" data-tooltip="Удалить класс">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+        </div>
+        @php $index++; @endphp
+    @endforeach
+@endisset
 
         
     </div>
