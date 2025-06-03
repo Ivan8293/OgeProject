@@ -5,6 +5,11 @@
 @endsection
 
 @section('main_content')
+
+@php
+    $studentClass = $class;
+@endphp
+
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
@@ -29,6 +34,7 @@
         </button>
     </div>
 </div>
+
 
     <div class="table-wrapper">
     @php
@@ -114,6 +120,7 @@
     <tbody>
         @foreach($students as $student)
             <tr>
+                
                 <td>{{ $student->display_name ?? $student->name }}</td>
                                 @foreach($homeworks as $hw)
                                 @php
@@ -136,9 +143,13 @@
                         }
                     }
                 @endphp
-                <td class="{{ $class }}">
-                    {{ $value }}
-                </td>
+                
+                    <td class="{{ $class }}">  
+                        <a href="{{ route('showHomework', ['homework_id' => $hw->id_homework , 'student_id' => $student->id, 'class_id' => $studentClass->class_id]) }}">                      
+                        {{ $value }}
+                        </a>
+                    </td>
+                
 
                 @endforeach
                 <td class="mark-n">н</td>

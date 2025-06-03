@@ -4,16 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Section;
+use App\Models\Topic;
+use App\Models\TopicSection;
 
 class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($page=null, $section_id)
     {
-        $section = Section::all();
-        // return view('posts.index', compact('posts'));
+        //$topics = Topic::with('taskOge')->where('type', 'Учебная тема')->get();
+
+        $topics_tmp = TopicSection::where('id_section', $section_id)->pluck('id_topic');
+        $topics = Topic::whereIn('topic_id', $topics_tmp)->get();
+        $section = Section::where("section_id", $section_id)->first();
+        
+
+        return view('my_verstka.trajectory_topics', ['page' => $page, 'topics' => $topics, 'section' => $section]);
+        
+        // if ($page && $topics)
+        // {
+        //     return view('my_verstka.trajectory_topics', ['page' => $page, 'topics' => $topics]);
+        // }
+        // else if ($topics && !$page)
+        // {
+        //     return view('my_verstka.trajectory_topics', ['topics' => $topics]);
+        // }
+        // else
+        // {
+        //     return view('my_verstka.trajectory_topics');
+        // }
     }
 
     // Отображение формы создания поста

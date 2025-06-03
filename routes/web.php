@@ -22,6 +22,7 @@ use App\Http\Controllers\Pages\Student\StatisticsController;
 use App\Http\Controllers\Pages\Common\KIMsController;
 use App\Http\Controllers\TaskOgeController;
 use App\Http\Controllers\HomeworkTaskController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Http\Request;
 
 
@@ -101,7 +102,7 @@ Route::post('/home/teacher/store_class', [TeacherClassController::class, 'store'
 Route::get('/home/teacher/edit_class/{id}', [TeacherClassController::class, 'edit'])->name('edit_class');
 Route::post('/home/teacher/update_class', [TeacherClassController::class, 'update'])->name('update_class');
 Route::get('/home/teacher/delete_class/{id}', [TeacherClassController::class, 'destroy'])->name('delete_class');
-Route::get('/home/teacher/class/1/student/1/homework 1', [TeacherClassController::class, 'showHomework']);
+Route::get('/home/teacher/student_homework/{homework_id}/{student_id}/{class_id}', [TeacherClassController::class, 'showHomework'])->name('showHomework');
 
 // TODO: не реализовано
 Route::get('/home/teacher/homeworks/{page?}/{from_teacher?}', [HomeworkController::class, 'index'])->name('homeworks');
@@ -152,6 +153,7 @@ Route::get('/home/teacher/homework/delete_homework/{id}', [HomeworkClassControll
 
 // TODO: не реализовано
 Route::get('/home/student/trajectory/{page?}', [TrajectoryController::class, 'index'])->name('trajectory');
+Route::get('/home/student/section/{page?}/{section_id}', [SectionController::class, 'index'])->name('section');
 Route::get('/home/student/entrance_test', [TrajectoryController::class, 'index_entrance_test'])->name('entrance_test');
 
 Route::get('/home/teacher/homework/add_homework', [HomeworkClassController::class, 'create'])->name('add_homework');

@@ -31,12 +31,11 @@
         <main class="topic_main">
             <div class="main_wrapper">
                 <div class="main_left_video">
-                    <iframe src="https://vkvideo.ru/video_ext.php?oid=-187267806&id=456243576" width="900" height="504" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="{{ $topic->video }}" width="900" height="504" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
                     <a id="add_class_button" href="{{ route('tasks', ['topic_id' => $topic->topic_id]) }}" class="add_button">
                     <i class="fas fa-pen"></i>
                         <span class="add_button_text">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</span>
                     </a>
-
                 </div>
                 <div class="main_right_thesises ">
                     @isset($thesises)

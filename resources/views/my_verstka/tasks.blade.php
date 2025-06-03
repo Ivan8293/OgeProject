@@ -25,11 +25,11 @@
             <div class="header_left ">
                 <div class="header_left_top ">
                     <h2 class="second_h">
-                        Линейные уравнения
+                        Иррациональные выражения
                     </h2>
                 </div>
                 <div class="header_left_bottom ">
-                    Отработаем решение самых простых уравнений. Данная теория является базовой, и может встретиться при решение даже геометрических задач
+                    Изучение свойств и преобразований иррациональных выражений, примеры и задачи.
                 </div>
             </div>
             <div class="header_right ">
@@ -79,7 +79,7 @@
                         @elseif ($i == 2)
                             <div class="info">
                                 <div class="video"> 
-                                    <iframe width="504" height="283" src="{{ $task->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe src="https://vkvideo.ru/video_ext.php?oid=-225856037&id=456239017&hd=2&hash=a6206a3ee3a366b4" width="504" height="283" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
                                 </div>
                                 <div class="info_text">
                                     Задача решена неверно<br> Правильный ответ: <b>-0.9</b><br> Вы можете посмотреть видео-разбор
@@ -100,14 +100,14 @@
 
                 @endforeach
 
-                <form action="">
+                <!-- <form action="">
                     <button type="submit" class="add_button">                    
                         Завершить
                     </button>
-                </form>
+                </form> -->
 
                 <div class="score-block">
-                    <h2>Уровень владения разделом "Алгебраические выражения, уравнения и неравенства" вырос до 68%</h2>
+                    <h2>Уровень владения разделом "Числа, степени и корни" вырос до 68%</h2>
                     <table>
                         <thead>
                             <tr>
@@ -117,102 +117,102 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="first back">
+                            <tr class="first right">
                                 <td>1</td>
                                 <td>5</td>
                                 <td>5</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>2</td>
                                 <td>-4.1</td>
                                 <td>-4.1</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>3</td>
                                 <td>0</td>
                                 <td>-1</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>4</td>
                                 <td>8.3</td>
                                 <td>8.3</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>5</td>
                                 <td>-2.5</td>
                                 <td>-5</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>6</td>
                                 <td>6</td>
                                 <td>6</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>7</td>
                                 <td>-3.3</td>
                                 <td>-3.3</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>8</td>
                                 <td>4.4</td>
                                 <td>1</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>9</td>
                                 <td>1</td>
                                 <td>1</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>10</td>
                                 <td>2</td>
                                 <td>2</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>11</td>
                                 <td>10</td>
                                 <td>10</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>12</td>
                                 <td>-3.6</td>
                                 <td>-5</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>13</td>
                                 <td>1.1</td>
                                 <td>1.1</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>14</td>
                                 <td>5.5</td>
                                 <td>3</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>15</td>
                                 <td>-8.8</td>
                                 <td>-8.8</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>16</td>
                                 <td>7</td>
                                 <td>7</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>17</td>
                                 <td>8.8</td>
                                 <td>6.6</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="right">
                                 <td>18</td>
                                 <td>-6</td>
                                 <td>-6</td>
                             </tr>
-                            <tr class="back">
+                            <tr class="wrong">
                                 <td>19</td>
                                 <td>0</td>
                                 <td>10</td>
                             </tr>
-                            <tr class="back last">
+                            <tr class="right last">
                                 <td>20</td>
                                 <td>-2,2</td>
                                 <td>-2.2</td>

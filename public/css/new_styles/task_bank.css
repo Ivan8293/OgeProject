@@ -330,3 +330,36 @@ input[type="text"]:focus {
 .right {
     background-color: #c0fabb;
 }
+
+
+.result_info_block{
+    margin-top: -25px;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.result_info_block div{
+    margin: 7px 0;
+}
+
+.answer-row input[type="text"]{
+    
+}
+
+.right_answer{
+    color: rgb(16, 196, 0);
+}
+
+.wrong_answer{
+    color: rgb(223, 43, 43);
+}
+
+.answer_text{
+    font-weight: 600;
+}
+
+.score_text{
+    color:#333333;
+    font-size: 18px;
+    font-weight: 500;
+}

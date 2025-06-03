@@ -8,12 +8,13 @@
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
-            Статистика. Денис
+            {{ $section->name }}
         </h2>
+        
     </div>
     
     <div class="list_of_items">
-        <div class="filters_container">
+        <!-- <div class="filters_container">
             <input type="text" placeholder="Поиск темы..." class="search_input_large">
             <button class="search_button_large"> <i class="fas fa-search"></i>   Найти</button>
             <select class="filter_select_large">
@@ -40,41 +41,46 @@
                 <option>Уровню освоения</option>
                 <option>Частоте на экзамене</option>
             </select>
-        </div>
+        </div> -->
 
+        @php $i = 0; @endphp
         @isset($topics)
             @foreach ($topics as $topic)
+                @if ($i == 0)
                 <div class="list_item" data-difficulty="{{ $topic->difficult_level }}">
-                <div class="list_item_text">
+                @else
+                <div class="list_item locked" data-difficulty="{{ $topic->difficult_level }}">
+                @endif
+                    <div class="list_item_text">
                     
-                    <div class="text_col text_main">
-                        <div class="difficulty_scale">
+                        <div class="text_col text_main">
+                            <div class="difficulty_scale">
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
                                     <span class="difficulty_oval gray"></span>
-                        </div>
-                        <p>{{ $topic->name }}</p>  
-                        @if ($topic->taskOge)
-                            @if ($topic->taskOge->id <= 3)
-                                <span>Встречается в 6 задание на ОГЭ</span>
-                            @else
-                                <span>Встречается в 1-5 заданиях на ОГЭ</span>
+                            </div>
+                            <p>{{ $topic->name }}</p>  
+                            @if ($topic->taskOge)
+                                @if ($topic->taskOge->id <= 7)
+                                    <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
+                                @else
+                                    <span>Встречается в {{ $topic->taskOge->task_number }} задание на ОГЭ</span>
+                                @endif
                             @endif
-                        @endif
 
-                    </div>
-                    <div class="text_col text_progress">
-                        <div class="progress_text">Тема освоена на</div>
-                        <div class="progress_bar_wrapper">
-                            <div class="progress_bar_fill"></div>
-                            <div class="progress_bar_label"></div>
                         </div>
+                        @if ($i != 0)
+                            <div class="text_col text_progress lock-img">
+                                <i class="fas fa-lock "></i>
+                                <!-- <div class="progress_text">Тема освоена на</div>
+                                <div class="progress_bar_wrapper">
+                                    <div class="progress_bar_fill"></div>
+                                    <div class="progress_bar_label"></div>
+                                </div> -->
+                            </div>
+                        @endif
                     </div>
-                    </div>
-                    <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
-                            <i class="fas fa-check"></i> Выбрать
-                        </a>
+                    <div class="list_item_button_wrapper">                        
                         <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
                             <i class="fas fa-book-open"></i> Теория
                         </a>
@@ -83,6 +89,8 @@
                         </a>
                     </div>
                 </div>
+
+                @php $i++; @endphp
   
             @endforeach           
            
@@ -93,10 +101,10 @@
 <script>
     document.querySelectorAll('.list_item').forEach(item => {
         // Прогресс
-        const progressContainer = item.querySelector('.text_progress');
-        const randomProgress = Math.floor(Math.random() * 101);
-        progressContainer.querySelector('.progress_bar_fill').style.width = randomProgress + '%';
-        progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
+        //const progressContainer = item.querySelector('.text_progress');
+        //const randomProgress = Math.floor(Math.random() * 101);
+        //progressContainer.querySelector('.progress_bar_fill').style.width = randomProgress + '%';
+        //progressContainer.querySelector('.progress_bar_label').textContent = randomProgress + '%';
 
         // Сложность
         const difficulty = parseInt(item.getAttribute('data-difficulty'));

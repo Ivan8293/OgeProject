@@ -56,6 +56,26 @@
             </div>
         </a>
 
+        <!-- <a class="link_wrapper" href="{{ route('homeworks', ['page' => 'homeworks']) }}">
+
+            @isset($page)
+                @if($page == 'statistics')
+                    <div class="button_container active_button bor">
+                @else
+                    <div class="button_container bor">
+                @endif
+            @else
+                    <div class="button_container bor">
+            @endisset
+                        <div class="button_icon_container bor">
+                        <i class="fa fa-book-open" aria-hidden="true"></i>
+                        </div>
+                        <div class="button_text_container bor">
+                            Домашние задания
+                        </div>
+            </div>
+        </a> -->
+
     @elseif (Auth::guard('teacher')->check())
         <a class="link_wrapper" href="{{ route('teacher', ['page' => 'classes']) }}">
             @isset($page)

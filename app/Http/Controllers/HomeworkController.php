@@ -11,7 +11,7 @@ class HomeworkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null, $from_teacher=null)
+    public function index($page="homeworks", $from_teacher=null)
     {
         $teacherId = Auth::guard('teacher')->id();
         
