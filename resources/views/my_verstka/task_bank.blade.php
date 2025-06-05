@@ -1,10 +1,8 @@
 @extends("my_verstka.home")
 
-
 @section("child_link")
     <link rel="stylesheet" href="/css/new_styles/task_bank.css">
 @endsection
-
 
 @section("main_content")
 <body>
@@ -43,50 +41,69 @@
     </header>
     <main>
         <div class="main_wrapper"> 
-    <form method="GET" action="{{ route('back_to_tasks_bank') }}">
-        @php
-            $i = 1;
-        @endphp
-
-        @foreach($tasks as $task)
-            @if($loop->first)
+            <form method="GET" action="{{ route('back_to_tasks_bank') }}">
                 @php
-                    $i++;
-                    continue;
+                    $i = 1;
                 @endphp
-            @endif
-            <div class="task-card">
-                @isset($is_homework)
-                    <label class="task-checkbox">
-                        <input type="checkbox" name="selected_tasks[]" value="{{ $task->task_id }}">
-                    </label>
-                @endisset
-                <div class="task-content">
-                    <p>Задание {{ $i-1 }}</p>
-                    <img src="{{ $task->text }}" alt=""><br>
-                    <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
-                    @isset($is_homework)
 
-                    @else
-                    <div class="answer-row">
-                        <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ... ">
-                        <input type="button" name="submit_answer" value="Ответить"> 
+                @foreach($tasks as $task)
+                    @if($loop->first)
+                        @php
+                            $i++;
+                            continue;
+                        @endphp
+                    @endif
+                    <div class="task-card">
+                        @isset($is_homework)
+                            <label class="task-checkbox">
+                                <input type="checkbox" name="selected_tasks[]" value="{{ $task->task_id }}">
+                            </label>
+                        @endisset
+                        <div class="task-content">
+                            <p>Задание {{ $i-1 }}</p>
+                            <img src="{{ $task->text }}" alt=""><br>
+                            <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
+                            @isset($is_homework)
+
+                            @else
+                            <div class="answer-row">
+                                <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ... ">
+                                <input type="button" name="submit_answer" value="Ответить"> 
+                            </div>
+                            @endisset
+                        </div>
                     </div>
-                    @endisset
-                </div>
-            </div>
-            @php    
-                $i++; 
-            @endphp       
-        @endforeach
-        @isset($is_homework)
-            <button class="end_button">Продолжить</button>
-        @else
-            <button class="end_button">Завершить</button>
-        @endisset
-    </form>
-</div>
-
-</main>
+                    @php    
+                        $i++; 
+                    @endphp       
+                @endforeach
+                @isset($is_homework)
+                    <button class="end_button">Продолжить</button>
+                @else
+                    <button class="end_button">Завершить</button>
+                @endisset
+            </form>
+        </div>                
+    </main>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    @foreach($tasks as $task)
+        const inputFile{{ $task->task_id }} = document.getElementById('image_{{ $task->task_id }}');
+        const statusDiv{{ $task->task_id }} = document.getElementById('upload-status-{{ $task->task_id }}');
+
+        if (inputFile{{ $task->task_id }}) {
+            inputFile{{ $task->task_id }}.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    statusDiv{{ $task->task_id }}.style.display = 'block';
+                } else {
+                    statusDiv{{ $task->task_id }}.style.display = 'none';
+                }
+            });
+        }
+    @endforeach
+});
+</script>
+
 @endsection
