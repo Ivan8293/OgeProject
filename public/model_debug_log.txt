@@ -1,0 +1,5 @@
+MODEL RAW RESPONSE:
+{
+  "score": 0,
+  "comment": "Отсутствует решение ученика"
+}

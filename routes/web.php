@@ -23,6 +23,7 @@ use App\Http\Controllers\Pages\Common\KIMsController;
 use App\Http\Controllers\TaskOgeController;
 use App\Http\Controllers\HomeworkTaskController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\AnswerController;
 use Illuminate\Http\Request;
 
 
@@ -199,3 +200,5 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::post('/check-answer', [AnswerController::class, 'check'])->name('check.answer');
