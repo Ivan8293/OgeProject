@@ -16,7 +16,7 @@
     
     <div class="trajectory_wrapper ">                      
         
-        <a href="{{ route('section', ['page' => 'trajectory', 'section_id' => 2]) }}">
+        <a href="{{ route('section', ['section_id' => 2]) }}">
             <div id="block_1" class="topic_block topic_block_done">
                 Обыкновенные дроби. Арифметические действия над ними
             </div>

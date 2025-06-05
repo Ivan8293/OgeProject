@@ -6,11 +6,15 @@
     padding-bottom: 6px;
 }
 .second_h {
-    border-bottom: 1px solid rgb(199, 199, 199);
+    
 }
 .main_h {
     margin-top: -40px;
     margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(199, 199, 199);
 }
 
 
@@ -174,5 +178,28 @@
     color: #312354(255, 255, 255);
     line-height: 20px;
     font-weight: bold;
+}
+
+.add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #00cba9, #3ddc84);
+    font-family: "IBM Plex Sans", Arial, sans-serif;;
+    color: white;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
+    text-decoration: none;
+}
+
+.add_button:hover {
+    background: linear-gradient(135deg, #3ddc84, #00cba9);
 }
 

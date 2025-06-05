@@ -14,8 +14,7 @@
         </h2>
         <div class="add_button_wrapper">
             <form action="{{ route('add_class') }}">
-                <button type="submit" class="add_button">
-                
+                <button type="submit" class="add_button">                
                     СОЗДАТЬ КЛАСС
                 </button>
             </form>
@@ -77,11 +76,11 @@
                         <p>Ближайший дедлайн: <strong>{{ $randomDate }}</strong></p>
                     </div>                     
                     </div>
+                    
                     <div class="list_item_button_wrapper">
-                    <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
-                        <i class="fas fa-book-open"></i> Открыть
-                    </a>
-
+                        <a class="list_item_button" href="{{ route('class.students', ['id' => $class->class_id]) }}" data-tooltip="Просмотр учеников класса">
+                            <i class="fas fa-book-open"></i> Открыть
+                        </a>
                     </div>
                     <div class="list_item_button_wrapper">
                         <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Редактировать информацию о классе">
@@ -89,7 +88,7 @@
                         </a>
                     </div>
                     <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="{{ route('edit_class', ['id' => $class->class_id]) }}"  data-tooltip="Удалить класс">
+                        <a class="list_item_button" href="{{ route('delete_class', ['id' => $class->class_id]) }}"  data-tooltip="Удалить класс">
                         <i class="fas fa-trash"></i> 
                         </a>
                     </div>

@@ -25,11 +25,19 @@
             <div class="header_left ">
                 <div class="header_left_top ">
                     <h2 class="second_h">
-                        Иррациональные выражения
+                        @isset($is_homework)
+                            {{ $homework->name }}
+                        @else
+                            {{ $topic->name }}
+                        @endisset
                     </h2>
                 </div>
                 <div class="header_left_bottom ">
-                    Изучение свойств и преобразований иррациональных выражений, примеры и задачи.
+                    @isset($is_homework)
+                        {{ $homework->description }}
+                    @else
+                        {{ $topic->description }}
+                    @endisset
                 </div>
             </div>
             <div class="header_right ">
@@ -79,7 +87,7 @@
                         @elseif ($i == 2)
                             <div class="info">
                                 <div class="video"> 
-                                    <iframe src="https://vkvideo.ru/video_ext.php?oid=-225856037&id=456239017&hd=2&hash=a6206a3ee3a366b4" width="504" height="283" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                                    <iframe src="https://vkvideo.ru/video_ext.php?oid=-225856037&id=456239019&hd=2&hash=c11800cd7cdd8623" width="504" height="283" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
                                 </div>
                                 <div class="info_text">
                                     Задача решена неверно<br> Правильный ответ: <b>-0.9</b><br> Вы можете посмотреть видео-разбор

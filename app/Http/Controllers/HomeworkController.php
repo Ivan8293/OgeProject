@@ -5,24 +5,80 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Homework;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Models\topic;
+use App\Models\task;
+use App\Models\TaskOge;
 
 class HomeworkController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($page="homeworks", $from_teacher=null)
+    public function index($class_id=null, $page="homeworks")
     {
         $teacherId = Auth::guard('teacher')->id();
         
         $homeworks = Homework::where("id_teacher", $teacherId)->get();
-        return view('my_verstka.home_homeworks', ['page' => $page, "from_teacher" => $from_teacher, "homeworks" => $homeworks]);   
+        return view('my_verstka.home_homeworks', [
+            'page' => $page, 
+            'teacher_id' =>$teacherId, 
+            "class_id" => $class_id, 
+            "homeworks" => $homeworks
+        ]);   
     }
 
     // Отображение формы создания поста
-    public function create()
+    public function create_homework()
     {
-        return view('posts.create');
+        $topics = Topic::with('taskOge')->where('type', 'Учебная тема')->get();
+        return view("my_verstka.home_topics", ['is_homework' => true, 'topics' => $topics]);
+    }
+
+    public function choose_homework_taks($topic_id)
+    {
+        // только выбрали тему, начнем составление дз в сессии
+        // сначала удалим страные данные
+        Session::forget("homework");
+        $homework = [
+            "topic_id" => $topic_id,
+            "tasks_id" => []
+        ];
+        Session::put("homework", $homework);
+
+        // затем вызываем следующий шаблон
+        $tasksOge = TaskOge::all();
+        return view("my_verstka.home_tasks_bank", ["page" => "tasks_bank", "tasksOge" => $tasksOge, 'is_homework' => true]);
+    }
+
+    public function back_to_tasks_bank(Request $request)
+    {
+        $selected_tasks = $request->input('selected_tasks', []);
+
+        $homework = Session::get("homework");
+        foreach ($selected_tasks as $selected_task)
+        {
+            if (!in_array($selected_task, $homework["tasks_id"]))
+            {
+                array_push($homework["tasks_id"], $selected_task);
+            }
+        }        
+        Session::put("homework", $homework);
+
+        $tasksOge = TaskOge::all();   
+        return view("my_verstka.home_tasks_bank", ["page" => "tasks_bank", "tasksOge" => $tasksOge, 'is_homework' => true]);
+    }
+
+    public function set_homework_params()
+    {
+        $topic_id = Session::get("homework")["topic_id"];
+        $tasks_id = Session::get("homework")["tasks_id"];        
+
+        $tasks = Task::whereIn('task_id', $tasks_id)->get();
+        $topic = Topic::where("topic_id", $topic_id)->first();
+
+
+        return view("my_verstka.homework_params", ["topic" => $topic, "tasks" => $tasks]);
     }
 
     /**

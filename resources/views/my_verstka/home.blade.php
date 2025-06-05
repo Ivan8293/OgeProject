@@ -16,7 +16,7 @@
 <div class="separate_line"></div>
     @if (Auth::guard('student')->check())
     
-        <a class="link_wrapper" href="{{ route('trajectory', ['page' => 'trajectory']) }}">
+        <a class="link_wrapper" href="{{ route('trajectory') }}">
             @isset($page)
                 @if($page == 'trajectory')
                     <div class="button_container active_button bor">
@@ -36,7 +36,7 @@
             </div>
         </a>
 
-        <a class="link_wrapper" href="{{ route('statistics', ['page' => 'statistics']) }}">
+        <a class="link_wrapper" href="{{ route('statistics') }}">
 
             @isset($page)
                 @if($page == 'statistics')
@@ -77,7 +77,7 @@
         </a> -->
 
     @elseif (Auth::guard('teacher')->check())
-        <a class="link_wrapper" href="{{ route('teacher', ['page' => 'classes']) }}">
+        <a class="link_wrapper" href="{{ route('teacher') }}">
             @isset($page)
                 @if($page == 'classes')
                     <div class="button_container active_button bor">
@@ -97,7 +97,7 @@
             </div>
         </a>
 
-        <a class="link_wrapper" href="{{ route('homeworks', ['page' => 'homeworks']) }}">
+        <a class="link_wrapper" href="{{ route('homeworks') }}">
             @isset($page)
                 @if($page == 'homeworks')
                     <div class="button_container active_button bor">
@@ -117,7 +117,7 @@
         </a>
     
     @elseif (!Auth::guard('teacher')->check() && !Auth::guard('student')->check())
-        <a class="link_wrapper" href="{{ route('trajectory', ['page' => 'trajectory']) }}">
+        <a class="link_wrapper" href="{{ route('trajectory') }}">
             @isset($page)
                 @if($page == 'trajectory')
                     <div class="button_container active_button bor">
@@ -136,7 +136,7 @@
             </div>
         </a>
 
-        <a class="link_wrapper" href="{{ route('statistics', ['page' => 'statistics']) }}">
+        <a class="link_wrapper" href="{{ route('statistics') }}">
             @isset($page)
                 @if($page == 'statistics')
                     <div class="button_container active_button bor">
@@ -164,7 +164,7 @@
 
     <div class="separate_line"></div>
 
-    <a class="link_wrapper" href="{{ route('topics', ['page' => 'topics']) }}">
+    <a class="link_wrapper" href="{{ route('topics') }}">
         @isset($page)
             @if($page == 'topics')
                 <div class="button_container active_button bor">
@@ -183,7 +183,7 @@
         </div>
     </a>
 
-    <a class="link_wrapper" href="{{ route('tasks_bank', ['page' => 'tasks_bank']) }}">
+    <a class="link_wrapper" href="{{ route('tasks_bank') }}">
         @isset($page)
             @if($page == 'tasks_bank')
                 <div class="button_container active_button bor">
@@ -204,7 +204,7 @@
         </div>
     </a>
 
-    <a class="link_wrapper" href="{{ route('KIMs', ['page' => 'KIMs']) }}">
+    <a class="link_wrapper" href="{{ route('KIMs') }}">
         @isset($page)
             @if($page == 'KIMs')
                 <div class="button_container active_button bor">

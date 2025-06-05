@@ -16,6 +16,17 @@ class StudentController extends Controller
         // return view('posts.index', compact('posts'));
     }
 
+    public function index_entrance_test()
+    {
+        return view("my_verstka.home_entrance_test");
+    }
+    
+
+    public function need_registration_index()
+    {
+        return view("my_verstka.need_registration");
+    }
+
     // Отображение формы создания поста
     public function create()
     {

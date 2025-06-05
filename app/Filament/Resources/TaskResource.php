@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\MultiSelect;
+use Filament\Tables\Columns\TagsColumn;
 
 class TaskResource extends Resource
 {
@@ -22,43 +24,61 @@ class TaskResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                TextInput::make('text')->required(),
-                TextInput::make('video'),
-                TextInput::make('answer')
-                    ->numeric()              
-                    ->step(0.1)             
-                    ->required(),
-                TextInput::make('task_oge_id')
-                    ->numeric()
-                
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            TextInput::make('text')
+                ->label('Ссылка на задачу') // Произвольное название для поля "text"
+                ->required(),
+            TextInput::make('video')
+                ->label('Ссылка на видео'), // Произвольный лейбл
+            TextInput::make('answer')
+                ->label('Ответ')
+                ->numeric()
+                ->step(0.1)
+                ->required(),
+            TextInput::make('task_oge_id')
+                ->label('Номер задания ОГЭ')
+                ->numeric(),
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                TextColumn::make('task_id')->sortable(),
-                TextColumn::make('text'),
-                TextColumn::make('video'),
-                TextColumn::make('answer'),
-                TextColumn::make('task_oge_id'),
+            MultiSelect::make('topics')
+                ->relationship('topics', 'name') // 'topics' — имя связи, 'name' — поле модели Topic для отображения
+                ->label('Темы')
+                ->preload() // опционально, чтобы загрузить все варианты сразу
+                ->required(),
+        ]);
+}
 
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
-    }
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            TextColumn::make('task_id')
+                ->label('ID задачи') // Произвольный лейбл для колонки
+                ->sortable(),
+            TextColumn::make('text')
+                ->label('Описание задачи'),
+            TextColumn::make('video')
+                ->label('Видео ссылка'),
+            TextColumn::make('answer')
+                ->label('Ответ'),
+            TextColumn::make('task_oge_id')
+                ->label('Номер задания ОГЭ'),
+
+            // TagsColumn::make('topics.name')
+            //     ->label('Темы'),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
     
     public static function getRelations(): array
     {

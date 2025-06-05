@@ -37,7 +37,7 @@ class TaskController extends Controller
             return view('my_verstka.home_tasks_bank');
     }
 
-    public function indexEnturanceTasks($page=null)
+    public function indexEntranceTasks($page=null)
     {
         
         $topic = Topic::where('type', 'Входная диагностика')->first();

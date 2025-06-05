@@ -24,7 +24,7 @@
                 <li>✔ Доступная подача учебного материала</li>
             </ul>
         </div>
-        <a href="#" class="start_button">
+        <a href="{{ route('open_entrance_test') }}" class="start_button">
             <span>Пройти диагностику</span>
         </a>
     </div>

@@ -12,7 +12,7 @@ class SectionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null, $section_id)
+    public function index($section_id, $page="trajectory")
     {
         //$topics = Topic::with('taskOge')->where('type', 'Учебная тема')->get();
 

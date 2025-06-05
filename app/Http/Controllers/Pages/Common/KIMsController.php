@@ -7,16 +7,22 @@ use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\TopicTask;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class KIMsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page="KIMs")
     {
-        $KIMs = Topic::where('type', 'КИМ')->get();
+        if (!Auth::guard('student')->check() && !Auth::guard('teacher')->check())
+        {
+            return redirect()->route("need_registration");
+        } 
 
+
+        $KIMs = Topic::where('type', 'КИМ')->get();
 
         if ($page && $KIMs)
         {
@@ -33,7 +39,7 @@ class KIMsController extends Controller
     }
 
     // Отображение формы создания поста
-    public function create($topic_id=null, $page="KIM")
+    public function create($topic_id=null, $page="KIMs")
     {
         if ($topic_id)
         {
@@ -57,7 +63,7 @@ class KIMsController extends Controller
             })->values();
 
 
-            return view('my_verstka.kim', [$page="KIM", "tasks" => $tasks, "kims"=> $kims]);
+            return view('my_verstka.kim', ["page" => $page, "tasks" => $tasks, "kims"=> $kims]);
         }
         else
         {

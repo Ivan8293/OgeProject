@@ -19,7 +19,7 @@ class TeacherClassController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page="classes")
     {
         $teacher = Auth::guard('teacher')->user();
 
@@ -60,7 +60,7 @@ class TeacherClassController extends Controller
     // Отображение формы создания поста
     public function create()
     {
-        return view('forms.class.class_add_form');
+        return view('my_verstka.forms.add_class');
     }
     public function showHomework($homework_id, $student_id, $class_id)
     {   
@@ -114,22 +114,22 @@ class TeacherClassController extends Controller
     {
         $teacher = Auth::guard('teacher')->user();
 
-        if ($teacher)
-        {
-            $request->validate([
-                'name' => 'required'            
-            ]);
-    
-            $class = ClassGroup::create([
-                'number' => $request->number,
-                'name' => $request->name
-            ]);
-    
-            teacherClass::create([
-                'id_teacher' => $teacher->id,
-                'id_class' => $class->class_id
-            ]);            
-        }
+        if (!$teacher)
+            return redirect()->route("login");
+
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $class = ClassGroup::create([
+            'name' => $request->name
+        ]);
+
+        teacherClass::create([
+            'id_teacher' => $teacher->id,
+            'id_class' => $class->class_id
+        ]);            
+        
 
 
         return redirect()->route('teacher');        
@@ -138,7 +138,7 @@ class TeacherClassController extends Controller
      * Display the specified resource.
      */
     // Отображение конкретного поста
-    public function showStudents($id)
+    public function showStudents($id, $page="classes")
     {
         // Получаем название класса
         $class = ClassGroup::find($id);
@@ -155,6 +155,7 @@ class TeacherClassController extends Controller
             'students' => $students,
             'class' => $class,
             'homeworks' => $homeworks,
+            'page' => $page,
         ]);
     }
 
@@ -164,11 +165,9 @@ class TeacherClassController extends Controller
     // Отображение формы редактирования поста
     public function edit($id)
     {
-
-
         $class = ClassGroup::where('class_id', $id)->first();
 
-        return view('forms.class.class_edit_form', ['class' => $class]);
+        return view('my_verstka.forms.edit_class', ['class' => $class]);
     }
 
     /**
@@ -178,17 +177,13 @@ class TeacherClassController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'id' => 'required',
             'name' => 'required',
-            'number' => 'required',
         ]);
 
         $class = ClassGroup::where('class_id', $request->id)->first();
-
+        
         $class->update([
-
             'name' => $request->name,
-            'number' => $request->number
         ]);
 
         return redirect()->route('teacher');
@@ -200,9 +195,11 @@ class TeacherClassController extends Controller
     // Удаление поста
     public function destroy($id)
     {
-        $class = ClassGroup::where('class_id', $id)->first();
+        teacherClass::where("id_class", $id)->delete();
 
-        $class->delete();
+        $class = ClassGroup::where('class_id', $id)->first();
+        $class->delete();        
+
         return redirect()->route('teacher');
     }
 }

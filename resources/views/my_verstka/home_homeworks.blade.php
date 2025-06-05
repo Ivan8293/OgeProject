@@ -12,10 +12,10 @@
             Домашние работы
         </h2>
         <div class="add_button_wrapper">
-            <form action="{{ route('add_class') }}">
+            <form action="{{ route('create_homework') }}">
                 <button type="submit" class="add_button">
-                <i class="fas fa-plus"></i>
-                    СОЗДАТЬ ДЗ
+                    <i class="fas fa-plus"></i>
+                        СОЗДАТЬ ДЗ
                 </button>
             </form>
         </div>
@@ -83,10 +83,15 @@
                     </div>
                 </div>
                     <div class="list_item_button_wrapper">
-                        <a class="list_item_button" href="" data-tooltip="Перейти к теории">
+                        @isset($class_id)
+                            <a class="list_item_button" href="{{ route('add_homework_to_class', ['class_id' => $class_id, 'homework_id' => $homework->homework_id]) }}" data-tooltip="Перейти к теории">
+                                <i class="fas fa-check"></i> Выбрать
+                            </a>                        
+                        @endisset
+                        <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $homework->id_topic]) }}" data-tooltip="Перейти к теории">
                             <i class="fas fa-book-open"></i> Теория
                         </a>
-                        <a class="list_item_button" href="" data-tooltip="Перейти к практике">
+                        <a class="list_item_button" href="{{ route('homework_tasks', ['homework_id' => $homework->homework_id]) }}" data-tooltip="Перейти к практике">
                             <i class="fas fa-pen"></i> Практика
                         </a>
                     </div>

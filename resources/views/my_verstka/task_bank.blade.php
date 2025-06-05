@@ -11,9 +11,15 @@
     <header class="topic_header ">
             <div class="header_left ">
                 <div class="header_left_top ">
-                    <h2 class="second_h">
-                        Прототипы {{ $taskoge->task_number }} задания
-                    </h2>
+                    @isset($is_homework)
+                        <h2 class="second_h">
+                            Выберите прототипы {{ $taskoge->task_number }} задания для дз
+                        </h2> 
+                    @else
+                        <h2 class="second_h">
+                            Прототипы {{ $taskoge->task_number }} задания
+                        </h2>
+                    @endisset
                 </div>
                 <div class="header_left_bottom ">
                     {{ $taskoge->name }}
@@ -27,13 +33,17 @@
                 </a> -->
             </div>
             <div class="test_controls">
-                    <button class="end_button">Продолжить</button>
+                    @isset($is_homework)
+                        <button class="end_button">Продолжить</button>
+                    @else
+                        <button class="end_button">Завершить</button>
+                    @endisset
                     
             </div>
     </header>
     <main>
         <div class="main_wrapper"> 
-    <form>
+    <form method="GET" action="{{ route('back_to_tasks_bank') }}">
         @php
             $i = 1;
         @endphp
@@ -46,24 +56,34 @@
                 @endphp
             @endif
             <div class="task-card">
-                <label class="task-checkbox">
-                    <input type="checkbox" name="selected_tasks[]" value="{{ $task->task_id }}">
-                </label>
+                @isset($is_homework)
+                    <label class="task-checkbox">
+                        <input type="checkbox" name="selected_tasks[]" value="{{ $task->task_id }}">
+                    </label>
+                @endisset
                 <div class="task-content">
                     <p>Задание {{ $i-1 }}</p>
                     <img src="{{ $task->text }}" alt=""><br>
                     <input type="hidden" name="answer_{{ $task->task_id }}" value="{{ $task->answer }}">
-                    <!--<div class="answer-row">
+                    @isset($is_homework)
+
+                    @else
+                    <div class="answer-row">
                         <input type="text" name="student_answer_{{ $task->task_id }}" placeholder="Введите ответ... ">
                         <input type="button" name="submit_answer" value="Ответить"> 
-                    </div> -->
+                    </div>
+                    @endisset
                 </div>
             </div>
             @php    
                 $i++; 
             @endphp       
         @endforeach
-        <button class="end_button">Продолжить</button>
+        @isset($is_homework)
+            <button class="end_button">Продолжить</button>
+        @else
+            <button class="end_button">Завершить</button>
+        @endisset
     </form>
 </div>
 

@@ -11,6 +11,7 @@ use App\Models\Topic;
 use App\Models\UserActivity;
 use Faker\Provider\UserAgent;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 
 class StatisticsController extends Controller
@@ -18,8 +19,23 @@ class StatisticsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page="statistics")
     {
+        if (!Auth::guard('student')->check() && !Auth::guard('teacher')->check())
+        {
+            return redirect()->route("entrance_test");
+        } 
+
+        // узнаем ученик уже прошел входную диагностику или нет
+        $entrance_topic = Topic::where("type", "Входная диагностика")->first();
+        $task_from_entrance = TopicTask::where("id_topic", $entrance_topic->topic_id)->first();
+        $result = Result::where("id_student", Auth::guard('student')->user()->id)
+                            ->where("id_task", $task_from_entrance->id_task)->first();        
+
+        if(!$result)
+            return redirect()->route("entrance_test");
+
+
         
         $userId = auth()->id();
 

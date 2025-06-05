@@ -44,17 +44,17 @@
             @isset($url)
                 @if ($url == "student")
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login_teacher') }}">
-                        {{ __('Войти как Учитель') }}
+                        {{ __('Войти как Учитель ') }}
                     </a>
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register_student') }}">
-                        {{ __('Зарегистрироваться') }}
+                        {{ __(' Зарегистрироваться') }}
                     </a>
                 @elseif ($url == "teacher")
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login_student') }}">
-                    {{ __('Войти как Ученик ') }}
-                    </a>
+                        {{ __('Войти как Ученик ') }}
+                    </a><br>
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register_teacher') }}">
-                        {{ __('Зарегистрироваться') }}
+                        {{ __(' Зарегистрироваться') }}
                     </a>
                 @endif
                 

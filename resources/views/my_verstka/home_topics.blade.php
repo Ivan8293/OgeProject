@@ -8,7 +8,11 @@
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
-            Учебные темы
+            @isset($is_homework)
+                Выбирите учебную тему для дз
+            @else
+                Учебные темы
+            @endisset
         </h2>
     </div>
     
@@ -63,18 +67,26 @@
                         @endif
 
                     </div>
-                    <div class="text_col text_progress">
-                        <div class="progress_text">Тема освоена на</div>
-                        <div class="progress_bar_wrapper">
-                            <div class="progress_bar_fill"></div>
-                            <div class="progress_bar_label"></div>
+
+                    @isset($is_homework)
+                        <div style="display: none" class="text_col text_progress">                            
+                    @else
+                        <div class="text_col text_progress">
+                    @endisset
+                            <div class="progress_text">Тема освоена на</div>
+                            <div class="progress_bar_wrapper">
+                                <div class="progress_bar_fill"></div>
+                                <div class="progress_bar_label"></div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
+
+                </div>
                     <div class="list_item_button_wrapper">
-                        <!-- <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
-                            <i class="fas fa-check"></i> Выбрать
-                        </a> -->
+                        @isset($is_homework)
+                            <a class="list_item_button" href="{{ route('choose_homework_taks', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
+                                <i class="fas fa-check"></i> Выбрать
+                            </a>
+                        @endisset
                         <a class="list_item_button" href="{{ route('open_topic', ['topic_id' => $topic->topic_id]) }}" data-tooltip="Перейти к теории">
                             <i class="fas fa-book-open"></i> Теория
                         </a>

@@ -17,44 +17,47 @@
         </h2>
     </div>
     <div class="class-controls">
-    <div class="left-controls">
-        <button class="action-button plus">
-            <i class="fas fa-tasks"></i> Выдать ДЗ
-        </button>
+        <div class="left-controls">
+            <button class="action-button plus" onclick="window.location='{{ route('homeworks', ['class_id' => $class->class_id]) }}'">
+                <i class="fas fa-tasks"></i> Выдать ДЗ
+            </button>
+        </div>
+        <div class="right-controls">
+            <button class="action-button warning">
+                <i class="fas fa-exclamation-triangle"></i> Ученики зоны риска
+            </button>
+            <button class="action-button" onclick="window.location='{{ route('add_student', ['class_id' => $class->class_id]) }}'">
+                <i class="fas fa-user-plus"></i> Добавить ученика
+            </button>
+            <button class="action-button danger">
+                <i class="fas fa-user-minus"></i> Удалить ученика
+            </button>
+        </div>
     </div>
-    <div class="right-controls">
-        <button class="action-button warning">
-            <i class="fas fa-exclamation-triangle"></i> Ученики зоны риска
-        </button>
-        <button class="action-button">
-            <i class="fas fa-user-plus"></i> Добавить ученика
-        </button>
-        <button class="action-button danger">
-            <i class="fas fa-user-minus"></i> Удалить ученика
-        </button>
-    </div>
-</div>
 
+ 
 
     <div class="table-wrapper">
-    @php
-        $maxScores = [];
-        foreach ($homeworks as $hw) {
-            $maxScores[$hw->id_homework] = rand(10, 20);
-        }
-    @endphp
-    @php
-        if (!function_exists('pluralDays')) {
-            function pluralDays($number) {
-                $n = abs($number) % 100;
-                $n1 = $n % 10;
-                if ($n > 10 && $n < 20) return 'дней';
-                if ($n1 > 1 && $n1 < 5) return 'дня';
-                if ($n1 == 1) return 'день';
-                return 'дней';
+    @isset($homeworks)
+        @php
+            $maxScores = [];
+            foreach ($homeworks as $hw) {
+                $maxScores[$hw->id_homework] = rand(10, 20);
             }
-        }
         @endphp
+        @php
+            if (!function_exists('pluralDays')) {
+                function pluralDays($number) {
+                    $n = abs($number) % 100;
+                    $n1 = $n % 10;
+                    if ($n > 10 && $n < 20) return 'дней';
+                    if ($n1 > 1 && $n1 < 5) return 'дня';
+                    if ($n1 == 1) return 'день';
+                    return 'дней';
+                }
+            }
+        @endphp
+    @endisset
 
     <table class="styled-table">
     <thead>
@@ -66,54 +69,39 @@
                     <button class="sort-button" onclick="sortTable(0, 'desc')">&#9660;</button>
                 </span>
             </th>
-            @foreach($homeworks as $hw)
-                <th>
-                    ДЗ №{{ $hw->id_homework }}
-                    <span class="sort-buttons">
-                        <button class="sort-button" onclick="sortTable({{ $loop->index + 1 }}, 'asc')">&#9650;</button>
-                        <button class="sort-button" onclick="sortTable({{ $loop->index + 1 }}, 'desc')">&#9660;</button>
-                    </span><br>
-                    @php
-                        $daysDiff = \Carbon\Carbon::parse($hw->finish_date)->diffInDays(now(), false);
-                    @endphp
-                    <span class="deadline">
-                        @if ($daysDiff < 0)
-                            До дедлайна {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
-                        @elseif ($daysDiff === 0)
-                            Сегодня дедлайн
-                        @else
-                            Дедлайн был {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
-                        @endif
-                    </span>
-                </th>
-            @endforeach
-            <!--<th>
-                ДЗ №{{ count($homeworks) + 1 }}
-                <span class="sort-buttons">
-                    <button class="sort-button" onclick="sortTable({{ count($homeworks) + 1 }}, 'asc')">&#9650;</button>
-                    <button class="sort-button" onclick="sortTable({{ count($homeworks) + 1 }}, 'desc')">&#9660;</button>
-                </span><br>
-                @php
-                        $daysDiff = \Carbon\Carbon::parse($hw->finish_date)->diffInDays(now(), false);
-                @endphp
-                <span class="deadline">
-                    @if ($daysDiff < 0)
-                            До дедлайна {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
-                        @elseif ($daysDiff === 0)
-                            Сегодня дедлайн
-                        @else
-                            Дедлайн был {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
-                    @endif
-                </span>
-            </th>
-    -->
+            @isset($homeworks)
+                @foreach($homeworks as $hw)
+                    <th>
+                        ДЗ №{{ $hw->id_homework }}
+                        <span class="sort-buttons">
+                            <button class="sort-button" onclick="sortTable({{ $loop->index + 1 }}, 'asc')">&#9650;</button>
+                            <button class="sort-button" onclick="sortTable({{ $loop->index + 1 }}, 'desc')">&#9660;</button>
+                        </span><br>
+                        @php
+                            $daysDiff = \Carbon\Carbon::parse($hw->finish_date)->diffInDays(now(), false);
+                        @endphp
+                        <span class="deadline">
+                            @if ($daysDiff < 0)
+                                До дедлайна {{ abs($daysDiff) }} {{ pluralDays($daysDiff) }}
+                            @elseif ($daysDiff === 0)
+                                Сегодня дедлайн
+                            @else
+                                Дедлайн был {{ $daysDiff }} {{ pluralDays($daysDiff) }} назад
+                            @endif
+                        </span>
+                    </th>
+                @endforeach
+            @endisset
+
         </tr>
         <tr>
-            @foreach($homeworks as $hw)
-                <th>
-                    Макс. балл: {{ $maxScores[$hw->id_homework] }} <br>
-                </th>
-            @endforeach
+            @isset($homeworks)
+                @foreach($homeworks as $hw)
+                    <th>
+                        Макс. балл: {{ $maxScores[$hw->id_homework] }} <br>
+                    </th>
+                @endforeach
+            @endisset
             <!--<th>Макс. балл: 0</th>-->
         </tr>
     </thead>

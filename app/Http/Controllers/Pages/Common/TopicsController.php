@@ -7,6 +7,7 @@ use App\Http\Controllers\TopicController;
 use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\TaskOge;
+use Illuminate\Support\Facades\Auth;
 
 
 class TopicsController extends Controller
@@ -19,8 +20,14 @@ class TopicsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page="topics")
     {
+        if (!Auth::guard('student')->check() && !Auth::guard('teacher')->check())
+        {
+            return redirect()->route("need_registration");
+        } 
+
+
         $topics = Topic::with('taskOge')->where('type', 'Учебная тема')->get();
 
         if ($page && $topics)

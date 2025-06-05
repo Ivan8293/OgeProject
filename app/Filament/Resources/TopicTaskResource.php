@@ -37,7 +37,7 @@ class TopicTaskResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                //Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -56,7 +56,7 @@ class TopicTaskResource extends Resource
         return [
             'index' => Pages\ListTopicTasks::route('/'),
             'create' => Pages\CreateTopicTask::route('/create'),
-            'edit' => Pages\EditTopicTask::route('/{record}/edit'),
+            //'edit' => Pages\EditTopicTask::route('/{record}/edit'),
         ];
     }    
 }

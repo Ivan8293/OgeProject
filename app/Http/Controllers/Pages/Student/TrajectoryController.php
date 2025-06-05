@@ -4,26 +4,41 @@ namespace App\Http\Controllers\Pages\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\topic;
+use App\Models\task;
+use App\Models\TopicTask;
+use App\Models\Result;
 
 class TrajectoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($page=null)
+    public function index($page="trajectory")
     {
-        // $result = Result::all();
+        if (Auth::guard('teacher')->check())
+            return redirect()->back();
+        
+        if (!Auth::guard('student')->check())        
+            return redirect()->route("entrance_test");
+        
 
-        if ($page)
-            return view('my_verstka.home_trajectory', ['page' => $page]);
-        else
-            return view('my_verstka.home_trajectory');
+        // узнаем ученик уже прошел входную диагностику или нет
+        $entrance_topic = Topic::where("type", "Входная диагностика")->first();
+        $task_from_entrance = TopicTask::where("id_topic", $entrance_topic->topic_id)->first();
+        $result = Result::where("id_student", Auth::guard('student')->user()->id)
+                            ->where("id_task", $task_from_entrance->id_task)->first();        
+
+        if(!$result)
+            return redirect()->route("entrance_test");
+
+
+        return view('my_verstka.home_trajectory', ['page' => $page]);
+        
     }
 
-    public function index_entrance_test()
-    {
-        return view("my_verstka.home_entrance_test");
-    }
+    
 
     // Отображение формы создания поста
     public function create()
