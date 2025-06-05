@@ -5,20 +5,18 @@
 @endsection
 
 @section('main_content')
-
-@php
-    $studentClass = $class;
-@endphp
-
 <div class="main_wrapper bor">
     <div class="main_h">
         <h2 class="second_h">
-            Ученики класса {{ $class->name }}
+            @php
+                $class_group = $class;
+            @endphp
+            Ученики класса {{ $class_group->name }}
         </h2>
     </div>
     <div class="class-controls">
         <div class="left-controls">
-            <button class="action-button plus" onclick="window.location='{{ route('homeworks', ['class_id' => $class->class_id]) }}'">
+            <button class="action-button plus" onclick="window.location='{{ route('homeworks', ['class_id' => $class_group->class_id]) }}'">
                 <i class="fas fa-tasks"></i> Выдать ДЗ
             </button>
         </div>
@@ -26,7 +24,7 @@
             <button class="action-button warning">
                 <i class="fas fa-exclamation-triangle"></i> Ученики зоны риска
             </button>
-            <button class="action-button" onclick="window.location='{{ route('add_student', ['class_id' => $class->class_id]) }}'">
+            <button class="action-button" onclick="window.location='{{ route('add_student', ['class_id' => $class_group->class_id]) }}'">
                 <i class="fas fa-user-plus"></i> Добавить ученика
             </button>
             <button class="action-button danger">
@@ -108,7 +106,6 @@
     <tbody>
         @foreach($students as $student)
             <tr>
-                
                 <td>{{ $student->display_name ?? $student->name }}</td>
                                 @foreach($homeworks as $hw)
                                 @php
@@ -131,13 +128,12 @@
                         }
                     }
                 @endphp
-                
-                    <td class="{{ $class }}">  
-                        <a href="{{ route('showHomework', ['homework_id' => $hw->id_homework , 'student_id' => $student->id, 'class_id' => $studentClass->class_id]) }}">                      
+                <td class="{{ $class }}">
+                    <a href="{{ route('showHomework', ['homework_id' => $hw->id_homework, 'student_id' => $student->id, 'class_id' => $class_group->class_id]) }}">
                         {{ $value }}
-                        </a>
-                    </td>
-                
+                    </a>
+                    
+                </td>
 
                 @endforeach
                 <!--<td class="mark-n">н</td>-->

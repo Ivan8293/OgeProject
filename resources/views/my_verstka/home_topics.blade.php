@@ -59,10 +59,10 @@
                         </div>
                         <p>{{ $topic->name }}</p>  
                         @if ($topic->taskOge)
-                            @if ($topic->taskOge->id <= 7)
-                                <span>Встречается в {{ $topic->taskOge->task_number }} заданиях на ОГЭ</span>
+                            @if ($topic->taskOge->id <= 3)
+                                <span>Встречается в 6 задание на ОГЭ</span>
                             @else
-                                <span>Встречается в {{ $topic->taskOge->task_number }} задание на ОГЭ</span>
+                                <span>Встречается в 1-5 заданиях на ОГЭ</span>
                             @endif
                         @endif
 

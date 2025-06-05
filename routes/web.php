@@ -25,6 +25,7 @@ use App\Http\Controllers\HomeworkTaskController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentClassController;
+use App\Http\Controllers\AnswerController;
 use Illuminate\Http\Request;
 
 
@@ -222,5 +223,6 @@ Route::get('/verify_notice', function () {
 })->name("verification_notice");
 
 
-
+Route::post('/check-answer', [AnswerController::class, 'check'])->name('check.answer');
 Auth::routes(['verify' => true]); 
+

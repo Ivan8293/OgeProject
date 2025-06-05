@@ -94,26 +94,6 @@ form img {
     /* border: 2px solid rgb(30, 196, 30);
     border: 2px solid rgb(196, 30, 30); */
 }
-
-.answer-row input[type="button"] {
-    padding: 8px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #00cba9, #3ddc84);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
-}
-
-.answer-row input[type="button"]:hover {
-    background: linear-gradient(135deg, #3ddc84, #00cba9);
-}
-
-
 input[type="text"]:focus {
     outline: none;
     border-color: #2563eb;
@@ -132,6 +112,23 @@ input[type="text"]:focus {
     white-space: nowrap;
     display: block;
     box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
+}
+.answer_button {
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00cba9, #3ddc84);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 203, 169, 0.3);
+}
+
+.answer_button:hover {
+    background: linear-gradient(135deg, #3ddc84, #00cba9);
 }
 .test_controls {
     display: flex;
@@ -362,4 +359,89 @@ input[type="text"]:focus {
     color:#333333;
     font-size: 18px;
     font-weight: 500;
+}
+
+.upload-image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-label {
+    width: 100%;
+    max-width: 600px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.upload-label:hover {
+    border-color: #4A90E2;
+    border-color: #4A90E2;
+    background-color: #f1f9ff;
+}
+.upload-area p {
+    font-size: 16px;
+    color: #333;
+}
+
+.upload-area small {
+    color: #888;
+    font-size: 13px;
+}
+
+.file-upload-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.custom-file-upload {
+    width: 100%;
+    max-width: 600px;
+    cursor: pointer;
+}
+
+.upload-box {
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px 10px;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #4A90E2;
+    background-color: #f1f9ff;
+}
+
+.upload-icon {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.upload-subtext {
+    font-size: 12px;
+    color: #999;
+}
+.upload-icon {
+    font-size: 40px;
+    color: #4A90E2;
+    margin-bottom: 10px;
+}
+.answer-row-image {
+    margin-top: -35px;
+    margin-left: 887px;
+    margin-bottom: 40px;
+}
+.ball {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+.upload-feedback {
+    margin-bottom: 20px;
 }
