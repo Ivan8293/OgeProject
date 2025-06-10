@@ -21,6 +21,9 @@ class TopicResource extends Resource
 {
     protected static ?string $model = Topic::class;
 
+    protected static ?string $modelLabel = 'Учебная тема'; // Название модели в единственном числе
+    protected static ?string $pluralModelLabel = 'Учебные темы'; // Название модели во множественном числе
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

@@ -25,11 +25,11 @@ class TrajectoryController extends Controller
         
 
         // узнаем ученик уже прошел входную диагностику или нет
-        $entrance_topic = Topic::where("type", "Входная диагностика")->first();
+        $entrance_topic = Topic::where("type", "Входная диагностика")->first();        
         $task_from_entrance = TopicTask::where("id_topic", $entrance_topic->topic_id)->first();
         $result = Result::where("id_student", Auth::guard('student')->user()->id)
                             ->where("id_task", $task_from_entrance->id_task)->first();        
-
+                         
         if(!$result)
             return redirect()->route("entrance_test");
 

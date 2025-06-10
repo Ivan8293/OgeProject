@@ -9,6 +9,8 @@ use App\Models\Topic;
 use App\Models\TaskOge;
 use Illuminate\Support\Facades\Auth;
 
+use App\Notifications\CustomVerifyEmail;
+
 
 class TopicsController extends Controller
 {
@@ -22,6 +24,8 @@ class TopicsController extends Controller
      */
     public function index($page="topics")
     {
+
+
         if (!Auth::guard('student')->check() && !Auth::guard('teacher')->check())
         {
             return redirect()->route("need_registration");

@@ -21,6 +21,9 @@ class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 
+    protected static ?string $modelLabel = 'Задача'; // Название модели в единственном числе
+    protected static ?string $pluralModelLabel = 'Задачи'; // Название модели во множественном числе
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

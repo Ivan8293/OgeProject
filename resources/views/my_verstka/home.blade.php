@@ -160,7 +160,9 @@
 
 
 
-@section("common_nav")   
+@section("common_nav")  
+    @if (Auth::guard('teacher')->check() || Auth::guard('student')->check())
+
 
     <div class="separate_line"></div>
 
@@ -223,5 +225,6 @@
                     </div>
         </div>
     </a>
+    @endif
 
 @endsection

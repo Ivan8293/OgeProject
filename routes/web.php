@@ -27,6 +27,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentClassController;
 use App\Http\Controllers\AnswerController;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 /*
@@ -66,7 +67,7 @@ use Illuminate\Http\Request;
 //     Route::post('/change_name', [UserDataController::class, 'change_name'])->name('change_name');
 // });
 
-// Route::get('/home/student/statistics/topic', [IndexController::class, 'statistic'])->name('topic');
+Route::get('/student/statistics/topic', [IndexController::class, 'statistic'])->name('topic');
 // //изначальные мои маршруты
 
 // Route::get('/topics', [IndexController::class, 'GetTopics'])->name('topics');
@@ -86,7 +87,9 @@ Route::get('/businessCard', [MainPageController::class, 'index'])->name('busines
 Route::get('/home', [TrajectoryController::class, 'index'])->name("unregister_user");
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/need_registration', [StudentController::class, 'need_registration_index'])->name("need_registration");
-Route::get('/student/entrance_test', [StudentController::class, 'index_entrance_test'])->name('entrance_test');
+// Route::middleware(['auth:student', 'verified.guard:student'])->group(function () {
+    Route::get('/student/entrance_test', [StudentController::class, 'index_entrance_test'])->name('entrance_test');
+//});
 
 
 
@@ -106,11 +109,15 @@ Route::post('/register/student', [RegisterController::class, 'createStudent']);
 // группа маршутов, отвечающих за кнопки меню у студента
 // доступ к ним сделан не через middleware auth:student
 // т.к имеею доп логику. доступ прописан конкретно в контроллере
-Route::get('/student/trajectory/{page?}', [TrajectoryController::class, 'index'])->name('trajectory');
+Route::middleware(['auth:student', 'verified.guard:student'])->group(function () {
+    Route::get('/student/trajectory/{page?}', [TrajectoryController::class, 'index'])->name('trajectory');
+});
 Route::get('/student/statistics/{page?}', [StatisticsController::class, 'index'])->name('statistics');
 Route::get('/tasksBank/{page?}', [TaskOgeController::class, 'index'])->name('tasks_bank');
 Route::get('/topics/{page?}', [TopicsController::class, 'index'])->name('topics');
 Route::get('/KIMs/{page?}', [KIMsController::class, 'index'])->name('KIMs');
+
+//Route::middleware(['auth:teacher', 'ensureEmailIsVerifiedForGuard:teacher'])->group(function () {
 
 
 // эти маршруты должны быть доступны у ученика в полной мере
@@ -140,7 +147,9 @@ Route::middleware(['auth:student'])->group(function () {
 // маршруты преподавателя
 Route::middleware(['auth:teacher'])->group(function () {
 
-    Route::get('/teacher/classes/{page?}', [TeacherClassController::class, 'index'])->name('teacher');  
+    Route::middleware(['auth:teacher', 'verified.guard:teacher'])->group(function () {
+        Route::get('/teacher/classes/{page?}', [TeacherClassController::class, 'index'])->name('teacher');  
+    });
     Route::get('/teacher/class/{id}/students/{page?}', [TeacherClassController::class, 'showStudents'])->name('class.students');
 
     Route::get('/teacher/add_class', [TeacherClassController::class, 'create'])->name('add_class');
@@ -218,11 +227,60 @@ Route::get('/home/editStudent', function () {
 
 
 
-Route::get('/verify_notice', function () {
-    return view("my_verstka.verification_notice");
-})->name("verification_notice");
+// Route::get('/verify_notice', function () {
+//     return view("my_verstka.verification_notice");
+// })->name("verification.notice");
 
 
 Route::post('/check-answer', [AnswerController::class, 'check'])->name('check.answer');
+
+
+
+Route::prefix('student')->name('student.')->group(function () {
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email-student');
+    })->name('verification.notice');
+
+
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+
+        return redirect()->route("trajectory");
+    })->middleware(['signed'])->name('verification.verify');
+
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user('student')->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link sent!');
+    })->name('verification.send');
+});
+
+
+
+Route::prefix('teacher')->name('teacher.')->group(function () {
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email-teacher');
+    })->name('verification.notice');
+
+
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+
+        return redirect()->route("teacher");
+    })->middleware(['signed'])->name('verification.verify');
+
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user('teacher')->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link sent!');
+    })->name('verification.send');
+});
+
+
+
+
+
 Auth::routes(['verify' => true]); 
 

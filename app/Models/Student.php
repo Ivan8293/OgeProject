@@ -10,9 +10,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+
 
 class Student extends Authenticatable implements MustVerifyEmail
 {
+    use MustVerifyEmailTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guard = 'student';
@@ -50,6 +53,11 @@ class Student extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new \App\Notifications\CustomVerifyEmail);
+    }
+
 
 
     // ти методы можно переопределить

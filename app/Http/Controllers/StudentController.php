@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -18,6 +19,10 @@ class StudentController extends Controller
 
     public function index_entrance_test()
     {
+        // /** @var Authenticatable&\Illuminate\Contracts\Auth\MustVerifyEmail|null $student */
+        // $student = Auth::guard("student")->user();
+        // $student->sendEmailVerificationNotification();
+
         return view("my_verstka.home_entrance_test");
     }
     
