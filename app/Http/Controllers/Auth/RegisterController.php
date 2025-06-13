@@ -101,7 +101,7 @@ class RegisterController extends Controller
         // ]);
         // return redirect()->intended('login/teacher');
 
-        return view("verify-email-teacher");
+        return view("auth.verify-email-teacher");
     }
 
     protected function createStudent(Request $request)
@@ -115,6 +115,6 @@ class RegisterController extends Controller
         // ]);
         // return redirect()->intended('login/student');
 
-        return view("verify-email-student");
+        return view("auth.verify-email-student");
     }
 }
