@@ -50,16 +50,18 @@ class LoginController extends Controller
 
     public function teacherLogin(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required|min:8'
-        ]);
+        // $this->validate($request, [
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:8'
+        // ]);
 
-        if (Auth::guard('teacher')->attempt(['email' => $request->email,
-            'password' => $request->password], $request->get('remember')))
-        {
-            return redirect()->intended('/teacher/classes');
-        }
+        // if (Auth::guard('teacher')->attempt(['email' => $request->email,
+        //     'password' => $request->password], $request->get('remember')))
+        // {
+        //     return redirect()->intended('/teacher/classes');
+        // }
+
+        return redirect()->route("login_teacher");
     }
 
 
@@ -70,15 +72,17 @@ class LoginController extends Controller
 
     public function studentLogin(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required|min:8'
-        ]);
+        // $this->validate($request, [
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:8'
+        // ]);
 
-        if (Auth::guard('student')->attempt(['email' => $request->email, 
-            'password' => $request->password], $request->get('remember')))
-        {
-            return redirect()->intended('/student');
-        }
+        // if (Auth::guard('student')->attempt(['email' => $request->email, 
+        //     'password' => $request->password], $request->get('remember')))
+        // {
+        //     return redirect()->intended('/student');
+        // }
+
+        return redirect()->route("login_student");
     }
 }
