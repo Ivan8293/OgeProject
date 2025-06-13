@@ -21,15 +21,15 @@ class EnsureEmailsVerifiedRole
      */
     public function handle($request, Closure $next, $guard, $redirectToRoute = null)
     {
-        $user = Auth::guard($guard)->user();
+        // $user = Auth::guard($guard)->user();
 
-        if (! $user ||
-            ($user instanceof MustVerifyEmail &&
-            ! $user->hasVerifiedEmail())) {
-            return $request->expectsJson()
-                    ? abort(403, 'Your email address is not verified.')
-                    : Redirect::guest(URL::route($redirectToRoute ?: 'verification.notice'));
-        }
+        // if (! $user ||
+        //     ($user instanceof MustVerifyEmail &&
+        //     ! $user->hasVerifiedEmail())) {
+        //     return $request->expectsJson()
+        //             ? abort(403, 'Your email address is not verified.')
+        //             : Redirect::guest(URL::route($redirectToRoute ?: 'verification.notice'));
+        // }
 
         return $next($request);
     }

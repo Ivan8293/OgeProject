@@ -91,26 +91,30 @@ class RegisterController extends Controller
     protected function createTeacher(Request $request)
     {
         // $this->validator($request->all())->validate();
-        $teacher = Teacher::create([
-            'last_name' => $request['last_name'],
-            'name' => $request['name'],
-            'patronymic' => $request['patronymic'],
-            'login' => $request['login'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('login/teacher');
+        // $teacher = Teacher::create([
+        //     'last_name' => $request['last_name'],
+        //     'name' => $request['name'],
+        //     'patronymic' => $request['patronymic'],
+        //     'login' => $request['login'],
+        //     'email' => $request['email'],
+        //     'password' => Hash::make($request['password']),
+        // ]);
+        // return redirect()->intended('login/teacher');
+
+        return view("verify-email-teacher");
     }
 
     protected function createStudent(Request $request)
     {
-        // $this->validator($request->all())->validate();
-        $student = Student::create([
-            'name' => $request['name'],
-            'login' => $request['login'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('login/student');
+        // // $this->validator($request->all())->validate();
+        // $student = Student::create([
+        //     'name' => $request['name'],
+        //     'login' => $request['login'],
+        //     'email' => $request['email'],
+        //     'password' => Hash::make($request['password']),
+        // ]);
+        // return redirect()->intended('login/student');
+
+        return view("verify-email-student");
     }
 }

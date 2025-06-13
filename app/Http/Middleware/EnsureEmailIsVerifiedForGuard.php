@@ -19,18 +19,18 @@ class EnsureEmailIsVerifiedForGuard
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
-        $guard = $guard ?? $this->guard;
+        // $guard = $guard ?? $this->guard;
 
-        if (!Auth::guard($guard)->check()) {
-            return redirect()->route("{$guard}.login");
-        }
+        // if (!Auth::guard($guard)->check()) {
+        //     return redirect()->route("{$guard}.login");
+        // }
         
-        /** @var Authenticatable&\Illuminate\Contracts\Auth\MustVerifyEmail|null $user */
-        $user = Auth::guard($guard)->user();
+        // /** @var Authenticatable&\Illuminate\Contracts\Auth\MustVerifyEmail|null $user */
+        // $user = Auth::guard($guard)->user();
 
-        if (!$user || !$user->hasVerifiedEmail()) {
-            return redirect()->route("{$guard}.verification.notice");
-        }
+        // if (!$user || !$user->hasVerifiedEmail()) {
+        //     return redirect()->route("{$guard}.verification.notice");
+        // }
 
         return $next($request);
     }
