@@ -79,7 +79,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('teacher.verification.send') }}">
+        <form method="POST" action="">
             @csrf
             <button type="submit">Отправить письмо с подтверждением</button>
         </form>
